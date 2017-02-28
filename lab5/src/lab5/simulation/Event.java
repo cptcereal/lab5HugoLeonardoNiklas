@@ -4,7 +4,7 @@ import lab5.data.Time;
 
 /**
  * Creates events based with a specified time and simulator
- * @author Leo
+ * @author leopel-6
  * 
  */
 public abstract class Event {
