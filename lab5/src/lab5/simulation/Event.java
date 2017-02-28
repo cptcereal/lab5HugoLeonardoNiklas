@@ -27,7 +27,7 @@ public abstract class Event {
 	 */
 	public void effect(State state){
 		
-	}
+	} 
 	
 	/**
 	 * Returns the value of a time for an object
