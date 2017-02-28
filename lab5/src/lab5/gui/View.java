@@ -1,6 +1,6 @@
 package lab5.gui;
 
-import java.io.Console;
+
 
 public class View {
 	
