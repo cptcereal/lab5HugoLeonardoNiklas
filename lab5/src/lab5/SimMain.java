@@ -12,11 +12,6 @@ public class SimMain {
 	
 	// Simulation settings
 	private static final Event[] startEvents = {};
-//	private static final int hMin = 20;
-//	private static final int hMax = 20;
-//	private static final int dMin = 20;
-//	private static final int dMax = 20;
-//	private static final int p = 10;
 	
 	/**
 	 * Starts the simulation with the start events
