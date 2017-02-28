@@ -20,7 +20,7 @@ public class EventStore {
 	}
 
 	/**
-	 * Adds an event to EventStore in the last position
+	 * Adds an event to EventStore in the last position.
 	 * @param e 
 	 */
 	public void add(Event e){
@@ -32,7 +32,7 @@ public class EventStore {
 	 * @return
 	 * @throws 
 	 */
-	public Event nextEvent() {
+	public Event nextEvent() throws IndexOutOfBoundsException {
 		if (eventStore.isEmpty()){
 			throw new IndexOutOfBoundsException("EventStore is empty");
 		}
