@@ -24,10 +24,10 @@ public class Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public Simulation(Event[] startEvents, ) {
+	public Simulation(Event[] startEvents) {
 		state = new State();
 		view = new View();	// WIP
-		eventStore = new EventStore(events);
+		eventStore = new EventStore(startEvents);
 		run();
 	}
 	
