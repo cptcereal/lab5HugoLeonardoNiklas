@@ -1,12 +1,13 @@
 package lab5.hairsalon.data;
 /**
- * A customer who has a id
+ * A customer who has a id and time they entered the store
  * @author inaule-6
  *
  */
 public class Customer {
 	private final int id;
-	private final int timeEnterdStore;
+	private int timeEnterdStore;
+	
 	/**
 	 * Adds id to the customer.
 	 * @param id
@@ -30,5 +31,9 @@ public class Customer {
 	 */
 	public int getTimeEnterdStore() {
 		return timeEnterdStore;
+	}
+	
+	public void setTimeEnterdStore(int timeEnterdStore) {
+		this.timeEnterdStore = timeEnterdStore;
 	}
 }
