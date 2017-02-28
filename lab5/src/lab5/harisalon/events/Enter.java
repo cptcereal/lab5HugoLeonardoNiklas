@@ -11,7 +11,7 @@ import lab5.simulation.Simulation;
  */
 public class Enter extends Event{
 
-	public Enter(Simulation sim, int time) {
+	public Enter(Simulation sim, int time, int ID) {
 		super(sim, time);
 		
 	}

@@ -15,7 +15,7 @@ public class Dissatisfied {
 	 */
 	public Dissatisfied(int time, Simulation sim, int ID){
 		this.ID = ID;
-		Enter enter= new Enter(time, sim, this.ID);
+		Enter enter = new Enter(sim, time, this.ID);
 	}
 	
 	/**
