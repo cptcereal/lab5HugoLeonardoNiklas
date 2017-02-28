@@ -2,10 +2,11 @@ package lab5.simulation;
 
 public abstract class Event {
 	private final int TIME;
-	private Sim sim;
+	private Simulation sim;
 	
-	public Event(int time, Sim sim){
-		
+	public Event(Simulation sim, int time){
+		sim = this.sim;
+		TIME = this.time;
 	}
 	
 	public void effect(State state){
@@ -13,10 +14,10 @@ public abstract class Event {
 	}
 	
 	public int getTime(){
-		return TIME; 
+		return TIME;  
 	}
 	
-	public Sim getSim(){
+	public Simulation getSim(){
 		return sim;
 	}
 }
