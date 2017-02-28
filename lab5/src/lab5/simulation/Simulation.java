@@ -1,5 +1,6 @@
 package lab5.simulation;
 
+import java.util.Observable;
 import java.util.Observer;
 
 import lab5.data.EventStore;
@@ -45,7 +46,7 @@ public class Simulation implements Observer {
 	 * Handle new info when the state of the simulation changes
 	 * 
 	 */
-	public void update(Observable obs, Object obj) {
-
+	public void update(Observable o, Object arg) {
+		
 	}
 }
