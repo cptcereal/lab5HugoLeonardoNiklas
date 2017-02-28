@@ -22,7 +22,7 @@ public class SimMain {
 	public static void main(String[] args) throws IllegalArgumentException {
 		
 		if (startEvents.length == 0) {
-			throw new IllegalArgumentException("The simulation requires a start argument with at least one start event.");
+			throw new IllegalArgumentException("The simulation requires the event array startEvents to contain at least one event to begin the simulation.");
 		} else {
 			Simulation sim = new Simulation(startEvents);
 		}
