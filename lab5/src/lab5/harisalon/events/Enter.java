@@ -25,7 +25,7 @@ public class Enter extends Event{
 	
 	/**
 	 * Since a customer is entering the establishment, depending on the state of the hair salon, the outcome
-	 * is decided immediately.
+	 * is decided immediately. 
 	 */
 	public void effect(State state){
 		
