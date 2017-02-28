@@ -1,5 +1,13 @@
 package lab5.gui;
 
-public class View {
+import java.io.Console;
 
+public class View {
+	
+	public View() {
+		
+	}
+	public void showDataOnView() {
+		
+	}
 }
