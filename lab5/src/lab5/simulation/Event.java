@@ -2,9 +2,9 @@ package lab5.simulation;
 
 public abstract class Event {
 	private final int TIME;
-	private Sim sim;
+	private Simulation sim;
 	
-	public Event(int time, Sim sim){
+	public Event(int time, Simulation sim){
 		
 	}
 	
@@ -16,7 +16,7 @@ public abstract class Event {
 		return TIME; 
 	}
 	
-	public Sim getSim(){
+	public Simulation getSim(){
 		return sim;
 	}
 }
