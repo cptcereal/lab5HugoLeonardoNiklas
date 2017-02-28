@@ -7,6 +7,7 @@ package lab5.data;
  */
 public class Time {
 	private int elapsedTime;
+	// Behövs denna?
 	private int lastEventTime;
 	
 	/**
