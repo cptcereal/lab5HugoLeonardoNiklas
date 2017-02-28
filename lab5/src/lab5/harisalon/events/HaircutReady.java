@@ -25,7 +25,7 @@ public class HaircutReady {
 	
 	/**
 	 * The desired effect HairCutReady has depending on the immediate state of the simulation, this affects 
-	 * the queue, the time elapsed, and the time in queue 
+	 * the queue, time elapsed, the time in queue 
 	 * @param state
 	 */
 	public void effect(State state){
