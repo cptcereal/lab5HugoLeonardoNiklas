@@ -20,6 +20,7 @@ public class Simulation {
 	 * Starts up the simulation
 	 * 
 	 * @param events the event array that contains at least one start event for the simulation.
+	 * 
 	 */
 	public Simulation(Event[] events) {
 		state = new State();
