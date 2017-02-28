@@ -6,11 +6,14 @@ import lab5.simulation.Simulation;
 public class Dissatisfied {
 	private final int ID;
 	
-	public Dissatisfied(int time, Simulation sim, int id){
-		Enter enter= new Enter(time, sim,id);
+	public Dissatisfied(int time, Simulation sim, int ID){
+		this.ID = ID;
+		Enter enter= new Enter(time, sim, this.ID);
 	}
 	
 	public void effect(State state){
-		
+		/*Placeras först i kön, tiden för alla kunder i kön måste ökas med tiden det kommer för
+		dissatisfied customer att klippa sig. 
+		*/
 	}
 }
