@@ -41,11 +41,11 @@ public class Simulation implements Observer {
 		}
 	}
 	
+	/**
+	 * Handle new info when the state of the simulation changes
+	 * 
+	 */
 	public void update(Observable obs, Object obj) {
-		getInfo();
-	}
-	
-	private void getInfo() {
-		
+
 	}
 }
