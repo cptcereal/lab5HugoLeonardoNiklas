@@ -45,10 +45,6 @@ public class Simulation implements Observer {
 		
 	}
 	
-	public int setEventID() {
-		
-	}
-	
 	/**
 	 * Handle new info when the state of the simulation changes
 	 * 

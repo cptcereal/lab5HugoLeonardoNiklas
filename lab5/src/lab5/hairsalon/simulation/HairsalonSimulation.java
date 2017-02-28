@@ -14,7 +14,11 @@ import lab5.gui.View;
  *
  */
 public class HairsalonSimulation implements Observer {
-	
+	private final int H_MIN;
+	private final int H_MAX;
+	private final int D_MIN;
+	private final int D_MAX;
+	private final int P;
 	private View view;
 	private HairsalonState state;
 	private EventStore eventStore;
@@ -25,7 +29,12 @@ public class HairsalonSimulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public HairsalonSimulation(Enter[] startEvents, int hMin, int hMax, int dMin, int dMax, int p) {
+	public HairsalonSimulation(Enter[] startEvents, int H_MIN, int H_MAX, int D_MIN, int D_MAX, int P) {
+		this.H_MIN = H_MIN;
+		this.H_MAX = H_MAX;
+		this.D_MIN = D_MIN;
+		this.D_MAX = D_MAX;
+		this.P = P;
 		state = new HairsalonState();
 		view = new View();	// WIP
 		eventStore = new EventStore(startEvents);
