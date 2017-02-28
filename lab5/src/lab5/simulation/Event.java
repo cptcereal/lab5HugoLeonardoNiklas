@@ -1,4 +1,7 @@
 package lab5.simulation;
+import lab5.data.State;
+import lab5.data.Time;
+
 
 public abstract class Event {
 	private final int TIME;
@@ -14,7 +17,7 @@ public abstract class Event {
 	}
 	
 	public int getTime(){
-		return TIME;  
+		return TIME;
 	}
 	
 	public Simulation getSim(){
