@@ -29,7 +29,7 @@ public class Enter extends Event{
 	 * is decided immediately. 
 	 */
 	public void effect(State state){
-		
+		/*The disired effect that enter has on the queue, state, and time*/
 	}
 
 }
