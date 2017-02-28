@@ -3,6 +3,11 @@ package lab5.harisalon.events;
 import lab5.data.State;
 import lab5.simulation.Simulation;
 
+/**
+ * Represents a customer returning for a free haircut after the previous cut left it dissatisfied
+ * @author hugwan-6, leopel-6, inaule-6 
+ *
+ */
 public class Dissatisfied {
 	private final int ID;
 	
