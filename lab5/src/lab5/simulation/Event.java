@@ -26,7 +26,7 @@ public abstract class Event {
 	 * @param state
 	 */
 	public void effect(State state){
-		//Needs to make a call to the appropriate effect depending on the state sent in
+		//Needs to make a call to the appropriate effect depending on the state sent in 
 	} 
 	
 	/**
