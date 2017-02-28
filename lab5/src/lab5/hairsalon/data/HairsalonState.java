@@ -51,7 +51,8 @@ public class HairsalonState extends State {
 	 */
 	public void handleCustomer(Event e) {
 		e.effect(this);
-		
+		addcustomer(e.getCustomer);
+	 
 	}
 	
 	/**
@@ -62,4 +63,12 @@ public class HairsalonState extends State {
 		return null;
 	}
 	
+	private void addcustomer(Customer c) {
+		for (int i = 0; i < customerList.size(); i++) {
+			if (c.equals(customerList.get(i))) {
+				return;
+			} 
+		}
+		customerList.add(c);
+	}
 }
