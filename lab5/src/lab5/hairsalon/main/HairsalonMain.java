@@ -21,7 +21,7 @@ public class HairsalonMain {
 	private static final int p = 10;
 	
 	/**
-	 * Starts the simulation with the start events
+	 * Starts the simulation
 	 * 
 	 * @param arg an event array that contains the start events
 	 * @throws IllegalArgumentException if no start events are provided
