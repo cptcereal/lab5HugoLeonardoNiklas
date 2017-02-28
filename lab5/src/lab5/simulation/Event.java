@@ -14,7 +14,7 @@ public abstract class Event {
 	}
 	
 	public int getTime(){
-		return TIME; 
+		return TIME;  
 	}
 	
 	public Simulation getSim(){
