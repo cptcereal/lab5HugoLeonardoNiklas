@@ -19,10 +19,19 @@ public class EventStore {
 		}
 	}
 
+	/**
+	 * Adds an event to EventStore in the last position
+	 * @param e 
+	 */
 	public void add(Event e){
 		eventStore.add(e);
 	}
 	
+	/**
+	 * Returns the first event and removes it from the EventStore
+	 * @return
+	 * @throws 
+	 */
 	public Event nextEvent(){
 		if (eventStore.isEmpty()){
 			throw new IndexOutOfBoundsException("EventStore is empty");
@@ -30,5 +39,12 @@ public class EventStore {
 		Event temp = eventStore.get(0);
 		eventStore.remove(0);
 		return temp;
+	}
+	/**
+	 * Returns true if EventStore is empty, false otherwise.
+	 * @return
+	 */
+	public boolean isEmpty(){
+		return eventStore.isEmpty();
 	}
 }
