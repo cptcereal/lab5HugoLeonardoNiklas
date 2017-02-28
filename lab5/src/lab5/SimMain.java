@@ -19,6 +19,7 @@ public class SimMain {
 	 * @throws IllegalArgumentException if no start events are provided
 	 */
 	public static void main(Event[] arg) throws IllegalArgumentException {
+		
 		if (arg.length == 0) {
 			throw new IllegalArgumentException("The simulation requires a start argument with at least one start event.");
 		} else {
