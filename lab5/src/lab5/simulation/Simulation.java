@@ -1,5 +1,7 @@
 package lab5.simulation;
 
+import java.util.Observer;
+
 import lab5.data.EventStore;
 import lab5.data.State;
 import lab5.gui.View;
@@ -10,7 +12,7 @@ import lab5.gui.View;
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
-public class Simulation {
+public class Simulation implements Observer {
 	
 	private View view;
 	private State state;
@@ -37,5 +39,13 @@ public class Simulation {
 		while(!eventStore.isEmpty()) {
 			eventStore.nextEvent();
 		}
+	}
+	
+	public void update(Observable obs, Object obj) {
+		getInfo();
+	}
+	
+	private void getInfo() {
+		
 	}
 }
