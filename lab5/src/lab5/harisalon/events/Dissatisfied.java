@@ -12,7 +12,7 @@ public class Dissatisfied {
 	private final int ID;
 	
 	/**
-	 * Dissatisfied is called when certain conditions are met, and it represents a customer
+	 * This is called when certain conditions are met, and it represents a customer
 	 * returning for a haircut after an random time
 	 * @param time
 	 * @param sim
