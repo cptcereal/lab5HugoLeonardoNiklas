@@ -50,7 +50,8 @@ public class HairsalonState extends State {
 	 * @param e
 	 */
 	public void handleCustomer(Event e) {
-		e.effect();
+		e.effect(this);
+		
 	}
 	
 	/**
