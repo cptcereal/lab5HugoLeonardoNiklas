@@ -10,7 +10,7 @@ public abstract class Event {
 	public Event(Simulation sim, int time){
 		sim = this.sim;
 		TIME = this.time;
-	}
+	} 
 	
 	public void effect(State state){
 		
