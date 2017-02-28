@@ -11,7 +11,7 @@ import lab5.simulation.Simulation;
  *
  */
 public class Enter extends Event{
-
+	private final int ID;
 	/**
 	 * Simulates a customer entering the hair salon, the immediate outcome is defined by the 
 	 * state at that exact moment in time. 
@@ -21,6 +21,7 @@ public class Enter extends Event{
 	 */
 	public Enter(Simulation sim, int time, int ID) {
 		super(sim, time);
+		this.ID = ID;
 	}
 	
 	/**
