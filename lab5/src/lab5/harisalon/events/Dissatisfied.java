@@ -14,6 +14,6 @@ public class Dissatisfied {
 	public void effect(State state){
 		/*Placeras först i kön, tiden för alla kunder i kön måste ökas med tiden det kommer för
 		dissatisfied customer att klippa sig. 
-		*/
+		*/ 
 	}
 }
