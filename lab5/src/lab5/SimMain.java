@@ -1,4 +1,4 @@
-package lab5.main;
+package lab5;
 
 public class SimMain {
 
