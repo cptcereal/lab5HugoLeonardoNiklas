@@ -35,4 +35,12 @@ public class State extends Observable {
 	public int getElapsedTime(){
 		return time.getElapsedTime();
 	}
+	
+	/**
+	 * Adds time to elapsedTime.
+	 * @param t
+	 */
+	public void AddTime(int t) {
+		time.addTime(t);
+	} 
 }

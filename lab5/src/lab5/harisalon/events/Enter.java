@@ -1,5 +1,6 @@
 package lab5.harisalon.events;
 
+import lab5.data.State;
 import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
@@ -10,9 +11,24 @@ import lab5.simulation.Simulation;
  *
  */
 public class Enter extends Event{
-
-	public Enter(Simulation sim, int time) {
+	private final int ID;
+	/**
+	 * Simulates a customer entering the hair salon, the immediate outcome is defined by the 
+	 * state at that exact moment in time. 
+	 * @param sim
+	 * @param time
+	 * @param ID
+	 */
+	public Enter(Simulation sim, int time, int ID) {
 		super(sim, time);
+		this.ID = ID;
+	}
+	
+	/**
+	 * Since a customer is entering the establishment, depending on the state of the hair salon, the outcome
+	 * is decided immediately. 
+	 */
+	public void effect(State state){
 		
 	}
 
