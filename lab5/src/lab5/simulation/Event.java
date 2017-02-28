@@ -18,6 +18,6 @@ public abstract class Event {
 	}
 	
 	public Simulation getSim(){
-		return sim; 
+		return sim;
 	}
 }
