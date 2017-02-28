@@ -34,7 +34,7 @@ public class Simulation {
 	 * 
 	 */
 	public void run() {
-		while(!eventStore.isEmpty) {
+		while(!eventStore.isEmpty()) {
 			eventStore.nextEvent();
 		}
 	}
