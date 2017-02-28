@@ -15,11 +15,14 @@ public class SimMain {
 	/**
 	 * Starts the simulation with the start events
 	 * 
-	 * @param arg the start argument that contains the start events
+	 * @param arg an event array that contains the start events
+	 * @throws IllegalArgumentException if no start events are provided
 	 */
 	public static void main(Event[] arg) {
-		
-		sim = new Simulation(arg);
-		
+		if (arg.length == 0) {
+			throw new IllegalArgumentException("The simulation requires at least one start argument.");
+		} else {
+			sim = new Simulation(arg);
+		}
 	}
 }
