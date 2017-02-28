@@ -2,7 +2,6 @@ package lab5.simulation;
 
 import java.util.Observable;
 import java.util.Observer;
-
 import lab5.data.EventStore;
 import lab5.data.State;
 import lab5.gui.View;
@@ -25,7 +24,7 @@ public class Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public Simulation(Event[] events) {
+	public Simulation(Event[] startEvents, ) {
 		state = new State();
 		view = new View();	// WIP
 		eventStore = new EventStore(events);
@@ -40,6 +39,14 @@ public class Simulation implements Observer {
 		while(!eventStore.isEmpty()) {
 			eventStore.nextEvent();
 		}
+	}
+	
+	public int setEventTime() {
+		
+	}
+	
+	public int setEventID() {
+		
 	}
 	
 	/**
