@@ -32,7 +32,7 @@ public class EventStore {
 	 * @return
 	 * @throws 
 	 */
-	public Event nextEvent(){
+	public Event nextEvent() {
 		if (eventStore.isEmpty()){
 			throw new IndexOutOfBoundsException("EventStore is empty");
 		}
