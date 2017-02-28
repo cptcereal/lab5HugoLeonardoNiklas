@@ -6,7 +6,7 @@ import lab5.simulation.Simulation;
 
 /**
  * Represents what occurs when the salon is ready to cut a customers hair
- * @author hugwan-6, leopel-6, inaule-6
+ * @author hugwan-6, leopel-6, inaule-6 
  *
  */
 public class HaircutReady {

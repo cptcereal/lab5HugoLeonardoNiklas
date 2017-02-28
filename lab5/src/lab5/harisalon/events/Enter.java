@@ -7,7 +7,7 @@ import lab5.simulation.Simulation;
 /**
  * The event representing that a customer enters the hair salon
  * 
- * @author hugwan-6, leopel-6, inaule-6
+ * @author hugwan-6, leopel-6, inaule-6 
  *
  */
 public class Enter extends Event{
