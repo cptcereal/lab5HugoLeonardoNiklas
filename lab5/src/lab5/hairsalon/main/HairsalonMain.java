@@ -14,6 +14,7 @@ public class HairsalonMain {
 	
 	// Simulation settings
 	private static final Enter[] startEvents = {};	// Should this be and Enter array? Since Enter is the first event that can happen.
+	private static final int CLOSING_TIME = 3000;	// Minutes?
 	private static final int H_MIN = 20;
 	private static final int H_MAX = 20;
 	private static final int D_MIN = 20;
@@ -31,7 +32,7 @@ public class HairsalonMain {
 		if (startEvents.length == 0) {
 			throw new IllegalArgumentException("The simulation requires the startEvents array to contain at least one start event in order to begin the simulation.");
 		} else {
-			HairsalonSimulation sim = new HairsalonSimulation(startEvents, H_MIN, H_MAX, D_MIN, D_MAX, P);
+			HairsalonSimulation sim = new HairsalonSimulation(startEvents, CLOSING_TIME, H_MIN, H_MAX, D_MIN, D_MAX, P);
 		}
 	}
 }
