@@ -1,6 +1,7 @@
 package lab5.harisalon.events;
 
 import lab5.data.State;
+import lab5.hairsalon.data.Customer;
 import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
@@ -11,7 +12,7 @@ import lab5.simulation.Simulation;
  *
  */
 public class Enter extends Event{
-	private final int ID;
+	private final Customer customer;
 	/**
 	 * Simulates a customer entering the hair salon, the immediate outcome is defined by the 
 	 * state at that exact moment in time. 
@@ -19,9 +20,9 @@ public class Enter extends Event{
 	 * @param time
 	 * @param ID
 	 */
-	public Enter(Simulation sim, int time, int ID) {
+	public Enter(Simulation sim, int time, Customer customer) {
 		super(sim, time);
-		this.ID = ID;
+		this.customer = customer;
 	}
 	
 	/**
