@@ -48,18 +48,6 @@ public class HairsalonSimulation extends Simulation implements Observer {
 		eventStore.add(e);
 	}
 	
-	/**
-	 * Sets the time of when a event in the hair salon occurs.
-	 * 
-	 * @return the time when the event should occur.
-	 */
-	public double setEventTime() {
-		
-	}
-	
-	public int setEventID() {
-		
-	}
 	
 	/**
 	 * Handle new info when the state of the simulation changes

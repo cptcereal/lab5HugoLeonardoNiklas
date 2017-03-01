@@ -74,4 +74,17 @@ public class HairsalonState extends State {
 		customerList.add(c);
 		return true;
 	}
+	
+	/**
+	 * Sets the time of when a event in the hair salon occurs.
+	 * 
+	 * @return the time when the event should occur.
+	 */
+	public double setEventTime() {
+		
+	}
+	
+	public int setEventID() {
+		
+	}
 }
