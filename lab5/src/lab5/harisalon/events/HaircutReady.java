@@ -2,6 +2,8 @@ package lab5.harisalon.events;
 
 import lab5.data.State;
 import lab5.data.Time;
+import lab5.hairsalon.data.Customer;
+import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
 /**
@@ -9,8 +11,8 @@ import lab5.simulation.Simulation;
  * @author hugwan-6, leopel-6, inaule-6 
  *
  */
-public class HaircutReady {
-	private final int ID;
+public class HaircutReady extends Event{
+	private final Customer customer;
 	
 	/**
 	 * This is called when the salon is ready to cut the next customer's hair
@@ -18,9 +20,9 @@ public class HaircutReady {
 	 * @param time
 	 * @param ID
 	 */
-	public HaircutReady(Simulation sim, int time, int ID) {
-		this.ID = ID;
-		Enter enter = new Enter(sim, time, this.ID);
+	public HaircutReady(Simulation sim, int time, Customer customer) {
+		super(sim, time);
+		this.customer = customer;
 	}
 	
 	/**
