@@ -48,26 +48,7 @@ public class HairsalonState extends State {
 	 * @param e
 	 */
 	public void handleCustomer(Event e) {
-		if (e instanceof Enter) {
-			// Tar hand om alla enter events
-			if (numHaircut < MAX_CHAIRS) {
-				haircutList.add(e.getCustomer());
-				//calkCuttime();
-				e.effect(this);
-			} 
-			else {
-				queueList.add(e);
-			}
-		} 
-		else if (e instanceof Dissatisfied) {
-			// Tar hand om alla dissatisfied events.
-			
-		}
-		else {
-			// Tar hand om alla haircutevents.
-		}
 		e.effect(this);
-		addToList(e.getCustomer(), customerList);
 	}
 	
 	/**
@@ -78,12 +59,25 @@ public class HairsalonState extends State {
 		return null;
 	}
 	
-	private void addToList(Customer c, ArrayList<Customer> a) {
-		for (int i = 0; i < a.size(); i++) {
-			if (c.equals(a.get(i))) {
-				return;
+	public boolean addHaircut(Customer c) {
+		if (settings.getMAX_CHAIRS() - numHaircut > 0) {
+			numHaircut += 1;
+			haircutList.add(c);
+		} 
+		return false;
+	}
+	
+	public void addToQueue(Enter e) {
+		queueList.add(e);
+	}
+	
+	public boolean addCustomer(Customer c) {
+		for (int i = 0; i < customerList.size(); i++) {
+			if (c.equals(customerList.get(i))) {
+				return false;
 			} 
 		}
-		a.add(c);
+		customerList.add(c);
+		return true;
 	}
 }
