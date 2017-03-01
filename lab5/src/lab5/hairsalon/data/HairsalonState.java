@@ -14,8 +14,7 @@ import lab5.simulation.Event;
  */
 public class HairsalonState extends State {
 	
-	private final int MAX_CHAIRS;
-	private final int MAX_QUEUE;
+	private HairsalonSettings settings;
 	
 	private int numHaircut;
 	private int numWaiting;
@@ -29,10 +28,10 @@ public class HairsalonState extends State {
 	/**
 	 * Makes HarisaloneState.
 	 */
-	public HairsalonState(int chairs, int queue, double hmin, double hmax, double dmin, double  dmanx, int p) {
+	public HairsalonState(HairsalonSettings settings) {
 		super();
-		MAX_CHAIRS = chairs;
-		MAX_QUEUE = queue;
+		
+		this.settings = settings;
 		
 		customerList = new ArrayList<Customer>();
 		haircutList = new ArrayList<Customer>();
@@ -50,23 +49,25 @@ public class HairsalonState extends State {
 	 */
 	public void handleCustomer(Event e) {
 		if (e instanceof Enter) {
-			addcustomer(e.getCustomer());
+			// Tar hand om alla enter events
 			if (numHaircut < MAX_CHAIRS) {
 				haircutList.add(e.getCustomer());
+				//calkCuttime();
 				e.effect(this);
 			} 
 			else {
-				
+				queueList.add(e);
 			}
 		} 
 		else if (e instanceof Dissatisfied) {
+			// Tar hand om alla dissatisfied events.
 			
 		}
 		else {
-			
+			// Tar hand om alla haircutevents.
 		}
 		e.effect(this);
-		addcustomer(e.getCustomer());
+		addToList(e.getCustomer(), customerList);
 	}
 	
 	/**
@@ -77,12 +78,12 @@ public class HairsalonState extends State {
 		return null;
 	}
 	
-	private void addcustomer(Customer c) {
-		for (int i = 0; i < customerList.size(); i++) {
-			if (c.equals(customerList.get(i))) {
+	private void addToList(Customer c, ArrayList<Customer> a) {
+		for (int i = 0; i < a.size(); i++) {
+			if (c.equals(a.get(i))) {
 				return;
 			} 
 		}
-		customerList.add(c);
+		a.add(c);
 	}
 }
