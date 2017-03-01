@@ -33,4 +33,12 @@ public class HaircutReady extends Event{
 	public void effect(State state){
 		
 	}
+	
+	/**
+	 * Returns customer
+	 * @return
+	 */
+	public Customer getCustomer() {
+		return customer;
+	}
 }

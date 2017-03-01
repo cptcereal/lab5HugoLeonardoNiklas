@@ -35,4 +35,12 @@ public class Dissatisfied extends Event{
 		dissatisfied customer att klippa sig.
 		*/ 
 	}
+	
+	/**
+	 * Returns customer
+	 * @return
+	 */
+	public Customer getCustomer() {
+		return customer;
+	}
 }

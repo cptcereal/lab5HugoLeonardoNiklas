@@ -32,5 +32,13 @@ public class Enter extends Event{
 	public void effect(State state){
 		/*The disired effect that enter has on the queue, state, and time*/
 	}
+	
+	/**
+	 * Returns customer
+	 * @return
+	 */
+	public Customer getCustomer() {
+		return customer;
+	}
 
 }
