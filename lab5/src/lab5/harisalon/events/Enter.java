@@ -41,7 +41,9 @@ public class Enter extends Event{
 			HaircutReady event = new HaircutReady(super.getSim(), tempTime, tempcos);
 		}
 		else {
-			state.addToQueue(this);
+			if (state.addToQueue(this)) {
+				
+			}
 		}
 	}
 	

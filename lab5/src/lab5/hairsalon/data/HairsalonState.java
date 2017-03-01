@@ -40,7 +40,6 @@ public class HairsalonState extends State {
 		numHaircut = 0;
 		numWaiting = 0;
 		timeIdle = new Time();
-		
 	}
 	
 	/**
@@ -59,10 +58,12 @@ public class HairsalonState extends State {
 		return false;
 	}
 	
-	
-	
-	public void addToQueue(Enter e) {
-		queueList.add(e);
+	public boolean addToQueue(Enter e) {
+		if (queueList.size() < settings.getMaxQueue()) {
+			queueList.add(e);
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean addCustomer(Customer c) {
