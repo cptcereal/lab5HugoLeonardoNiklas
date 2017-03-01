@@ -1,6 +1,8 @@
 package lab5.harisalon.events;
 
 import lab5.data.State;
+import lab5.hairsalon.data.Customer;
+import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
 /**
@@ -8,19 +10,19 @@ import lab5.simulation.Simulation;
  * @author hugwan-6, leopel-6, inaule-6 
  *
  */
-public class Dissatisfied {
-	private final int ID;
+public class Dissatisfied extends Event{
+	private final Customer customer;
 	
 	/**
 	 * This is called when certain conditions are met, and it represents a customer
 	 * returning for a haircut after an random time
 	 * @param time
 	 * @param sim
-	 * @param ID
+	 * @param customer
 	 */
-	public Dissatisfied(int time, Simulation sim, int ID){
-		this.ID = ID;
-		Enter enter = new Enter(sim, time, this.ID);
+	public Dissatisfied(int time, Simulation sim, Customer customer){
+		super(sim, time);
+		this.customer = customer;
 	}
 	
 	/**
@@ -29,7 +31,7 @@ public class Dissatisfied {
 	 * @param state
 	 */
 	public void effect(State state){
-		/*Kunden placeras först i kön, tiden för alla kunder i kön måste ökas med tiden det kommer för
+		/*Kunden placeras fï¿½rst i kï¿½n, tiden fï¿½r alla kunder i kï¿½n mï¿½ste ï¿½kas med tiden det kommer fï¿½r
 		dissatisfied customer att klippa sig.
 		*/ 
 	}
