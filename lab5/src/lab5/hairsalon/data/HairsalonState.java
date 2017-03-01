@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import lab5.data.State;
 import lab5.data.Time;
-import lab5.harisalon.events.Enter;
+import lab5.harisalon.events.*;
 import lab5.simulation.Event;
 
 /**
@@ -26,11 +26,10 @@ public class HairsalonState extends State {
 	
 	private Time timeIdle;
 	
-	
 	/**
 	 * Makes HarisaloneState.
 	 */
-	public HairsalonState(int chairs, int queue) {
+	public HairsalonState(int chairs, int queue, double hmin, double hmax, double dmin, double  dmanx, int p) {
 		super();
 		MAX_CHAIRS = chairs;
 		MAX_QUEUE = queue;
@@ -50,9 +49,24 @@ public class HairsalonState extends State {
 	 * @param e
 	 */
 	public void handleCustomer(Event e) {
+		if (e instanceof Enter) {
+			addcustomer(e.getCustomer());
+			if (numHaircut < MAX_CHAIRS) {
+				haircutList.add(e.getCustomer());
+				e.effect(this);
+			} 
+			else {
+				
+			}
+		} 
+		else if (e instanceof Dissatisfied) {
+			
+		}
+		else {
+			
+		}
 		e.effect(this);
-		addcustomer(e.getCustomer);
-	 
+		addcustomer(e.getCustomer());
 	}
 	
 	/**
