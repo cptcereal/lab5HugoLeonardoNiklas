@@ -31,7 +31,12 @@ public class Enter extends Event{
 	 */
 	public void effect(HairsalonState state){
 		/*The disired effect that enter has on the queue, state, and time*/
-		
+		state.addCustomer(customer);
+		if (state.addHaircut(customer)) {
+		}
+		else {
+			state.addToQueue(this);
+		}
 	}
 	
 	/**

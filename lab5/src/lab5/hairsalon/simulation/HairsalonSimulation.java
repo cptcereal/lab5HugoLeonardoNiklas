@@ -44,6 +44,10 @@ public class HairsalonSimulation extends Simulation implements Observer {
 		}
 	}
 	
+	public void addToEventStore(Event e) {
+		eventStore.add(e);
+	}
+	
 	/**
 	 * Sets the time of when a event in the hair salon occurs.
 	 * 
