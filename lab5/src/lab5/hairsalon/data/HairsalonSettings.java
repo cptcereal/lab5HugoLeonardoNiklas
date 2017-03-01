@@ -14,6 +14,8 @@ public class HairsalonSettings {
 	private final double P = 0.2;
 	private final int CLOSING_TIME = 3000;
 	private final double CUSTOMERS_PER_HOUR = 5;
+	private final int MAX_QUEUE = 5;
+	private final int MAX_CHAIRS = 3;
 	
 	/**
 	 * Returns the minimum time a haircut can take.
@@ -76,5 +78,22 @@ public class HairsalonSettings {
 	 */
 	public double getCustomersPerHour() {
 		return CUSTOMERS_PER_HOUR;
+	}
+	
+	/**
+	 * Returns the maximum allowed size of the queue.
+	 * 
+	 * @return maximum allowed size of the queue.
+	 */
+	public int getMaxQueue() {
+		return MAX_QUEUE;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public int getMAX_CHAIRS() {
+		return MAX_CHAIRS;
 	}
 }

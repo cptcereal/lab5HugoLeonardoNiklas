@@ -1,5 +1,6 @@
 package lab5;
 
+import lab5.hairsalon.data.HairsalonSettings;
 import lab5.hairsalon.simulation.HairsalonSimulation;
 import lab5.harisalon.events.Enter;
 import lab5.simulation.Event;
@@ -14,13 +15,7 @@ public class HairsalonMain {
 	
 	// Simulation settings
 	private static final Enter[] startEvents = {};	// Should this be and Enter array? Since Enter is the first event that can happen.
-	private static final int CLOSING_TIME = 3000;	// Minutes?
-	private static final double CUSTOMERS_PER_HOUR = 4.5;
-	private static final double H_MIN = 20;
-	private static final double H_MAX = 20;
-	private static final double D_MIN = 20;
-	private static final double D_MAX = 20;
-	private static final double P = 10;
+	private static final HairsalonSettings simSettings;
 	
 	/**
 	 * Starts the simulation
@@ -33,7 +28,8 @@ public class HairsalonMain {
 		if (startEvents.length == 0) {
 			throw new IllegalArgumentException("The simulation requires the startEvents array to contain at least one start event in order to begin the simulation.");
 		} else {
-			HairsalonSimulation sim = new HairsalonSimulation(startEvents, CLOSING_TIME, CUSTOMERS_PER_HOUR, H_MIN, H_MAX, D_MIN, D_MAX, P);
+			simSettings = new HairsalonSettings();
+			HairsalonSimulation sim = new HairsalonSimulation(startEvents, simSettings);
 		}
 	}
 }

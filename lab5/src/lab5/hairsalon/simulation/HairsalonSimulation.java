@@ -3,6 +3,7 @@ package lab5.hairsalon.simulation;
 import java.util.Observable;
 import java.util.Observer;
 import lab5.data.EventStore;
+import lab5.hairsalon.data.HairsalonSettings;
 import lab5.hairsalon.data.HairsalonState;
 import lab5.harisalon.events.Enter;
 import lab5.simulation.Simulation;
@@ -15,13 +16,6 @@ import lab5.gui.View;
  *
  */
 public class HairsalonSimulation extends Simulation implements Observer {
-	private final double H_MIN;
-	private final double H_MAX;
-	private final double D_MIN;
-	private final double D_MAX;
-	private final double P;
-	private final int CLOSING_TIME;
-	private final double CUSTOMERS_PER_HOUR;
 	private View view;
 	private HairsalonState state;
 	private EventStore eventStore;
@@ -32,10 +26,9 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public HairsalonSimulation(Enter[] startEvents, int CLOSING_TIME, double CUSTOMERS_PER_HOUR, double H_MIN, double H_MAX
-								, double D_MIN, double D_MAX, double P) {
+	public HairsalonSimulation(Enter[] startEvents, HairsalonSettings simSettings) {
 		super(startEvents);
-		state = new HairsalonState();
+		state = new HairsalonState(simSettings);
 //		view = new View();	// WIP
 //		eventStore = new EventStore(startEvents);
 		run();
