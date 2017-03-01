@@ -15,30 +15,65 @@ public class HairsalonSettings {
 	private final int CLOSING_TIME = 3000;
 	private final double CUSTOMERS_PER_HOUR = 5;
 	
+	/**
+	 * Returns the minimum time a haircut can take.
+	 * 
+	 * @return the minimum time a haircut can take
+	 */
 	public double getHmin() {
 		return H_MIN;
 	}
 	
+	/**
+	 * Returns the maximum time a haircut can take.
+	 * 
+	 * @return the maximum time a haircut can take
+	 */
 	public double getHmax() {
 		return H_MAX;
 	}
 	
+	/**
+	 * Returns the minimum time it takes before a dissatisfied customer returns to the salon.
+	 * 
+	 * @return the minimum time before a dissatisfied customer returns
+	 */
 	public double getDmin() {
 		return D_MIN;
 	}
 	
+	/**
+	 * Returns the maximum time it takes before a dissatisfied customer returns to the salon.
+	 * 
+	 * @return the maximum time before a dissatisfied customer returns
+	 */
 	public double getDmax() {
 		return D_MAX;
 	}
 	
+	/**
+	 * Returns the percent of customers that return because they are dissatisfied.
+	 * 
+	 * @return precent that a customer returns because they are dissatisfied
+	 */
 	public double getP() {
 		return P;
 	}
 	
+	/**
+	 * Returns the closing time of the hair salon
+	 * 
+	 * @return the closing time
+	 */
 	public int getClosingTime() {
 		return CLOSING_TIME;
 	}
 	
+	/**
+	 * Returns the number of customers per hour.
+	 * 
+	 * @return customers per hour
+	 */
 	public double getCustomersPerHour() {
 		return CUSTOMERS_PER_HOUR;
 	}
