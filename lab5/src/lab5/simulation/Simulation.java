@@ -46,7 +46,7 @@ public class Simulation implements Observer {
 	 * 
 	 * @return the time until an event occurs
 	 */
-	public int setEventTime() {
+	public double setEventTime() {
 		
 	}
 	

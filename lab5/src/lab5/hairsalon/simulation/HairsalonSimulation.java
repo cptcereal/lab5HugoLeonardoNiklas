@@ -9,18 +9,19 @@ import lab5.simulation.Simulation;
 import lab5.gui.View;
 
 /**
- * Runs the simulation
+ * Runs the hair salon simulation
  * 
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
 public class HairsalonSimulation extends Simulation implements Observer {
-	private final int H_MIN;
-	private final int H_MAX;
-	private final int D_MIN;
-	private final int D_MAX;
-	private final int P;
+	private final double H_MIN;
+	private final double H_MAX;
+	private final double D_MIN;
+	private final double D_MAX;
+	private final double P;
 	private final int CLOSING_TIME;
+	private final double CUSTOMERS_PER_HOUR;
 	private View view;
 	private HairsalonState state;
 	private EventStore eventStore;
@@ -31,16 +32,12 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public HairsalonSimulation(Enter[] startEvents, int CLOSING_TIME, int H_MIN, int H_MAX, int D_MIN, int D_MAX, int P) {
-		this.CLOSING_TIME = CLOSING_TIME;
-		this.H_MIN = H_MIN;
-		this.H_MAX = H_MAX;
-		this.D_MIN = D_MIN;
-		this.D_MAX = D_MAX;
-		this.P = P;
+	public HairsalonSimulation(Enter[] startEvents, int CLOSING_TIME, double CUSTOMERS_PER_HOUR, double H_MIN, double H_MAX
+								, double D_MIN, double D_MAX, double P) {
+		super(startEvents);
 		state = new HairsalonState();
-		view = new View();	// WIP
-		eventStore = new EventStore(startEvents);
+//		view = new View();	// WIP
+//		eventStore = new EventStore(startEvents);
 		run();
 	}
 	
@@ -54,7 +51,12 @@ public class HairsalonSimulation extends Simulation implements Observer {
 		}
 	}
 	
-	public int setEventTime() {
+	/**
+	 * Sets the time of when a event in the hair salon occurs.
+	 * 
+	 * @return the time when the event should occur.
+	 */
+	public double setEventTime() {
 		
 	}
 	
