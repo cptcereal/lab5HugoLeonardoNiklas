@@ -51,14 +51,6 @@ public class HairsalonState extends State {
 		e.effect(this);
 	}
 	
-	/**
-	 * Get all the info about the simulator and returns it.
-	 * @return
-	 */
-	public int[][] getInfo() {
-		return null;
-	}
-	
 	public boolean addHaircut(Customer c) {
 		if (settings.getMAX_CHAIRS() - numHaircut > 0) {
 			numHaircut += 1;
@@ -66,6 +58,8 @@ public class HairsalonState extends State {
 		} 
 		return false;
 	}
+	
+	
 	
 	public void addToQueue(Enter e) {
 		queueList.add(e);

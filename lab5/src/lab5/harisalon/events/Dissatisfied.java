@@ -2,6 +2,7 @@ package lab5.harisalon.events;
 
 import lab5.data.State;
 import lab5.hairsalon.data.Customer;
+import lab5.hairsalon.data.HairsalonState;
 import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
@@ -30,7 +31,7 @@ public class Dissatisfied extends Event{
 	 * customer creates changes in the queue, which by itself creates changes to the time elapsed
 	 * @param state
 	 */
-	public void effect(State state){
+	public void effect(HairsalonState state){
 		/*Kunden placeras f�rst i k�n, tiden f�r alla kunder i k�n m�ste �kas med tiden det kommer f�r
 		dissatisfied customer att klippa sig.
 		*/ 

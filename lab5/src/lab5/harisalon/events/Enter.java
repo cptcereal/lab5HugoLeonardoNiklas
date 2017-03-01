@@ -1,7 +1,7 @@
 package lab5.harisalon.events;
 
-import lab5.data.State;
 import lab5.hairsalon.data.Customer;
+import lab5.hairsalon.data.HairsalonState;
 import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
@@ -29,8 +29,9 @@ public class Enter extends Event{
 	 * Since a customer is entering the establishment, depending on the state of the hair salon, the outcome
 	 * is decided immediately. 
 	 */
-	public void effect(State state){
+	public void effect(HairsalonState state){
 		/*The disired effect that enter has on the queue, state, and time*/
+		
 	}
 	
 	/**

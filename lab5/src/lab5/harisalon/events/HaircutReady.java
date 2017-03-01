@@ -3,6 +3,7 @@ package lab5.harisalon.events;
 import lab5.data.State;
 import lab5.data.Time;
 import lab5.hairsalon.data.Customer;
+import lab5.hairsalon.data.HairsalonState;
 import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
@@ -30,7 +31,7 @@ public class HaircutReady extends Event{
 	 * the queue, time elapsed, the time in queue 
 	 * @param state
 	 */
-	public void effect(State state){
+	public void effect(HairsalonState state){
 		
 	}
 	
