@@ -1,5 +1,6 @@
 package lab5.harisalon.events;
 
+import lab5.data.Time;
 import lab5.hairsalon.data.Customer;
 import lab5.hairsalon.data.HairsalonState;
 import lab5.simulation.Event;
@@ -33,7 +34,11 @@ public class Enter extends Event{
 		/*The disired effect that enter has on the queue, state, and time*/
 		state.addCustomer(customer);
 		if (state.addHaircut(customer)) {
-			HaircutReady event = new HaircutReady();
+			int tempTime = state.setEventTime();
+			Time a = new Time(); 
+			a.addTime(state.getElapsedTime());
+			Customer tempcos = new Customer(state.setEventID(), a);
+			HaircutReady event = new HaircutReady(super.getSim(), tempTime, tempcos);
 		}
 		else {
 			state.addToQueue(this);

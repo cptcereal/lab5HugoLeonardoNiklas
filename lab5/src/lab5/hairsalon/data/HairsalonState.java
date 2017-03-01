@@ -81,10 +81,11 @@ public class HairsalonState extends State {
 	 * @return the time when the event should occur.
 	 */
 	public double setEventTime() {
+		return hj;
 		
 	}
 	
 	public int setEventID() {
-		
+		return hj;
 	}
 }
