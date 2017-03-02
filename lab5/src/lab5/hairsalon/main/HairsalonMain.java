@@ -15,7 +15,7 @@ public class HairsalonMain {
 	
 	// Simulation settings
 	private static final Enter[] startEvents = {};	// Should this be and Enter array? Since Enter is the first event that can happen.
-	private static final HairsalonSettings simSettings;
+	private static final HairsalonSettings hairsalonSettings;
 	
 	/**
 	 * Starts the simulation
@@ -28,8 +28,8 @@ public class HairsalonMain {
 		if (startEvents.length == 0) {
 			throw new IllegalArgumentException("The simulation requires the startEvents array to contain at least one start event in order to begin the simulation.");
 		} else {
-			simSettings = new HairsalonSettings();
-			HairsalonSimulation sim = new HairsalonSimulation(startEvents, simSettings);
+			hairsalonSettings = new HairsalonSettings();
+			HairsalonSimulation sim = new HairsalonSimulation(startEvents, hairsalonSettings);
 		}
 	}
 }

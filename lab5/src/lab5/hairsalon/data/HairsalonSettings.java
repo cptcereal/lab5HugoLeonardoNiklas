@@ -7,39 +7,15 @@ package lab5.hairsalon.data;
  *
  */
 public class HairsalonSettings {
-	private final double H_MIN;
-	private final double H_MAX;
-	private final double D_MIN;
-	private final double D_MAX;
-	private final double P;
-	private final int CLOSING_TIME;
-	private final double CUSTOMERS_PER_HOUR;
-	private final int MAX_QUEUE;
-	private final int MAX_CHAIRS;
-	
-	public HairsalonSettings(){
-		H_MIN = 20;
-		H_MAX = 50;
-		D_MIN = 10;
-		D_MAX = 200;
-		P = 0.2;
-		CLOSING_TIME = 3000;
-		CUSTOMERS_PER_HOUR = 5;
-		MAX_QUEUE = 5;
-		MAX_CHAIRS = 3;
-	}
-	
-	public HairsalonSettings(double H_MIN, double H_MAX, double D_MIN, double D_MAX, double P, int CLOSING_TIME, double CUSTOMERS_PER_HOUR, int MAX_QUEUE, int MAX_CHAIRS){
-		this.H_MIN = H_MIN ;
-		this.H_MAX = H_MAX;
-		this.D_MIN = D_MIN;
-		this.D_MAX = D_MAX;
-		this.P = P;
-		this.CLOSING_TIME = CLOSING_TIME;
-		this.CUSTOMERS_PER_HOUR = CUSTOMERS_PER_HOUR;
-		this.MAX_QUEUE = MAX_QUEUE;
-		this.MAX_CHAIRS = MAX_CHAIRS;
-	}
+	private final double H_MIN = 20;
+	private final double H_MAX = 50;
+	private final double D_MIN = 10;
+	private final double D_MAX = 200;
+	private final double P = 0.2;
+	private final int CLOSING_TIME = 3000;
+	private final double CUSTOMERS_PER_HOUR = 5;
+	private final int MAX_QUEUE = 5;
+	private final int MAX_CHAIRS = 3;
 	
 	/**
 	 * Returns the minimum time a haircut can take.
@@ -114,8 +90,9 @@ public class HairsalonSettings {
 	}
 	
 	/**
+	 * Returns the number of chairs in the hair salon where customers can sit down and get a haircut.
 	 * 
-	 * @return
+	 * @return the number of haircut chairsS
 	 */
 	public int getMAX_CHAIRS() {
 		return MAX_CHAIRS;
