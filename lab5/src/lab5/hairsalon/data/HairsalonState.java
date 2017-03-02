@@ -22,7 +22,7 @@ public class HairsalonState extends State {
 	
 	private ArrayList<Customer> customerList;
 	private ArrayList<Customer> haircutList;
-	private ArrayList<Event> queueList;
+	private QueueList queueList;
 	
 	private Time timeIdle;
 	private UniformRandomStream randomHaircutTime;
@@ -39,7 +39,7 @@ public class HairsalonState extends State {
 		
 		customerList = new ArrayList<Customer>();
 		haircutList = new ArrayList<Customer>();
-		queueList = new ArrayList<Event>();
+		queueList = new QueueList(settings.getMAX_CHAIRS());
 		
 		numHaircut = 0;
 		numWaiting = 0;
@@ -59,16 +59,11 @@ public class HairsalonState extends State {
 	}
 	
 	public boolean addToQueue(Event e) {
-		if (queueList.size() < settings.getMaxQueue()) {
-			queueList.add(e);
-			return true;
-		}
-		return false;
+		return queueList.addToQueue(e);
 	}
 	
 	public boolean addToVipQueue(Event e) {
-		for (int i = 0; i < queueList.size(); i++)
-		return false;
+		return queueList.addToVIPQueue(e);
 	}
 	
 	public boolean addCustomer(Customer c) {
