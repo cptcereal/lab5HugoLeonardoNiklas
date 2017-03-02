@@ -15,6 +15,10 @@ public class Time {
 	elapsedTime = 0;
 	}
 	
+	public Time(double elapsedTime) {
+		this.elapsedTime = elapsedTime;
+	}
+	
 	/**
 	 * Adds time to elapsed time.
 	 * @param t

@@ -16,19 +16,18 @@ import lab5.simulation.Event;
 public class HairsalonState extends State {
 	
 	private HairsalonSettings settings;
-	
-	private int numHaircut;
-	
 	private CustomerList customerList;
 	private CustomerList haircutList;
 	private QueueList queueList;
-	
 	private Time timeIdle;
+	
+	private int numHaircut;
+	private int lastId;
+	
 	private UniformRandomStream randomHaircutTime;
 	private UniformRandomStream randomEnterTime;
 	private ExponentialRandomStream randomNewEnter;
 	
-	private int lastId;
 	
 	/**
 	 * Makes HarisaloneState.
@@ -54,8 +53,9 @@ public class HairsalonState extends State {
 	
 	
 	
-	public void getInfo() {
-		
+	public StateInfo getInfo() {
+		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, super.getElapsedTime());
+		return info;
 	}
 	
 	
