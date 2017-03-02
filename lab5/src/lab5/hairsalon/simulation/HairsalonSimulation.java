@@ -31,7 +31,6 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	public HairsalonSimulation(Event[] startEvents, HairsalonState hairsalonState) {
 		super(startEvents, hairsalonState);
 		this.state = hairsalonState;
-		this.settings = state.getSettings();
 	}
 		
 	/**
@@ -39,6 +38,6 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * 
 	 */
 	public void update(Observable o, Object arg) {
-		state.get
+		
 	}
 }
