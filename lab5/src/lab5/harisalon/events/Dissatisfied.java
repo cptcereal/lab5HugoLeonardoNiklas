@@ -33,10 +33,9 @@ public class Dissatisfied extends Event{
 	 * @param state
 	 */
 	public void effect(HairsalonState state){
-		
 		state.addCustomer(customer);
 		if (state.addHaircut(customer)) {
-			int tempTime = (int) state.setEventTime();
+			double tempTime = state.setEventStartTime();
 			Time a = new Time(); 
 			a.addTime(state.getElapsedTime());
 			Customer tempcos = new Customer(state.setEventID(), a);
