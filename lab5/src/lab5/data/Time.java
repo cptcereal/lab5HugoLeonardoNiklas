@@ -2,7 +2,7 @@ package lab5.data;
 
 /**
  * Saves elapsed time
- * @author inaule-6
+ * @author hugwan-6, leopel-6, inaule-6 
  *
  */
 public class Time {

@@ -10,7 +10,7 @@ import lab5.simulation.Event;
 
 /**
  * 
- * @author inaule-6
+ * @author hugwan-6, leopel-6, inaule-6 
  *
  */
 public class HairsalonState extends State {

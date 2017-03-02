@@ -6,12 +6,12 @@ import lab5.simulation.Event;
 /**
  * This class Stores events and
  * 
- * @author inaule-6
+ * @author hugwan-6, leopel-6, inaule-6 
  * 
  */
 public class EventStore {
 	private ArrayList<Event> eventStore = new ArrayList<Event>();
-	// Fixa nod system, bygg på Time klassen som håller tid HUGO fixar
+	// Fixa nod system, bygg pï¿½ Time klassen som hï¿½ller tid HUGO fixar
 	public EventStore(Event[] startEvents) {
 		for (int i = 0; i < startEvents.length; i++) {
 			eventStore.add(startEvents[i]);
