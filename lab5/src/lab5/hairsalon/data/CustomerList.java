@@ -1,5 +1,11 @@
 package lab5.hairsalon.data;
 
+
+/**
+ * 
+ * @author hugwan-6, leopel-6, inaule-6 
+ *
+ */
 public class CustomerList {
 	private Node first;
 	private int numCustomers;

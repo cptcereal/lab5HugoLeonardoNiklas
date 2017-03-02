@@ -4,18 +4,18 @@ import lab5.data.Time;
 
 /**
  * A customer who has a id and time they entered the store
- * @author inaule-6
+ * @author hugwan-6, leopel-6, inaule-6 
  *
  */
 public class Customer {
 	private final int id;
-	private Time timeEnterdStore;
+	private double timeEnterdStore;
 	
 	/**
 	 * Adds id to the customer.
 	 * @param id
 	 */
-	public Customer(int id, Time timeEnterdStore) {
+	public Customer(int id, double timeEnterdStore) {
 		this.id = id;
 		this.timeEnterdStore = timeEnterdStore;
 	}
@@ -29,13 +29,17 @@ public class Customer {
 	}
 	
 	/**
-	 * 
+	 * Returns the time a customer enters the store
 	 * @return
 	 */
-	public int getTimeEnterdStore() {
+	public double getTimeEnterdStore() {
 		return timeEnterdStore;
 	}
 	
+	/**
+	 * Sets the time a customer enters the salon
+	 * @param timeEnterdStore
+	 */
 	public void setTimeEnterdStore(int timeEnterdStore) {
 		this.timeEnterdStore = timeEnterdStore;
 	}

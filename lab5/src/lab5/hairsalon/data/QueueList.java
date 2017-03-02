@@ -3,7 +3,11 @@ package lab5.hairsalon.data;
 import lab5.harisalon.events.Dissatisfied;
 import lab5.harisalon.events.Enter;
 import lab5.simulation.Event;
-
+/**
+ * Create a queue to store elements in an orderly way
+ * @author hugwan-6, leopel-6, inaule-6
+ *
+ */
 public class QueueList {
 	private Event[] queue;
 	private Dissatisfied[] vipQueue;
@@ -18,6 +22,11 @@ public class QueueList {
 		lastInVIPQueue = 0;
 	}
 	
+	/**
+	 * Adds and event a queue, returns true if the event was added and false otherwise
+	 * @param e
+	 * @return
+	 */
 	public boolean addToQueue(Enter e) {
 		if (lastInQueue + lastInVIPQueue < queue.length) {
 			queue[lastInQueue] = e;
@@ -27,6 +36,11 @@ public class QueueList {
 		return false;
 	}
 	
+	/**
+	 * Represents a queue consisting of disappointed customers
+	 * @param e
+	 * @return
+	 */
 	public boolean addToVIPQueue(Dissatisfied e) {
 		if (lastInVIPQueue < vipQueue.length) {
 			vipQueue[lastInQueue] = e;
@@ -39,6 +53,11 @@ public class QueueList {
 		return false;
 	}
 	
+	
+	/**
+	 * Returns the next event according to a specific time order
+	 * @return
+	 */
 	public Event next() {
 		if (lastInVIPQueue != 0) {
 			lastInVIPQueue -= 1;
@@ -56,6 +75,10 @@ public class QueueList {
 		return temp;
 	}
 	
+	/**
+	 * Checks if both the VIP queue and the normal queue are empty
+	 * @return
+	 */
 	public boolean isEmpty() {
 		return (lastInQueue == 0 && lastInVIPQueue == 0);
 	}
