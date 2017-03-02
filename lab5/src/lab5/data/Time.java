@@ -9,7 +9,7 @@ public class Time {
 	private double elapsedTime;
 	
 	/**
-	 * Makes time object
+	 * Makes a time object
 	 */
 	public Time() {
 	elapsedTime = 0;
