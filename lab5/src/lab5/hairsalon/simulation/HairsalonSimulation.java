@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Observer;
 import lab5.data.EventStore;
 import lab5.data.State;
+import lab5.hairsalon.data.HairsalonSettings;
 import lab5.hairsalon.data.HairsalonState;
 import lab5.simulation.Event;
 import lab5.simulation.Simulation;
@@ -19,6 +20,7 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	private View view;
 	private HairsalonState state;
 	private EventStore eventStore;
+	private HairsalonSettings settings;
 	
 	/**
 	 * Starts up the simulation
@@ -26,8 +28,10 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public HairsalonSimulation(Event[] startEvents, State hairsalonState) {
+	public HairsalonSimulation(Event[] startEvents, HairsalonState hairsalonState) {
 		super(startEvents, hairsalonState);
+		this.state = hairsalonState;
+		this.settings = state.getSettings();
 	}
 		
 	/**
@@ -35,6 +39,6 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * 
 	 */
 	public void update(Observable o, Object arg) {
-		
+		state.get
 	}
 }

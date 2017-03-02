@@ -32,7 +32,7 @@ public class HairsalonMain {
 		} else {
 			HairsalonSettings hairsalonSettings = new HairsalonSettings();
 			HairsalonState hairsalonState = new HairsalonState(hairsalonSettings);
-			Simulation sim = new Simulation(startEvents, hairsalonState);
+			HairsalonSimulation sim = new HairsalonSimulation(startEvents, hairsalonState);
 		}
 	}
 }

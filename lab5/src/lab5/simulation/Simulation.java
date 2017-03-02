@@ -65,6 +65,6 @@ public class Simulation implements Observer {
 	 * 
 	 */
 	public void update(Observable o, Object arg) {
-
+		
 	}
 }
