@@ -35,6 +35,10 @@ public abstract class State extends Observable {
 		stop = true;
 	}
 	
+	public boolean getStop() {
+		return stop;
+	}
+	
 	/**
 	 * Returns the elapsedTime of simulator
 	 * @return
@@ -47,7 +51,7 @@ public abstract class State extends Observable {
 	 * Adds time to elapsedTime.
 	 * @param t
 	 */
-	public void AddTime(int t) {
+	public void addTime(int t) {
 		time.addTime(t);
 	} 
 }
