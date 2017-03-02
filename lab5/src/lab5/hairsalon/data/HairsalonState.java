@@ -76,15 +76,15 @@ public class HairsalonState extends State {
 	 * 
 	 * @return the time when the event should occur.
 	 */
-	public double getEventStartTime() {
+	public double setEventStartTime() {
 		return hj;
 	}
 	
-	public double getHaircutTime() {
+	public double setHaircutTime() {
 		return randomHaircutTime.next() + super.getElapsedTime();
 	}
 	
-	public int getEventID() {
+	public int setEventID() {
 		lastId += 1;
 		return lastId;
 	}
