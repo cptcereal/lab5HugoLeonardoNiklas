@@ -6,6 +6,7 @@ import lab5.data.EventStore;
 import lab5.hairsalon.data.HairsalonSettings;
 import lab5.hairsalon.data.HairsalonState;
 import lab5.harisalon.events.Enter;
+import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 import lab5.gui.View;
 
@@ -26,29 +27,14 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public HairsalonSimulation(Enter[] startEvents, HairsalonSettings simSettings) {
+	public HairsalonSimulation(Enter[] startEvents, HairsalonSettings hairsalonSettings) {
 		super(startEvents);
-		state = new HairsalonState(simSettings);
+		state = new HairsalonState(hairsalonSettings);
 //		view = new View();	// WIP
 //		eventStore = new EventStore(startEvents);
-		run();
+//		run();
 	}
-	
-	/**
-	 * Keeps the simulation running until it's done
-	 * 
-	 */
-	public void run() {
-		while(!eventStore.isEmpty()) {
-			eventStore.nextEvent();
-		}
-	}
-	
-	public void addToEventStore(Event e) {
-		eventStore.add(e);
-	}
-	
-	
+		
 	/**
 	 * Handle new info when the state of the simulation changes
 	 * 

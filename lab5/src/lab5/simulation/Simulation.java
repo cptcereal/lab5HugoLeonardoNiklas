@@ -42,6 +42,15 @@ public class Simulation implements Observer {
 	}
 	
 	/**
+	 * Add an event to the simulation.
+	 * 
+	 * @param e the event to add
+	 */
+	public void addToEventStore(Event e) {
+		eventStore.add(e);
+	}
+	
+	/**
 	 * Sets the time of when an event should occur
 	 * 
 	 * @return the time until an event occurs
