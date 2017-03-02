@@ -46,7 +46,7 @@ public class HairsalonState extends State {
 		lastId = 0;
 		
 		timeIdle = new Time();
-		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), );
+		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), System.currentTimeMillis());
 		
 	}
 	
@@ -81,11 +81,16 @@ public class HairsalonState extends State {
 	 * 
 	 * @return the time when the event should occur.
 	 */
-	public double setEventTime() {
+	public double getEventStartTime() {
 		return hj;
 	}
 	
-	public int setEventID() {
+	public double getHaircutTime() {
+		double temp = randomHaircutTime.next();
+		return temp;
+	}
+	
+	public int getEventID() {
 		lastId += 1;
 		return lastId;
 	}
