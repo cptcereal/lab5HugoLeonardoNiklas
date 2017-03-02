@@ -1,5 +1,6 @@
 package lab5;
 
+import lab5.data.State;
 import lab5.simulation.Event;
 import lab5.simulation.Simulation;
 
@@ -24,7 +25,8 @@ public class SimMain {
 		if (startEvents.length == 0) {
 			throw new IllegalArgumentException("The simulation requires the event array startEvents to contain at least one event to begin the simulation.");
 		} else {
-			Simulation sim = new Simulation(startEvents);
+			State state = new State();
+			Simulation sim = new Simulation(startEvents, state);
 		}
 	}
 }

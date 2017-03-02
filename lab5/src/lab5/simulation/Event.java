@@ -44,4 +44,9 @@ public abstract class Event {
 	public Simulation getSim(){
 		return sim;
 	}
+	
+	public String toString() {
+		String s = this.getClass().getName();
+		return s;
+	}
 }
