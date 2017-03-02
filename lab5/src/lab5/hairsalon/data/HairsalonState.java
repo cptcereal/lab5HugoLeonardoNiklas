@@ -64,7 +64,7 @@ public class HairsalonState extends State {
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
 			Event e = queueList.next();
-			timeIdle.addTime(super.getElapsedTime().getElapsedTime()-e.getTime());
+			timeIdle.addTime(super.getElapsedTimeDouble()-e.getTime());
 		}
 	}
 	
@@ -96,7 +96,7 @@ public class HairsalonState extends State {
 	 * @return the time when the event should occur.
 	 */
 	public double setEventStartTime() {
-		return randomEnterTime.next() + super.getElapsedTime().getElapsedTime();
+		return randomEnterTime.next() + super.getElapsedTimeDouble();
 	}
 	/**
 	 * Vet ej vad den gör
@@ -108,7 +108,7 @@ public class HairsalonState extends State {
 	}
 	
 	public double setHaircutTime() {
-		return randomHaircutTime.next() + super.getElapsedTime().getElapsedTime();
+		return randomHaircutTime.next() + super.getElapsedTimeDouble();
 	}
 	
 	public int setEventID() {

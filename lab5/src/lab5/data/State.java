@@ -47,6 +47,10 @@ public abstract class State extends Observable {
 		return time;
 	}
 	
+	public double getElapsedTimeDouble() {
+		return time.getElapsedTime();
+	}
+	
 	/**
 	 * Adds the diffrens in time between t and elapsedtime.
 	 * t must be bigger then elapsedtime.
