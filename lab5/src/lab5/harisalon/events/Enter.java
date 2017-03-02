@@ -31,14 +31,15 @@ public class Enter extends Event{
 	 * is decided immediately. 
 	 */
 	public void effect(HairsalonState state){
-		/*The disired effect that enter has on the queue, state, and time*/
+		/*The desired effect that enter has on the queue, state, and time*/
 		state.addCustomer(customer);
 		if (state.addHaircut(customer)) {
-			int tempTime = (int) state.setEventTime();
+			double tempTime = state.setHaircutTime();
 			Time a = new Time(); 
 			a.addTime(state.getElapsedTime());
-			Customer tempcos = new Customer(state.setEventID(), a);
-			HaircutReady event = new HaircutReady(super.getSim(), tempTime, tempcos);
+			Customer tempcos = new Customer(state.getEventID(), a);
+			HaircutReady event = new HaircutReady(getSim(), tempTime, tempcos);
+			getSim().addToEventStore(event);
 		}
 		else {
 			if (state.addToQueue(this)) {

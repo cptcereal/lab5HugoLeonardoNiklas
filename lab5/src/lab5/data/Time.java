@@ -19,7 +19,7 @@ public class Time {
 	 * Adds time to elapsed time.
 	 * @param t
 	 */
-	public void addTime(long t) {
+	public void addTime(double t) {
 		elapsedTime += t;
 	}
 	
@@ -27,7 +27,7 @@ public class Time {
 	 * Returns the elapsed time.
 	 * @return
 	 */
-	public long getElapsedTime() {
+	public double getElapsedTime() {
 		return elapsedTime;
 	}
 }

@@ -18,11 +18,11 @@ public class HaircutReady extends Event{
 	/**
 	 * This is called when the salon is ready to cut the next customer's hair
 	 * @param sim
-	 * @param time
+	 * @param tempTime
 	 * @param ID
 	 */
-	public HaircutReady(Simulation sim, int time, Customer customer) {
-		super(sim, time);
+	public HaircutReady(Simulation sim, double tempTime, Customer customer) {
+		super(sim, tempTime);
 		this.customer = customer;
 	}
 	

@@ -8,17 +8,18 @@ import lab5.data.Time;
  * 
  */
 public abstract class Event {
-	private final int TIME;
+	private final Time TIME;
 	private Simulation sim;
 	
 	/**
 	 * Creates an Event object with specified simulation and time values
 	 * @param sim
-	 * @param time
+	 * @param tempTime
 	 */
-	public Event(Simulation sim, int time){
+	public Event(Simulation sim, double tempTime){
 		sim = this.sim;
-		this.TIME = time;
+		this.TIME = new Time();
+		TIME.addTime(tempTime);
 	} 
 	
 	/**
@@ -33,8 +34,8 @@ public abstract class Event {
 	 * Returns the value of a time for an object
 	 * @return
 	 */
-	public int getTime(){
-		return TIME;
+	public double getTime(){
+		return TIME.getElapsedTime();
 	}
 	
 	/**
