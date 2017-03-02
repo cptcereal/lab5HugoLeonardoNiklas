@@ -1,7 +1,5 @@
 package lab5.hairsalon.data;
 
-import java.util.ArrayList;
-
 import lab5.data.State;
 import lab5.data.Time;
 import lab5.hairsalon.random.*;
@@ -16,19 +14,18 @@ import lab5.simulation.Event;
 public class HairsalonState extends State {
 	
 	private HairsalonSettings settings;
-	
-	private int numHaircut;
-	
 	private CustomerList customerList;
 	private CustomerList haircutList;
 	private QueueList queueList;
-	
 	private Time timeIdle;
+	
+	private int numHaircut;
+	private int lastId;
+	
 	private UniformRandomStream randomHaircutTime;
 	private UniformRandomStream randomEnterTime;
-	private ExponentialRandomStream randomNewCustomer;
+	private ExponentialRandomStream randomNewEnter;
 	
-	private int lastId;
 	
 	/**
 	 * Makes HarisaloneState.
@@ -52,10 +49,22 @@ public class HairsalonState extends State {
 		
 	}
 	
+	
+	
+	public StateInfo getInfo() {
+		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, super.getElapsedTime());
+		return info;
+	}
+	
+	
+	
+	
+	
 	public void haircutFinished() {
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
-			queueList.next().effect(this);
+			Event e = queueList.next();
+			timeIdle.addTime(super.getElapsedTimeDouble()-e.getTime());
 		}
 	}
 	
@@ -87,11 +96,19 @@ public class HairsalonState extends State {
 	 * @return the time when the event should occur.
 	 */
 	public double setEventStartTime() {
-		return randomEnterTime.next() + super.getElapsedTime();
+		return randomEnterTime.next() + super.getElapsedTimeDouble();
+	}
+	/**
+	 * Vet ej vad den gör
+	 * Använder håkans class
+	 * @return
+	 */
+	public double makeNewEneterEvent() {
+		return randomNewEnter.next();
 	}
 	
 	public double setHaircutTime() {
-		return randomHaircutTime.next() + super.getElapsedTime();
+		return randomHaircutTime.next() + super.getElapsedTimeDouble();
 	}
 	
 	public int setEventID() {
