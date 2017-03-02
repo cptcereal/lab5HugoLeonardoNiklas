@@ -24,8 +24,8 @@ public class Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public Simulation(Event[] startEvents) {
-		state = new State();
+	public Simulation(Event[] startEvents, State state) {
+		this.state = state;
 		view = new View();	// WIP
 		eventStore = new EventStore(startEvents);
 		run();
@@ -56,6 +56,7 @@ public class Simulation implements Observer {
 	 * @return the time until an event occurs
 	 */
 	public double setEventTime() {
+		return 0;
 		
 	}
 	
@@ -64,6 +65,6 @@ public class Simulation implements Observer {
 	 * 
 	 */
 	public void update(Observable o, Object arg) {
-		
+
 	}
 }
