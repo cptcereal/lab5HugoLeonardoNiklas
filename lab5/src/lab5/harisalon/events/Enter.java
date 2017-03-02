@@ -34,7 +34,7 @@ public class Enter extends Event{
 		/*The disired effect that enter has on the queue, state, and time*/
 		state.addCustomer(customer);
 		if (state.addHaircut(customer)) {
-			int tempTime = state.setEventTime();
+			int tempTime = (int) state.setEventTime();
 			Time a = new Time(); 
 			a.addTime(state.getElapsedTime());
 			Customer tempcos = new Customer(state.setEventID(), a);
