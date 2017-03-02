@@ -37,7 +37,7 @@ public class Enter extends Event{
 			double tempTime = state.setHaircutTime();
 			Time a = new Time(); 
 			a.addTime(state.getElapsedTime());
-			Customer tempcos = new Customer(state.getEventID(), a);
+			Customer tempcos = new Customer(state.setEventID(), a);
 			HaircutReady event = new HaircutReady(getSim(), tempTime, tempcos);
 			getSim().addToEventStore(event);
 		}
