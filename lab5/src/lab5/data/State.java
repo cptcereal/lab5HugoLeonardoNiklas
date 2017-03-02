@@ -6,7 +6,7 @@ import lab5.simulation.Event;
 
 /**
  * Has the state of the simulator, info about time and running.
- * @author inaule-6
+ * @author hugwan-6, leopel-6, inaule-6 
  *
  */
 public abstract class State extends Observable {
