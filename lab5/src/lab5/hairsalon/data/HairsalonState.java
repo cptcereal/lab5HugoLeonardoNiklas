@@ -26,7 +26,7 @@ public class HairsalonState extends State {
 	private Time timeIdle;
 	private UniformRandomStream randomHaircutTime;
 	private UniformRandomStream randomEnterTime;
-	private ExponentialRandomStream randomNewCustomer;
+	private ExponentialRandomStream randomNewEnter;
 	
 	private int lastId;
 	
@@ -52,10 +52,21 @@ public class HairsalonState extends State {
 		
 	}
 	
+	
+	
+	public void getInfo() {
+		
+	}
+	
+	
+	
+	
+	
 	public void haircutFinished() {
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
-			queueList.next().effect(this);
+			Event e = queueList.next();
+			timeIdle.addTime(super.getElapsedTime()-e.getTime());
 		}
 	}
 	
@@ -88,6 +99,14 @@ public class HairsalonState extends State {
 	 */
 	public double setEventStartTime() {
 		return randomEnterTime.next() + super.getElapsedTime();
+	}
+	/**
+	 * Vet ej vad den gör
+	 * Använder håkans class
+	 * @return
+	 */
+	public double makeNewEneterEvent() {
+		return randomNewEnter.next();
 	}
 	
 	public double setHaircutTime() {
