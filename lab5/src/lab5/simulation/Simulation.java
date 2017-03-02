@@ -12,7 +12,7 @@ import lab5.gui.View;
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
-public class Simulation implements Observer {
+public abstract class Simulation implements Observer {
 	
 	private View view;
 	private State state;
@@ -64,7 +64,5 @@ public class Simulation implements Observer {
 	 * Handle new info when the state of the simulation changes
 	 * 
 	 */
-	public void update(Observable o, Object arg) {
-		
-	}
+	public abstract void update(Observable o, Object arg);
 }
