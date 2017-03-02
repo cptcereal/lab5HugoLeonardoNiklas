@@ -9,10 +9,9 @@ import lab5.simulation.Event;
  * @author inaule-6
  * 
  */
-
 public class EventStore {
 	private ArrayList<Event> eventStore = new ArrayList<Event>();
-	
+	// Fixa nod system, bygg på Time klassen som håller tid HUGO fixar
 	public EventStore(Event[] startEvents) {
 		for (int i = 0; i < startEvents.length; i++) {
 			eventStore.add(startEvents[i]);
