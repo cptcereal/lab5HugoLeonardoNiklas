@@ -1,28 +1,25 @@
 package lab5.data;
 
 /**
- * Saves elapsed time and the time of last event.
+ * Saves elapsed time
  * @author inaule-6
  *
  */
 public class Time {
-	private int elapsedTime;
-	// Behövs denna?
-	private int lastEventTime;
+	private double elapsedTime;
 	
 	/**
 	 * Makes time object
 	 */
 	public Time() {
 	elapsedTime = 0;
-	lastEventTime = elapsedTime;
 	}
 	
 	/**
 	 * Adds time to elapsed time.
 	 * @param t
 	 */
-	public void addTime(int t) {
+	public void addTime(long t) {
 		elapsedTime += t;
 	}
 	
@@ -30,22 +27,7 @@ public class Time {
 	 * Returns the elapsed time.
 	 * @return
 	 */
-	public int getElapsedTime() {
+	public long getElapsedTime() {
 		return elapsedTime;
-	}
-	
-	/**
-	 * Sets lastEventTime to elapsedTime.
-	 */
-	public void resetLastEventTime() {
-		lastEventTime = elapsedTime;
-	}
-	
-	/**
-	 * Returns lastEventTime.
-	 * @return
-	 */
-	public int getLastEventTime() {
-		return lastEventTime;
 	}
 }
