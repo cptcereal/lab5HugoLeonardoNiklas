@@ -20,7 +20,7 @@ public class QueueList {
 	
 	public boolean addToQueue(Enter e) {
 		if (lastInQueue != queue.length) {
-			
+			queue[lastInQueue] = e;
 			lastInQueue += 1;
 			return true;
 		}
@@ -28,8 +28,20 @@ public class QueueList {
 	}
 	
 	public boolean addToVIPQueue(Dissatisfied e) {
+		if (lastInVIPQueue != vipQueue.length) {
+			vipQueue[lastInQueue] = e;
+			lastInVIPQueue += 1;
+			
+			return true;
+		}
 		return false;
-		
+	}
+	
+	private void addVIPToQueue() {
+		for (int i = 0; i < lastInQueue; i++) {
+			queue[0:-1] = queue
+			queue[i] = vipQueue[i];
+		}
 	}
 	
 	public Event next() {
