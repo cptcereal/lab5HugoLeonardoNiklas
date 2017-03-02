@@ -2,6 +2,12 @@ package lab5.hairsalon.data;
 
 import lab5.data.Time;
 
+/**
+ * All state info.
+ * Vet inte om den behövs.
+ * @author inaule-6
+ *
+ */
 public class StateInfo {
 	public final HairsalonSettings settings;
 	public final CustomerList customerList;
