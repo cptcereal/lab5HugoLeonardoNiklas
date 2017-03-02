@@ -56,10 +56,6 @@ public class HairsalonState extends State {
 		return info;
 	}
 	
-	
-	
-	
-	
 	public void haircutFinished() {
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
