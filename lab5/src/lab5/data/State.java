@@ -43,7 +43,7 @@ public abstract class State extends Observable {
 	 * Returns the elapsedTime of simulator
 	 * @return
 	 */
-	public int getElapsedTime(){
+	public long getElapsedTime(){
 		return time.getElapsedTime();
 	}
 	
@@ -52,7 +52,7 @@ public abstract class State extends Observable {
 	 * t must be bigger then elapsedtime.
 	 * @param t
 	 */
-	public void addTime(int t) {
+	public void addTime(long t) {
 		time.addTime(t- time.getElapsedTime());
 	} 
 }
