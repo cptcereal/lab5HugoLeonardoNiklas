@@ -43,8 +43,8 @@ public abstract class State extends Observable {
 	 * Returns the elapsedTime of simulator
 	 * @return
 	 */
-	public double getElapsedTime(){
-		return time.getElapsedTime();
+	public Time getElapsedTime(){
+		return time;
 	}
 	
 	/**
