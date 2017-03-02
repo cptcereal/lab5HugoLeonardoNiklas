@@ -20,8 +20,8 @@ public class HairsalonState extends State {
 	private int numHaircut;
 	private int numWaiting;
 	
-	private ArrayList<Customer> customerList;
-	private ArrayList<Customer> haircutList;
+	private CustomerList customerList;
+	private CustomerList haircutList;
 	private QueueList queueList;
 	
 	private Time timeIdle;
@@ -37,8 +37,8 @@ public class HairsalonState extends State {
 		
 		this.settings = settings;
 		
-		customerList = new ArrayList<Customer>();
-		haircutList = new ArrayList<Customer>();
+		customerList = new CustomerList();
+		haircutList = new CustomerList();
 		queueList = new QueueList(settings.getMAX_CHAIRS());
 		
 		numHaircut = 0;
@@ -50,30 +50,25 @@ public class HairsalonState extends State {
 		
 	}
 	
+	
 	public boolean addHaircut(Customer c) {
 		if (settings.getMAX_CHAIRS() - numHaircut > 0) {
 			numHaircut += 1;
-			haircutList.add(c);
+			haircutList.addCustomer(c);
 		} 
 		return false;
 	}
 	
-	public boolean addToQueue(Event e) {
+	public boolean addToQueue(Enter e) {
 		return queueList.addToQueue(e);
 	}
 	
-	public boolean addToVipQueue(Event e) {
+	public boolean addToVipQueue(Dissatisfied e) {
 		return queueList.addToVIPQueue(e);
 	}
 	
 	public boolean addCustomer(Customer c) {
-		for (int i = 0; i < customerList.size(); i++) {
-			if (c.equals(customerList.get(i))) {
-				return false;
-			} 
-		}
-		customerList.add(c);
-		return true;
+		return customerList.addCustomer(c);
 	}
 	
 	/**
@@ -86,8 +81,7 @@ public class HairsalonState extends State {
 	}
 	
 	public double getHaircutTime() {
-		double temp = randomHaircutTime.next();
-		return temp;
+		return randomHaircutTime.next() + super.getElapsedTime();
 	}
 	
 	public int getEventID() {

@@ -48,10 +48,11 @@ public abstract class State extends Observable {
 	}
 	
 	/**
-	 * Adds time to elapsedTime.
+	 * Adds the diffrens in time between t and elapsedtime.
+	 * t must be bigger then elapsedtime.
 	 * @param t
 	 */
 	public void addTime(int t) {
-		time.addTime(t);
+		time.addTime(t- time.getElapsedTime());
 	} 
 }
