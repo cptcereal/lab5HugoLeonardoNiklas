@@ -2,12 +2,14 @@ package lab5.data;
 
 import java.util.Observable;
 
+import lab5.simulation.Event;
+
 /**
  * Has the state of the simulator, info about time and running.
  * @author inaule-6
  *
  */
-public class State extends Observable {
+public abstract class State extends Observable {
 	
 	private Time time;
 	private boolean stop;
@@ -19,6 +21,11 @@ public class State extends Observable {
 		time = new Time();
 		stop = false;
 	}
+	
+	public void startEvent(Event e) {
+		e.effect(this);
+	}
+	
 	
 	/**
 	 * Sets stop to true. 

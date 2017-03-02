@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import lab5.data.State;
 import lab5.data.Time;
+import lab5.hairsalon.random.UniformRandomStream;
 import lab5.harisalon.events.*;
 import lab5.simulation.Event;
 
@@ -24,6 +25,9 @@ public class HairsalonState extends State {
 	private ArrayList<Enter> queueList;
 	
 	private Time timeIdle;
+	private UniformRandomStream randomHaircutTime;
+	
+	private int lastId;
 	
 	/**
 	 * Makes HarisaloneState.
@@ -39,15 +43,11 @@ public class HairsalonState extends State {
 		
 		numHaircut = 0;
 		numWaiting = 0;
+		lastId = 0;
+		
 		timeIdle = new Time();
-	}
-	
-	/**
-	 * 
-	 * @param e
-	 */
-	public void handleCustomer(Event e) {
-		e.effect(this);
+		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), );
+		
 	}
 	
 	public boolean addHaircut(Customer c) {
@@ -83,10 +83,10 @@ public class HairsalonState extends State {
 	 */
 	public double setEventTime() {
 		return hj;
-		
 	}
 	
 	public int setEventID() {
-		return hj;
+		lastId += 1;
+		return lastId;
 	}
 }
