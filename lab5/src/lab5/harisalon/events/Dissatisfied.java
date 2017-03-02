@@ -43,25 +43,11 @@ public class Dissatisfied extends Event{
 			HaircutReady event = new HaircutReady(super.getSim(), tempTime, tempcos);
 		}
 		else {
-			if (state.addToDissQueue(this)){
+			if (state.addToVipQueue(this)){
 				
 			}
 		}
 		
-		public boolean addToDissQueue(Dissatisfied e){
-			if (queueList.size() < settings.getMaxQueue()) {
-				for(int i=0; i < queueList.size(); i ++){
-					if(queueList.get(i).getClass() == Dissatisfied){
-						queueList.add(e) // På position dissatisfied +1
-						return true;
-					}else{
-						queueList.add(e) //På position 0
-						return true;
-					}
-				}
-			}
-			return false;
-		}
 		
 		/*Kunden placeras f�rst i k�n, tiden f�r alla kunder i k�n m�ste �kas med tiden det kommer f�r
 		dissatisfied customer att klippa sig.
