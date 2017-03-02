@@ -21,6 +21,7 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	private HairsalonState state;
 	private EventStore eventStore;
 	private HairsalonSettings settings;
+	private boolean simInfo;
 	
 	/**
 	 * Starts up the simulation
@@ -31,7 +32,6 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	public HairsalonSimulation(Event[] startEvents, HairsalonState hairsalonState) {
 		super(startEvents, hairsalonState);
 		this.state = hairsalonState;
-		state.getParameters();
 	}
 		
 	/**
