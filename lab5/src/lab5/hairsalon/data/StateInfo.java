@@ -10,12 +10,12 @@ public class StateInfo {
 	public final Time timeIdle;
 	public final Time elapsedTime;
 	
-	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, double elapsedTime){
+	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, Time elapsedTime){
 		this.settings = settings;
 		this.customerList = customerList;
 		this.haircutList = haircutList;
 		this.queueList = queueList;
 		this.timeIdle = timeIdle;
-		this.elapsedTime = new Time(elapsedTime);
+		this.elapsedTime = elapsedTime;
 	}
 }

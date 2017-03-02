@@ -1,7 +1,5 @@
 package lab5.hairsalon.data;
 
-import java.util.ArrayList;
-
 import lab5.data.State;
 import lab5.data.Time;
 import lab5.hairsalon.random.*;
@@ -66,7 +64,7 @@ public class HairsalonState extends State {
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
 			Event e = queueList.next();
-			timeIdle.addTime(super.getElapsedTime()-e.getTime());
+			timeIdle.addTime(super.getElapsedTime().getElapsedTime()-e.getTime());
 		}
 	}
 	
@@ -98,7 +96,7 @@ public class HairsalonState extends State {
 	 * @return the time when the event should occur.
 	 */
 	public double setEventStartTime() {
-		return randomEnterTime.next() + super.getElapsedTime();
+		return randomEnterTime.next() + super.getElapsedTime().getElapsedTime();
 	}
 	/**
 	 * Vet ej vad den gör
@@ -110,7 +108,7 @@ public class HairsalonState extends State {
 	}
 	
 	public double setHaircutTime() {
-		return randomHaircutTime.next() + super.getElapsedTime();
+		return randomHaircutTime.next() + super.getElapsedTime().getElapsedTime();
 	}
 	
 	public int setEventID() {
