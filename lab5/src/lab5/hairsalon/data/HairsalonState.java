@@ -18,7 +18,6 @@ public class HairsalonState extends State {
 	private HairsalonSettings settings;
 	
 	private int numHaircut;
-	private int numWaiting;
 	
 	private CustomerList customerList;
 	private CustomerList haircutList;
@@ -26,7 +25,8 @@ public class HairsalonState extends State {
 	
 	private Time timeIdle;
 	private UniformRandomStream randomHaircutTime;
-	private ExponentialRandomStream randomNewEnter;
+	private UniformRandomStream randomEnterTime;
+	private ExponentialRandomStream randomNewCustomer;
 	
 	private int lastId;
 	
@@ -43,13 +43,20 @@ public class HairsalonState extends State {
 		queueList = new QueueList(settings.getMAX_CHAIRS());
 		
 		numHaircut = 0;
-		numWaiting = 0;
 		lastId = 0;
 		
 		timeIdle = new Time();
 		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), System.currentTimeMillis());
+		randomEnterTime = new UniformRandomStream(settings.getDmin(), settings.getDmax(), System.currentTimeMillis());
 		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerHour(), System.currentTimeMillis());
 		
+	}
+	
+	public void haircutFinished() {
+		numHaircut -= 1;
+		if (queueList.isEmpty() == false) {
+			queueList.next().effect(this);
+		}
 	}
 	
 	
@@ -57,6 +64,7 @@ public class HairsalonState extends State {
 		if (settings.getMAX_CHAIRS() - numHaircut > 0) {
 			numHaircut += 1;
 			haircutList.addCustomer(c);
+			return true;
 		} 
 		return false;
 	}
@@ -79,7 +87,7 @@ public class HairsalonState extends State {
 	 * @return the time when the event should occur.
 	 */
 	public double setEventStartTime() {
-		return ;
+		return randomEnterTime.next() + super.getElapsedTime();
 	}
 	
 	public double setHaircutTime() {
