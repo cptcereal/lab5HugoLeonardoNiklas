@@ -1,12 +1,14 @@
 package lab5.hairsalon.data;
 
+import lab5.data.PrintAble;
+
 
 /**
  * 
  * @author hugwan-6, leopel-6, inaule-6 
  *
  */
-public class CustomerList {
+public class CustomerList implements PrintAble{
 	private Node first;
 	private int numCustomers;
 	
@@ -51,6 +53,18 @@ public class CustomerList {
 		
 		public Node(Customer c) {
 			this.customer = c;
+		}
+	}
+
+	public void printAll() {
+		System.out.println("All Customers");
+		Node temp = first;
+		while(true) {
+			if (temp.customer == null) {
+				return;
+			}
+			System.out.print(" : " + temp.customer.getID());
+			temp = temp.next;
 		}
 	}
 }

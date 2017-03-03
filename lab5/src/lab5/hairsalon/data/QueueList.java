@@ -1,5 +1,6 @@
 package lab5.hairsalon.data;
 
+import lab5.data.PrintAble;
 import lab5.harisalon.events.Dissatisfied;
 import lab5.harisalon.events.Enter;
 import lab5.simulation.Event;
@@ -8,7 +9,7 @@ import lab5.simulation.Event;
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
-public class QueueList {
+public class QueueList implements PrintAble{
 	private Event[] queue;
 	private Dissatisfied[] vipQueue;
 	
@@ -81,5 +82,15 @@ public class QueueList {
 	 */
 	public boolean isEmpty() {
 		return (lastInQueue == 0 && lastInVIPQueue == 0);
+	}
+
+	public void printAll() {
+		System.out.println("Left in queue");
+		for (int i = 1; i <= lastInVIPQueue; i++) {
+			System.out.print(" : "+ i + ". " + vipQueue[i-1].getCustomer().getID());
+		}
+		for (int i = 1; i <= lastInQueue; i++) {
+			System.out.print(" : "+ lastInVIPQueue + i + ". " + vipQueue[i-1].getCustomer().getID());
+		}
 	}
 }

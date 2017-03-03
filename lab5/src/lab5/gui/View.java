@@ -1,5 +1,7 @@
 package lab5.gui;
 
+import lab5.data.PrintAble;
+
 
 /**
  * Displays the corresponding data to a specific simulation,i.e. important information crucial to the simulation
@@ -9,10 +11,10 @@ package lab5.gui;
 public class View {
 
 	
-	public View(Settings setting) {
+	public View(PrintAble setting) {
 		setting.printAll();
 	}
-	public void showDataOnView(Info info) {
-		info.printAll();
+	public void showDataOnView(PrintAble stateInfo) {
+		stateInfo.printAll();
 	}
 }

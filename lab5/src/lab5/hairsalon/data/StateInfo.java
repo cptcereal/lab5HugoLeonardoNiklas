@@ -1,6 +1,7 @@
 package lab5.hairsalon.data;
 
 import lab5.data.Time;
+import lab5.data.PrintAble;
 
 /**
  * All state info.
@@ -8,7 +9,7 @@ import lab5.data.Time;
  * @author inaule-6
  *
  */
-public class StateInfo {
+public class StateInfo implements PrintAble {
 	public final HairsalonSettings settings;
 	public final CustomerList customerList;
 	public final CustomerList haircutList;
@@ -23,5 +24,12 @@ public class StateInfo {
 		this.queueList = queueList;
 		this.timeIdle = timeIdle;
 		this.elapsedTime = elapsedTime;
+	}
+
+	public void printAll() {
+		settings.printAll();
+		customerList.printAll();
+		haircutList.printAll();
+		queueList.printAll();
 	}
 }
