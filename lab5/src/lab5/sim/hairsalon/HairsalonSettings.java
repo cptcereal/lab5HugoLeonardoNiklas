@@ -1,6 +1,6 @@
 package lab5.sim.hairsalon;
 
-import lab5.sim.general.PrintAble;
+import lab5.sim.general.GUI.PrintAble;
 
 /**
  * The settings of the hair salon simulation.

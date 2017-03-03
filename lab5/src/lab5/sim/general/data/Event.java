@@ -1,4 +1,6 @@
-package lab5.sim.general;
+package lab5.sim.general.data;
+
+import lab5.sim.general.main.Simulation;
 
 /**
  * Creates events based with a specified time and simulator

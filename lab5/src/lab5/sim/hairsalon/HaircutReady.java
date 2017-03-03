@@ -1,8 +1,8 @@
 package lab5.sim.hairsalon;
 
-import lab5.sim.general.Event;
-import lab5.sim.general.Simulation;
-import lab5.sim.general.Time;
+import lab5.sim.general.data.Event;
+import lab5.sim.general.data.Time;
+import lab5.sim.general.main.Simulation;
 
 /**
  * Represents what occurs when the salon is ready to cut a customers hair

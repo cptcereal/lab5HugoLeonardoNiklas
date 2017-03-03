@@ -1,7 +1,7 @@
 package lab5.sim.hairsalon;
 
-import lab5.sim.general.PrintAble;
-import lab5.sim.general.Time;
+import lab5.sim.general.GUI.PrintAble;
+import lab5.sim.general.data.Time;
 
 /**
  * All state info.

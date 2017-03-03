@@ -1,7 +1,7 @@
 package lab5.sim.hairsalon;
 
-import lab5.sim.general.Event;
-import lab5.sim.general.PrintAble;
+import lab5.sim.general.GUI.PrintAble;
+import lab5.sim.general.data.Event;
 /**
  * Create a queue to store elements in an orderly way
  * @author hugwan-6, leopel-6, inaule-6

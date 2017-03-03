@@ -1,4 +1,5 @@
-package lab5.sim.general;
+package lab5.sim.general.GUI;
+
 
 
 

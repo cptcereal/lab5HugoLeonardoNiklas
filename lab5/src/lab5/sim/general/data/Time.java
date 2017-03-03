@@ -1,4 +1,7 @@
-package lab5.sim.general;
+package lab5.sim.general.data;
+
+import lab5.sim.general.GUI.PrintAble;
+
 
 
 /**

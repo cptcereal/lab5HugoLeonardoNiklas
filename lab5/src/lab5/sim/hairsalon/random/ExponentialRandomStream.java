@@ -1,4 +1,4 @@
-package lab5.hairsalon.random;
+package lab5.sim.hairsalon.random;
 
 import java.util.Random;
 
