@@ -7,11 +7,12 @@ package lab5.gui;
  *
  */
 public class View {
+
 	
-	public View() {
-		
+	public View(Settings setting) {
+		setting.printAll();
 	}
-	public void showDataOnView() {
-		
+	public void showDataOnView(Info info) {
+		info.printAll();
 	}
 }

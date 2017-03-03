@@ -1,6 +1,5 @@
 package lab5.harisalon.events;
 
-import lab5.data.State;
 import lab5.data.Time;
 import lab5.hairsalon.data.Customer;
 import lab5.hairsalon.data.HairsalonState;
