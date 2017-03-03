@@ -1,11 +1,7 @@
-package lab5.simulation;
+package lab5.sim.general;
 
 import java.util.Observable;
 import java.util.Observer;
-import lab5.data.EventStore;
-import lab5.data.State;
-import lab5.gui.View;
-import lab5.sim.general.Event;
 
 /**
  * Runs the simulation

@@ -1,10 +1,8 @@
-package lab5.harisalon.events;
+package lab5.sim.hairsalon;
 
-import lab5.data.Time;
-import lab5.hairsalon.data.Customer;
-import lab5.hairsalon.data.HairsalonState;
 import lab5.sim.general.Event;
-import lab5.simulation.Simulation;
+import lab5.sim.general.Simulation;
+import lab5.sim.general.Time;
 
 /**
  * The event representing that a customer enters the hair salon

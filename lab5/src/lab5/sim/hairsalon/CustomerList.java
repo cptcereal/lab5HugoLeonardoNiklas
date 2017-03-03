@@ -1,6 +1,6 @@
-package lab5.hairsalon.data;
+package lab5.sim.hairsalon;
 
-import lab5.data.PrintAble;
+import lab5.sim.general.PrintAble;
 
 
 /**

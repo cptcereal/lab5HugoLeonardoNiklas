@@ -1,12 +1,8 @@
-package lab5.hairsalon.main;
+package lab5.sim.hairsalon;
 
-import lab5.data.State;
-import lab5.hairsalon.data.HairsalonSettings;
-import lab5.hairsalon.data.HairsalonState;
-import lab5.harisalon.events.Enter;
 import lab5.sim.general.Event;
-import lab5.sim.hairsalon.HairsalonSimulation;
-import lab5.simulation.Simulation;
+import lab5.sim.general.Simulation;
+import lab5.sim.general.State;
 
 /**
  * Creates a new hair salon simulation

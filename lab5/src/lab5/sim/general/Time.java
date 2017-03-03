@@ -1,4 +1,5 @@
-package lab5.data;
+package lab5.sim.general;
+
 
 /**
  * Saves elapsed time

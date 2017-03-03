@@ -2,13 +2,11 @@ package lab5.sim.hairsalon;
 
 import java.util.Observable;
 import java.util.Observer;
-import lab5.data.EventStore;
-import lab5.data.State;
-import lab5.hairsalon.data.HairsalonSettings;
-import lab5.hairsalon.data.HairsalonState;
 import lab5.sim.general.Event;
-import lab5.simulation.Simulation;
-import lab5.gui.View;
+import lab5.sim.general.EventStore;
+import lab5.sim.general.Simulation;
+import lab5.sim.general.State;
+import lab5.sim.general.View;
 
 /**
  * Runs the hair salon simulation

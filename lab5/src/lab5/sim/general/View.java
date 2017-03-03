@@ -1,6 +1,5 @@
-package lab5.gui;
+package lab5.sim.general;
 
-import lab5.data.PrintAble;
 
 
 /**
