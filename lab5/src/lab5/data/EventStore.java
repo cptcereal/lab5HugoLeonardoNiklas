@@ -1,7 +1,8 @@
 package lab5.data;
 
 import java.util.ArrayList;
-import lab5.simulation.Event;
+
+import lab5.sim.general.Event;
 
 /**
  * This class Stores events and

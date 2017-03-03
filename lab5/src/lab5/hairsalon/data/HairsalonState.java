@@ -4,7 +4,7 @@ import lab5.data.State;
 import lab5.data.Time;
 import lab5.hairsalon.random.*;
 import lab5.harisalon.events.*;
-import lab5.simulation.Event;
+import lab5.sim.general.Event;
 
 /**
  * 

@@ -2,7 +2,7 @@ package lab5.data;
 
 import java.util.Observable;
 
-import lab5.simulation.Event;
+import lab5.sim.general.Event;
 
 /**
  * Has the state of the simulator, info about time and running.

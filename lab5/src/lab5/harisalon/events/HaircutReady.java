@@ -3,7 +3,7 @@ package lab5.harisalon.events;
 import lab5.data.Time;
 import lab5.hairsalon.data.Customer;
 import lab5.hairsalon.data.HairsalonState;
-import lab5.simulation.Event;
+import lab5.sim.general.Event;
 import lab5.simulation.Simulation;
 
 /**

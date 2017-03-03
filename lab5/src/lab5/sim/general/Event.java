@@ -1,6 +1,7 @@
-package lab5.simulation;
+package lab5.sim.general;
 import lab5.data.State;
 import lab5.data.Time;
+import lab5.simulation.Simulation;
 
 /**
  * Creates events based with a specified time and simulator
