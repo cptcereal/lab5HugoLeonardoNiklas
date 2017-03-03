@@ -21,7 +21,7 @@ public class HaircutReady extends Event{
 	 * @param tempTime
 	 * @param ID
 	 */
-	public HaircutReady(Simulation sim, double tempTime, Customer customer) {
+	public HaircutReady(Simulation sim, Time tempTime, Customer customer) {
 		super(sim, tempTime);
 		this.customer = customer;
 	}
@@ -32,7 +32,13 @@ public class HaircutReady extends Event{
 	 * @param state
 	 */
 	public void effect(HairsalonState state){
-		
+		state.addTime(super.getTime());
+		if (state.dissatisfied()) {
+			Time tempTime = new Time(state.getElapsedTimeDouble() + state.setEventStartTime()); 
+			Customer tempcos = customer;
+			Dissatisfied event = new Dissatisfied(getSim(), tempTime, tempcos);
+			getSim().addToEventStore(event);
+		}
 	}
 	
 	/**

@@ -50,6 +50,9 @@ public class HairsalonState extends State {
 	}
 	
 	
+	public boolean dissatisfied() {
+		return true;
+	}
 	
 	public StateInfo getInfo() {
 		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, super.getElapsedTime());

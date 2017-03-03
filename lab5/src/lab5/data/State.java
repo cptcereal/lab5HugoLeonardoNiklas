@@ -57,6 +57,8 @@ public abstract class State extends Observable {
 	 * @param t
 	 */
 	public void addTime(double t) {
-		time.addTime(t- time.getElapsedTime());
+		if (t > time.getElapsedTime()) {
+			time.addTime(t- time.getElapsedTime());
+		}
 	} 
 }

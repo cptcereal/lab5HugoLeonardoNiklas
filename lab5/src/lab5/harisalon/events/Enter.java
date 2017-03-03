@@ -21,7 +21,7 @@ public class Enter extends Event{
 	 * @param time
 	 * @param ID
 	 */
-	public Enter(Simulation sim, int time, Customer customer) {
+	public Enter(Simulation sim, Time time, Customer customer) {
 		super(sim, time);
 		this.customer = customer;
 	}
@@ -32,22 +32,18 @@ public class Enter extends Event{
 	 */
 	public void effect(HairsalonState state){
 		/*The desired effect that enter has on the queue, state, and time*/
-		state.addCustomer(customer);
+		state.addTime(super.getTime());
 		if (state.addHaircut(customer)) {
-			double tempTime = state.setHaircutTime();
-			Time a = new Time(); 
-			a.addTime(state.getElapsedTime());
-			Customer tempcos = new Customer(state.setEventID(), a);
-			HaircutReady event = new HaircutReady(getSim(), tempTime, tempcos);
+			Time a = new Time(state.getElapsedTimeDouble() + state.setHaircutTime()); 
+			Customer tempcos = customer;
+			HaircutReady event = new HaircutReady(getSim(), a, tempcos);
 			getSim().addToEventStore(event);
 		}
 		else {
-			if (state.addToQueue(this)) {
-				
-			}
+			state.addToQueue(this);
 		}
 	}
-	
+
 	/**
 	 * Returns customer
 	 * @return

@@ -22,7 +22,7 @@ public class Dissatisfied extends Event{
 	 * @param sim
 	 * @param customer
 	 */
-	public Dissatisfied(int time, Simulation sim, Customer customer){
+	public Dissatisfied(Simulation sim, Time time, Customer customer){
 		super(sim, time);
 		this.customer = customer;
 	}

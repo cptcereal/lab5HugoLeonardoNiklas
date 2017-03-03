@@ -16,10 +16,9 @@ public abstract class Event {
 	 * @param sim
 	 * @param tempTime
 	 */
-	public Event(Simulation sim, double tempTime){
+	public Event(Simulation sim, Time tempTime){
 		sim = this.sim;
-		this.TIME = new Time();
-		TIME.addTime(tempTime);
+		this.TIME = tempTime;
 	} 
 	
 	/**
