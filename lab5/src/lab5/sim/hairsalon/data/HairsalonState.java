@@ -1,6 +1,5 @@
 package lab5.sim.hairsalon.data;
 
-import lab5.harisalon.events.*;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
