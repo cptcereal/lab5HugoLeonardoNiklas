@@ -1,4 +1,4 @@
-package lab5.sim.hairsalon;
+package lab5.sim.hairsalon.data;
 
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.data.Event;

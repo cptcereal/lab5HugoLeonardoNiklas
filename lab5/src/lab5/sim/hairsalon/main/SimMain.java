@@ -1,8 +1,8 @@
-package lab5.sim.hairsalon;
+package lab5.sim.hairsalon.main;
 
 import lab5.sim.general.data.Event;
+import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.State;
-import lab5.sim.general.main.Simulation;
 
 /**
  * Creates a new simulation

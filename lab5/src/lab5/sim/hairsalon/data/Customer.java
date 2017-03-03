@@ -1,4 +1,4 @@
-package lab5.sim.hairsalon;
+package lab5.sim.hairsalon.data;
 
 /**
  * A customer who has a id and time they entered the store

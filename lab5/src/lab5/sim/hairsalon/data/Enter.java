@@ -1,8 +1,8 @@
-package lab5.sim.hairsalon;
+package lab5.sim.hairsalon.data;
 
 import lab5.sim.general.data.Event;
+import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
-import lab5.sim.general.main.Simulation;
 
 /**
  * The event representing that a customer enters the hair salon
