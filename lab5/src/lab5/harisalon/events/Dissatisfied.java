@@ -33,21 +33,16 @@ public class Dissatisfied extends Event{
 	 * @param state
 	 */
 	public void effect(HairsalonState state){
-		state.addCustomer(customer);
+		state.addTime(super.getTime());
 		if (state.addHaircut(customer)) {
-			double tempTime = state.setEventStartTime();
-			Time a = new Time(); 
-			a.addTime(a.getElapsedTime());
-			Customer tempcos = new Customer(state.setEventID(), a.g);
-			HaircutReady event = new HaircutReady(super.getSim(), tempTime, tempcos);
+			Time a = new Time(state.setHaircutTime()); 
+			Customer tempcos = customer;
+			HaircutReady event = new HaircutReady(getSim(), a, tempcos);
+			getSim().addToEventStore(event);
 		}
 		else {
-			if (state.addToVipQueue(this)){
-				
-			}
+			state.addToVipQueue(this);
 		}
-		
-		
 		/*Kunden placeras f�rst i k�n, tiden f�r alla kunder i k�n m�ste �kas med tiden det kommer f�r
 		dissatisfied customer att klippa sig.
 		*/ 

@@ -33,8 +33,9 @@ public class HaircutReady extends Event{
 	 */
 	public void effect(HairsalonState state){
 		state.addTime(super.getTime());
+		state.haircutFinished();
 		if (state.dissatisfied()) {
-			Time tempTime = new Time(state.getElapsedTimeDouble() + state.setEventStartTime()); 
+			Time tempTime = new Time(state.setEventStartTime()); 
 			Customer tempcos = customer;
 			Dissatisfied event = new Dissatisfied(getSim(), tempTime, tempcos);
 			getSim().addToEventStore(event);
