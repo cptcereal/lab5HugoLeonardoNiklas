@@ -5,7 +5,7 @@ package lab5.data;
  * @author hugwan-6, leopel-6, inaule-6 
  *
  */
-public class Time {
+public class Time implements PrintAble{
 	private double elapsedTime;
 	
 	/**
@@ -33,5 +33,9 @@ public class Time {
 	 */
 	public double getElapsedTime() {
 		return elapsedTime;
+	}
+
+	public void printAll() {
+		System.out.println("Time :" + elapsedTime);
 	}
 }
