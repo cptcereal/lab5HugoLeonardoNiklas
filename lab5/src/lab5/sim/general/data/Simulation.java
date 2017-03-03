@@ -37,6 +37,9 @@ public abstract class Simulation implements Observer {
 	public void run() {
 		while(!eventStore.isEmpty()) {
 			state.startEvent(eventStore.nextEvent());
+			if (state.getStop()) {
+				break;
+			}
 		}
 	}
 	

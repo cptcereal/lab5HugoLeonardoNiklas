@@ -9,9 +9,8 @@ public class Stop extends Event {
 	public Stop(Simulation sim, Time tempTime) {
 		super(sim, tempTime);
 	}
-
+	
 	public void effect(HairsalonState state) {
 		state.stop();
 	}
-	
 }
