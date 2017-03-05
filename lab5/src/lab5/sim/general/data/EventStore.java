@@ -14,30 +14,42 @@ public class EventStore {
 	private ArrayList<Event> eventStore = new ArrayList<Event>();
 	private Node start, pre;
 	
+	/**
+	 * Inserts the start events.
+	 * 
+	 * @param startEvents the start events to insert
+	 */
 	public EventStore(Event[] startEvents) {
 		start = new Node();
 		pre = start;
 		for (int i = 0; i < startEvents.length; i++) {
 			if (start.next != null) {
-				if (start.next.time > startEvents[i].getTime()) {
-					Node tempNode = start.next;
-					start.next = new Node();
-					start.next.event = startEvents[i];
-					start.next.time = startEvents[i].getTime();
-					start.next.next = tempNode;
+				if (start.next.event.getTime() > startEvents[i].getTime()) {
+					Node newNode = new Node();
+					newNode.event = startEvents[i];
+					newNode.next = start.next;
+					start.next = newNode;
 				} else {
-					
+					while (pre.next != null) {
+						if (pre.next.event.getTime() > startEvents[i].getTime()) {
+							Node newNode = new Node();
+							newNode.event = startEvents[i];
+							newNode.next = pre.next;
+							pre.next = newNode;
+							pre = pre.next;
+						}
+					}
 				}
 			} else {
-				start.next = new Node();
-				start.next.event = startEvents[i];
-				start.next.time = startEvents[i].getTime();
+				Node newNode = new Node();
+				newNode.event = startEvents[i];
+				newNode.next = start.next;
+				start.next = newNode;
 			}
 		}
 	}
 	
 	private class Node {
-		private double time;
 		private Node next = null;
 		private Event event;
 	}
@@ -47,7 +59,17 @@ public class EventStore {
 	 * @param e 
 	 */
 	public void add(Event e){
-		eventStore.add(e);
+		while (pre.next != null) {
+			if (pre.next.event.getTime() > e.getTime()) {
+				Node newNode = new Node();
+				newNode.event = e;
+				newNode.next = pre.next;
+				pre.next = newNode;
+				pre = start;
+			} else {
+				pre = pre.next;
+			}
+		}
 	}
 	
 	/**
@@ -56,19 +78,24 @@ public class EventStore {
 	 * @throws 
 	 */
 	public Event nextEvent() throws IndexOutOfBoundsException {
-		if (eventStore.isEmpty()){
-			throw new IndexOutOfBoundsException("EventStore is empty");
+		if (isEmpty()) {
+			throw new IndexOutOfBoundsException("Event store is empty");
 		}
-		Event temp = eventStore.get(0);
-		eventStore.remove(0);
+		Event temp = start.next.event;	// Store the first event in queue
+		
+		// Rearrange the event store
+		start.next = start.next.next;
+		
 		return temp;
+
 	}
 	/**
 	 * Returns true if EventStore is empty, false otherwise.
-	 * @return
+	 * 
+	 * @return true if event store is empty
 	 */
 	public boolean isEmpty(){
-		return eventStore.isEmpty();
+		return start.next == null;
 	}
 }
 
