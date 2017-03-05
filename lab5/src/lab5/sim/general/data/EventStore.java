@@ -12,11 +12,34 @@ import java.util.ArrayList;
  */
 public class EventStore {
 	private ArrayList<Event> eventStore = new ArrayList<Event>();
-	// Fixa nod system, bygg p� Time klassen som h�ller tid HUGO fixar
+	private Node start, pre;
+	
 	public EventStore(Event[] startEvents) {
+		start = new Node();
+		pre = start;
 		for (int i = 0; i < startEvents.length; i++) {
-			eventStore.add(startEvents[i]);
+			if (start.next != null) {
+				if (start.next.time > startEvents[i].getTime()) {
+					Node tempNode = start.next;
+					start.next = new Node();
+					start.next.event = startEvents[i];
+					start.next.time = startEvents[i].getTime();
+					start.next.next = tempNode;
+				} else {
+					
+				}
+			} else {
+				start.next = new Node();
+				start.next.event = startEvents[i];
+				start.next.time = startEvents[i].getTime();
+			}
 		}
+	}
+	
+	private class Node {
+		private double time;
+		private Node next = null;
+		private Event event;
 	}
 
 	/**
