@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 /**
- * This class Stores events and
+ * This class Stores events.
  * 
  * @author hugwan-6, leopel-6, inaule-6 
  * 
@@ -20,34 +20,10 @@ public class EventStore {
 	 */
 	public EventStore(Event[] startEvents) {
 		start = new Node();
-		pre = start;
+		pre = start;	// The pre-pointer.
+		
 		for (int i = 0; i < startEvents.length; i++) {
-			pre = start;
-			if (start.next != null) {
-				while (pre.next != null) {
-					Node newNode = new Node();
-					newNode.event = startEvents[i];
-					if (pre.next.event.getTime() > startEvents[i].getTime()) {
-						newNode.next = pre.next;
-						pre.next = newNode;
-						break;
-					} else {
-						pre = pre.next;
-					}
-				}
-				
-				// If the events time is later than every other event in the event store.
-				Node newNode = new Node();
-				newNode.event = startEvents[i];
-				newNode.next = pre.next;
-				pre.next = newNode;
-			
-			} else {
-				Node newNode = new Node();
-				newNode.event = startEvents[i];
-				newNode.next = start.next;
-				start.next = newNode;
-			}
+			add(startEvents[i]);
 		}
 	}
 	
@@ -57,8 +33,9 @@ public class EventStore {
 	}
 
 	/**
-	 * Adds an event to EventStore in the last position.
-	 * @param e 
+	 * Adds an event to the event store depending on the time of the event.
+	 * 
+	 * @param e the event to add
 	 */
 	public void add(Event e){
 		while (pre.next != null) {
@@ -67,24 +44,24 @@ public class EventStore {
 				newNode.event = e;
 				newNode.next = pre.next;
 				pre.next = newNode;
-				break;
+				return;
 			} else {
-				pre = pre.next;
+				pre = pre.next;	// Continue forward.
 			}
 		}
 		
-		if (pre.next == null) {
-			Node newNode = new Node();
-			newNode.event = e;
-			newNode.next = pre.next;
-			pre.next = newNode;
-		}
+		// Add the event last in event store if we made it to the end without adding it.
+		Node newNode = new Node();
+		newNode.event = e;
+		newNode.next = pre.next;
+		pre.next = newNode;
 	}
 	
 	/**
 	 * Returns the first event and removes it from the EventStore
-	 * @return
-	 * @throws 
+	 * 
+	 * @return first event in the event store
+	 * @throws IndexOutOfBoundsException if the event store is empty
 	 */
 	public Event nextEvent() throws IndexOutOfBoundsException {
 		if (isEmpty()) {
@@ -92,11 +69,10 @@ public class EventStore {
 		}
 		Event temp = start.next.event;	// Store the first event in queue
 		
-		// Rearrange the event store
+		// Remove the first event
 		start.next = start.next.next;
-		
-		return temp;
 
+		return temp;
 	}
 	/**
 	 * Returns true if EventStore is empty, false otherwise.
