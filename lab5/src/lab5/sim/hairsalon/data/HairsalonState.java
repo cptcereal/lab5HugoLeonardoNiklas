@@ -112,7 +112,7 @@ public class HairsalonState extends State {
 	 * Använder håkans class
 	 * @return
 	 */
-	public double makeNewEneterEvent() {
+	public double makeNewEneterEventTime() {
 		return randomNewEnter.next();
 	}
 	
