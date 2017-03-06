@@ -1,7 +1,5 @@
 package lab5.sim.general.data;
 
-import java.util.ArrayList;
-
 
 
 /**
