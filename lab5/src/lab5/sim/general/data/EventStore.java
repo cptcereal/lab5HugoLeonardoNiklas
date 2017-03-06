@@ -11,7 +11,6 @@ import java.util.ArrayList;
  * 
  */
 public class EventStore {
-	private ArrayList<Event> eventStore = new ArrayList<Event>();
 	private Node start, pre;
 	
 	/**
