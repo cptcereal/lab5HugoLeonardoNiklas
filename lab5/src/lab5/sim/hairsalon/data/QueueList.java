@@ -108,6 +108,6 @@ public class QueueList implements PrintAble{
 	}
 	
 	public int getMaxNumWaiting(){
-		return maxNumWaiting;
+		return maxNumWaiting; 
 	}
 }

@@ -135,7 +135,7 @@ public class HairsalonState extends State {
 	}
 	
 	public int getNumHaircut(){
-		return numHaircut;
+		return numHaircut; 
 	}
 	
 	public int getNumCutCustomers(){

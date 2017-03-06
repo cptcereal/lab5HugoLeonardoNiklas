@@ -53,7 +53,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private double tIdle(){
-		return 2;
+		return 2; 
 	}
 
 	public void printAll() {
