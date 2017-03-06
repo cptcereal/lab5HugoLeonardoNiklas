@@ -6,7 +6,6 @@ import lab5.sim.general.GUI.View;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.EventStore;
 import lab5.sim.general.data.Simulation;
-import lab5.sim.general.data.State;
 
 /**
  * Runs the hair salon simulation
@@ -19,7 +18,6 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	private HairsalonState state;
 	private EventStore eventStore;
 	private HairsalonSettings settings;
-	private boolean simInfo;
 	
 	/**
 	 * Starts up the simulation
