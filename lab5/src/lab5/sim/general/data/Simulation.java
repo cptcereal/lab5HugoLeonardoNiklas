@@ -25,7 +25,6 @@ public abstract class Simulation implements Observer {
 	 */
 	public Simulation(Event[] startEvents, State state) {
 		this.state = state;
-		view = new View();	// WIP
 		eventStore = new EventStore(startEvents);
 		run();
 	}
