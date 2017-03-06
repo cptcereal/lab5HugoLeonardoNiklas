@@ -108,19 +108,23 @@ public class HairsalonState extends State {
 	}
 	
 	/**
-	 * Vet ej vad den gör
-	 * Använder håkans class
+	 *  Returns the time when the next customers comes. 
+	 *  
 	 * @return
 	 */
 	public double makeNewEneterEventTime() {
-		return randomNewEnter.next();
+		return randomNewEnter.next() + super.getElapsedTimeDouble();
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public double setHaircutTime() {
 		return randomHaircutTime.next() + super.getElapsedTimeDouble();
 	}
 	
-	public int setEventID() {
+	public int setCustoemrID() {
 		lastId += 1;
 		return lastId;
 	}

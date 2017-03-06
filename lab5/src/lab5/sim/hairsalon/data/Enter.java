@@ -32,9 +32,10 @@ public class Enter extends Event{
 		/*The desired effect that enter has on the queue, state, and time*/
 		if (state.isOpen()) {
 			if (state.addTime(super.getTime())) {
-				Time tempTime  = new Time(state.makeNewEneterEventTime() + state.getElapsedTimeDouble());
-				Customer tempCustomer = new Customer(state.setEventID());
+				Time tempTime  = new Time(state.makeNewEneterEventTime());
+				Customer tempCustomer = new Customer(state.setCustoemrID());
 				Enter tempEnter = new Enter(super.getSim(), tempTime, tempCustomer);
+				super.getSim().addToEventStore(tempEnter);
 			}
 			state.addCustomer(customer);
 			if (state.addHaircut(customer)) {
