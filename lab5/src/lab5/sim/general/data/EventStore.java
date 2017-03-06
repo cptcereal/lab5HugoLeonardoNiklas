@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 /**
- * This class Stores events and
+ * This class Stores events.
  * 
  * @author hugwan-6, leopel-6, inaule-6 
  * 
@@ -71,9 +71,8 @@ public class EventStore {
 		
 		// Remove the first event
 		start.next = start.next.next;
-		
-		return temp;
 
+		return temp;
 	}
 	/**
 	 * Returns true if EventStore is empty, false otherwise.
