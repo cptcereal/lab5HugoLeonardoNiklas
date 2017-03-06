@@ -18,6 +18,7 @@ public class HairsalonSettings implements PrintAble{
 	private final double CUSTOMERS_PER_HOUR = 5;
 	private final int MAX_QUEUE = 5;
 	private final int MAX_CHAIRS = 3;
+	private final long SEED = System.currentTimeMillis();
 	
 	public void printAll() {
 		System.out.println("H min = " + H_MIN);
@@ -25,6 +26,7 @@ public class HairsalonSettings implements PrintAble{
 		System.out.println("D min = " + D_MIN );
 		System.out.println("D max = " + D_MAX);
 		System.out.println("P = " + P);
+		System.out.println("Seed =" + SEED);
 		System.out.println("Closing time = " + CLOSING_TIME);
 		System.out.println("Customers per hour = " + CUSTOMERS_PER_HOUR);
 		System.out.println("Max queue = " + MAX_QUEUE);
@@ -110,5 +112,14 @@ public class HairsalonSettings implements PrintAble{
 	 */
 	public int getMAX_CHAIRS() {
 		return MAX_CHAIRS;
+	}
+	
+	/**
+	 * Returns the seed used in the simulations random functions
+	 * 
+	 * @return the seed
+	 */
+	public long getSEED() {
+		return SEED;
 	}
 }
