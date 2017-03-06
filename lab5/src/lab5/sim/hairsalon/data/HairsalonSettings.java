@@ -9,16 +9,45 @@ import lab5.sim.general.GUI.PrintAble;
  *
  */
 public class HairsalonSettings implements PrintAble{
-	private final double H_MIN = 20;
-	private final double H_MAX = 50;
-	private final double D_MIN = 10;
-	private final double D_MAX = 200;
-	private final double P = 0.2;
-	private final double CLOSING_TIME = 3000;
-	private final double CUSTOMERS_PER_TIMEUNIT = 5;
-	private final int MAX_QUEUE = 5;
-	private final int MAX_CHAIRS = 3;
-	private final long SEED = System.currentTimeMillis();
+	private final double H_MIN;
+	private final double H_MAX;
+	private final double D_MIN;
+	private final double D_MAX;
+	private final double P;
+	private final double CLOSING_TIME;
+	private final double CUSTOMERS_PER_TIMEUNIT;
+	private final int MAX_QUEUE;
+	private final int MAX_CHAIRS;
+	private final long SEED;
+	
+	
+	
+	public HairsalonSettings() {
+		H_MIN = 20;
+		H_MAX = 50;
+		D_MIN = 10;
+		D_MAX = 200;
+		P = 0.2;
+		CLOSING_TIME = 3000;
+		CUSTOMERS_PER_TIMEUNIT = 5;
+		MAX_QUEUE = 5;
+		MAX_CHAIRS = 3;
+		SEED = System.currentTimeMillis();
+	}
+	
+	public HairsalonSettings(String[] args) {
+		H_MIN = Double.parseDouble(args[0]);
+		H_MAX = Double.parseDouble(args[1]);
+		D_MIN = Double.parseDouble(args[2]);
+		D_MAX = Double.parseDouble(args[3]);
+		P = Double.parseDouble(args[4]);
+		CLOSING_TIME = Double.parseDouble(args[5]);
+		CUSTOMERS_PER_TIMEUNIT = Double.parseDouble(args[6]);
+		MAX_QUEUE = Integer.parseInt(args[7]);
+		MAX_CHAIRS = Integer.parseInt(args[8]);
+		SEED = Long.parseLong(args[9]);
+	}
+	
 	
 	public void printAll() {
 		System.out.println("Closing time of the day ..............: " + CLOSING_TIME);

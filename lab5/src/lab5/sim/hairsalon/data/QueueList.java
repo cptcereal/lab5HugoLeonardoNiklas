@@ -24,7 +24,7 @@ public class QueueList implements PrintAble{
 	}
 	
 	/**
-	 * Adds and event a queue, returns true if the event was added and false otherwise
+	 * Adds event to queue, returns true if the event was added and false otherwise
 	 * @param e
 	 * @return
 	 */
@@ -43,7 +43,7 @@ public class QueueList implements PrintAble{
 	
 	/**
 	 * Represents a queue consisting of disappointed customers
-	 * @param e
+	 * @param e 
 	 * @return
 	 */
 	public boolean addToVIPQueue(Dissatisfied e) {

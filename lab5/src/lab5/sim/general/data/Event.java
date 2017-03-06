@@ -24,9 +24,7 @@ public abstract class Event {
 	 * Makes a call to a specific Event depending on the specified state
 	 * @param state
 	 */
-	public void effect(State state){
-		//Needs to make a call to the appropriate effect depending on the state sent in 
-	} 
+	public abstract void effect(State state); 
 	
 	/**
 	 * Returns the value of a time for an object
