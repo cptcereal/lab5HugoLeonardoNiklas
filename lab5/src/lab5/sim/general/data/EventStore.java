@@ -20,7 +20,7 @@ public class EventStore {
 	 */
 	public EventStore(Event[] startEvents) {
 		start = new Node();
-		pre = start;
+		pre = start;	// The pre-pointer.
 		
 		for (int i = 0; i < startEvents.length; i++) {
 			add(startEvents[i]);
@@ -45,16 +45,15 @@ public class EventStore {
 				pre.next = newNode;
 				return;
 			} else {
-				pre = pre.next;
+				pre = pre.next;	// Continue forward.
 			}
 		}
 		
-		if (pre.next == null) {
-			Node newNode = new Node();
-			newNode.event = e;
-			newNode.next = pre.next;
-			pre.next = newNode;
-		}
+		// Add the event last in event store if we made it to the end without adding it.
+		Node newNode = new Node();
+		newNode.event = e;
+		newNode.next = pre.next;
+		pre.next = newNode;
 	}
 	
 	/**
