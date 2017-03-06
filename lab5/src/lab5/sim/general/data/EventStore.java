@@ -36,6 +36,7 @@ public class EventStore {
 					}
 				}
 				
+				// If the events time is later than every other event in the event store.
 				Node newNode = new Node();
 				newNode.event = startEvents[i];
 				newNode.next = pre.next;
