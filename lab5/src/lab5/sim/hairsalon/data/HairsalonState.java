@@ -22,7 +22,7 @@ public class HairsalonState extends State {
 	private int lastId;
 	
 	private UniformRandomStream randomHaircutTime;
-	private UniformRandomStream randomEnterTime;
+	private UniformRandomStream randomDissatisfied;
 	private ExponentialRandomStream randomNewEnter;
 	
 	
@@ -43,11 +43,18 @@ public class HairsalonState extends State {
 		
 		timeIdle = new Time();
 		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), System.currentTimeMillis());
-		randomEnterTime = new UniformRandomStream(settings.getDmin(), settings.getDmax(), System.currentTimeMillis());
+		randomDissatisfied = new UniformRandomStream(settings.getDmin(), settings.getDmax(), System.currentTimeMillis());
 		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerHour(), System.currentTimeMillis());
 		
 	}
 	
+	
+	public boolean isOpen() {
+		if (super.getStop()) {
+			return false;
+		}
+		return settings.getClosingTime() < super.getElapsedTimeDouble(); 
+	}
 	
 	public boolean dissatisfied() {
 		return true;
@@ -89,13 +96,19 @@ public class HairsalonState extends State {
 	}
 	
 	/**
-	 * Sets the time of when a event in the hair salon occurs.
+	 * Sets the time of when a Dissatisfied customer returns.
 	 * 
 	 * @return the time when the event should occur.
 	 */
-	public double setEventStartTime() {
-		return randomEnterTime.next() + super.getElapsedTimeDouble();
+	public double setDissatisfiedStartTime() {
+		return randomDissatisfied.next() + super.getElapsedTimeDouble();
 	}
+	
+	public boolean isDissatisfied() {
+		
+		return false;
+	}
+	
 	/**
 	 * Vet ej vad den gör
 	 * Använder håkans class
