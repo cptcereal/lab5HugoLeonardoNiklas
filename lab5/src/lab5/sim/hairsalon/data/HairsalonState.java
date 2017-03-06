@@ -43,10 +43,10 @@ public class HairsalonState extends State {
 		lastId = 0;
 		
 		timeIdle = new Time();
-		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), System.currentTimeMillis());
-		randomDissatisfiedTime = new UniformRandomStream(settings.getDmin(), settings.getDmax(), System.currentTimeMillis());
-		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerHour(), System.currentTimeMillis());
-		randomNewDissatisfied = new UniformRandomStream(0, 1, System.currentTimeMillis());
+		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), settings.getSEED());
+		randomDissatisfiedTime = new UniformRandomStream(settings.getDmin(), settings.getDmax(), settings.getSEED());
+		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerHour(), settings.getSEED());
+		randomNewDissatisfied = new UniformRandomStream(0, 1, settings.getSEED());
 		
 	}
 	
