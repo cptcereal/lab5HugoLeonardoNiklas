@@ -22,16 +22,25 @@ public class EventStore {
 		start = new Node();
 		pre = start;
 		for (int i = 0; i < startEvents.length; i++) {
+			pre = start;
 			if (start.next != null) {
 				while (pre.next != null) {
+					Node newNode = new Node();
+					newNode.event = startEvents[i];
 					if (pre.next.event.getTime() > startEvents[i].getTime()) {
-						Node newNode = new Node();
-						newNode.event = startEvents[i];
 						newNode.next = pre.next;
 						pre.next = newNode;
+						break;
+					} else {
 						pre = pre.next;
 					}
 				}
+				
+				Node newNode = new Node();
+				newNode.event = startEvents[i];
+				newNode.next = pre.next;
+				pre.next = newNode;
+			
 			} else {
 				Node newNode = new Node();
 				newNode.event = startEvents[i];
