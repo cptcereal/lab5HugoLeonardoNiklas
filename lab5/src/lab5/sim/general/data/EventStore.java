@@ -11,7 +11,6 @@ import java.util.ArrayList;
  * 
  */
 public class EventStore {
-	private ArrayList<Event> eventStore = new ArrayList<Event>();
 	private Node start, pre;
 	
 	/**
@@ -24,20 +23,13 @@ public class EventStore {
 		pre = start;
 		for (int i = 0; i < startEvents.length; i++) {
 			if (start.next != null) {
-				if (start.next.event.getTime() > startEvents[i].getTime()) {
-					Node newNode = new Node();
-					newNode.event = startEvents[i];
-					newNode.next = start.next;
-					start.next = newNode;
-				} else {
-					while (pre.next != null) {
-						if (pre.next.event.getTime() > startEvents[i].getTime()) {
-							Node newNode = new Node();
-							newNode.event = startEvents[i];
-							newNode.next = pre.next;
-							pre.next = newNode;
-							pre = pre.next;
-						}
+				while (pre.next != null) {
+					if (pre.next.event.getTime() > startEvents[i].getTime()) {
+						Node newNode = new Node();
+						newNode.event = startEvents[i];
+						newNode.next = pre.next;
+						pre.next = newNode;
+						pre = pre.next;
 					}
 				}
 			} else {
