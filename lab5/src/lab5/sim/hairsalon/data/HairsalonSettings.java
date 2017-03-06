@@ -14,7 +14,7 @@ public class HairsalonSettings implements PrintAble{
 	private final double D_MIN = 10;
 	private final double D_MAX = 200;
 	private final double P = 0.2;
-	private final int CLOSING_TIME = 3000;
+	private final double CLOSING_TIME = 3000;
 	private final double CUSTOMERS_PER_HOUR = 5;
 	private final int MAX_QUEUE = 5;
 	private final int MAX_CHAIRS = 3;
@@ -81,7 +81,7 @@ public class HairsalonSettings implements PrintAble{
 	 * 
 	 * @return the closing time
 	 */
-	public int getClosingTime() {
+	public double getClosingTime() {
 		return CLOSING_TIME;
 	}
 	
