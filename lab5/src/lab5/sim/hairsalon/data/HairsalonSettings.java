@@ -1,6 +1,9 @@
 package lab5.sim.hairsalon.data;
 
+import lab5.sim.general.data.Event;
+
 import lab5.sim.general.GUI.PrintAble;
+import lab5.sim.hairsalon.main.SimMain;
 
 /**
  * The settings of the hair salon simulation.
@@ -31,6 +34,9 @@ public class HairsalonSettings implements PrintAble{
 		System.out.println("Seed used in pseudo random generator .: " + SEED);
 		System.out.println("----------------------------------------------------------------");
 		System.out.println("- Time  Event      Id  Idle  TIdle  TWait  InQ  Cut  Lost  Ret -");
+		System.out.println("  StartHSS");
+		
+		
 	}
 	
 	/**
