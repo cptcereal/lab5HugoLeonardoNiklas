@@ -21,33 +21,9 @@ public class EventStore {
 	public EventStore(Event[] startEvents) {
 		start = new Node();
 		pre = start;
+		
 		for (int i = 0; i < startEvents.length; i++) {
-			pre = start;
-			if (start.next != null) {
-				while (pre.next != null) {
-					Node newNode = new Node();
-					newNode.event = startEvents[i];
-					if (pre.next.event.getTime() > startEvents[i].getTime()) {
-						newNode.next = pre.next;
-						pre.next = newNode;
-						break;
-					} else {
-						pre = pre.next;
-					}
-				}
-				
-				// If the events time is later than every other event in the event store.
-				Node newNode = new Node();
-				newNode.event = startEvents[i];
-				newNode.next = pre.next;
-				pre.next = newNode;
-			
-			} else {
-				Node newNode = new Node();
-				newNode.event = startEvents[i];
-				newNode.next = start.next;
-				start.next = newNode;
-			}
+			add(startEvents[i]);
 		}
 	}
 	
@@ -67,7 +43,7 @@ public class EventStore {
 				newNode.event = e;
 				newNode.next = pre.next;
 				pre.next = newNode;
-				break;
+				return;
 			} else {
 				pre = pre.next;
 			}
