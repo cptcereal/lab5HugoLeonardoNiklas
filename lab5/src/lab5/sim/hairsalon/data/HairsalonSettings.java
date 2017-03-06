@@ -30,8 +30,7 @@ public class HairsalonSettings implements PrintAble{
 		System.out.println("Risk dissatisfied returns: ...........: " + P);
 		System.out.println("Seed used in pseudo random generator .: " + SEED);
 		System.out.println("----------------------------------------------------------------");
-		System.out.println("- Time  Event      Id  Idle  TIdle  TWait  InQ  Cut  Lost  Ret -");
-		System.out.println( "  StartHSS");
+
 		
 		
 	}

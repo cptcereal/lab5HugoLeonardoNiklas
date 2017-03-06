@@ -13,12 +13,14 @@ public class QueueList implements PrintAble{
 	
 	private int lastInQueue;
 	private int lastInVIPQueue;
+	private int maxNumWaiting;
 	
 	public QueueList(int maxQueue) {
 		queue = new Event[maxQueue];
 		vipQueue = new Dissatisfied[maxQueue];
 		lastInQueue = 0;
 		lastInVIPQueue = 0;
+		maxNumWaiting = 0;
 	}
 	
 	/**
@@ -30,6 +32,10 @@ public class QueueList implements PrintAble{
 		if (lastInQueue + lastInVIPQueue < queue.length) {
 			queue[lastInQueue] = e;
 			lastInQueue += 1;
+			
+			if (lastInQueue + lastInVIPQueue > maxNumWaiting) {
+				maxNumWaiting = lastInQueue + lastInVIPQueue;
+			}
 			return true;
 		}
 		return false;
@@ -44,8 +50,13 @@ public class QueueList implements PrintAble{
 		if (lastInVIPQueue < vipQueue.length) {
 			vipQueue[lastInQueue] = e;
 			lastInVIPQueue += 1;
+			
 			if (lastInQueue + lastInVIPQueue >= queue.length) {
 				lastInQueue -= 1;
+			}
+			
+			if (lastInQueue + lastInVIPQueue > maxNumWaiting) {
+				maxNumWaiting = lastInQueue + lastInVIPQueue;
 			}
 			return true;
 		}
@@ -90,5 +101,13 @@ public class QueueList implements PrintAble{
 		for (int i = 1; i <= lastInQueue; i++) {
 			System.out.print(" : "+ lastInVIPQueue + i + ". " + vipQueue[i-1].getCustomer().getID());
 		}
+	}
+	
+	public int getQueueSize(){
+		return lastInQueue + lastInVIPQueue;
+	}
+	
+	public int getMaxNumWaiting(){
+		return maxNumWaiting;
 	}
 }

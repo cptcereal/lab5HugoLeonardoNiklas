@@ -15,7 +15,7 @@ public class Start extends Event{
 	
 	public void effect(HairsalonState state) {
 		sim.printSettings();
-		Time tempTime = new Time(state.makeNewEneterEventTime());
+		Time tempTime = new Time(state.makeNewEnterEventTime());
 		Customer c = new Customer(state.setCustoemrID());
 		Enter e = new Enter(getSim(), tempTime, c);
 		getSim().addToEventStore(e);

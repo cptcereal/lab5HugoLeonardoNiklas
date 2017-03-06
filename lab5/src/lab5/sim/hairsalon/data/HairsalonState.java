@@ -16,7 +16,7 @@ public class HairsalonState extends State {
 	private CustomerList customerList;
 	private CustomerList haircutList;
 	private QueueList queueList;
-	private Time timeIdle;
+	private Time timeWaiting;
 	
 	private int numHaircut;
 	private int lastId;
@@ -42,7 +42,7 @@ public class HairsalonState extends State {
 		numHaircut = 0;
 		lastId = 0;
 		
-		timeIdle = new Time();
+		timeWaiting = new Time();
 		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), settings.getSEED());
 		randomDissatisfiedTime = new UniformRandomStream(settings.getDmin(), settings.getDmax(), settings.getSEED());
 		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerTimeUnit(), settings.getSEED());
@@ -60,7 +60,7 @@ public class HairsalonState extends State {
 	
 	
 	public StateInfo getInfo(Event e) {
-		StateInfo info = new StateInfo(e, settings, customerList, haircutList, queueList, timeIdle, super.getElapsedTime());
+		StateInfo info = new StateInfo( settings, customerList, haircutList, queueList, timeWaiting, super.getElapsedTime(), e,this);
 		return info;
 	}
 	
@@ -68,7 +68,7 @@ public class HairsalonState extends State {
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
 			Event e = queueList.next();
-			timeIdle.addTime(super.getElapsedTimeDouble() * 2 -e.getTime());
+			timeWaiting.addTime(super.getElapsedTimeDouble() * 2 -e.getTime());
 			e.effect(this);
 		}
 	}
@@ -117,7 +117,7 @@ public class HairsalonState extends State {
 	 *  
 	 * @return
 	 */
-	public double makeNewEneterEventTime() {
+	public double makeNewEnterEventTime() {
 		return randomNewEnter.next() + super.getElapsedTimeDouble();
 	}
 	
@@ -132,5 +132,17 @@ public class HairsalonState extends State {
 	public int setCustoemrID() {
 		lastId += 1;
 		return lastId;
+	}
+	
+	public int getNumHaircut(){
+		return numHaircut;
+	}
+	
+	public int getNumCutCustomers(){
+		return  haircutList.numCustomers();
+	}
+	
+	public int getCustomerList(){
+		return  customerList.numCustomers();
 	}
 }
