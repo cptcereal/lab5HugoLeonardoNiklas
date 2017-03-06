@@ -37,4 +37,4 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	public void update(Observable o, Object arg) {
 		
 	}
-}
+} 

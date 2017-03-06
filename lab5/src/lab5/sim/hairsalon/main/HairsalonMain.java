@@ -21,13 +21,13 @@ public class HairsalonMain {
 	 * @param The settings of the hairsalon
 	 */
 	public static void main(String[] args) {
-		
+		HairsalonSettings hairsalonSettings;
 		if (args.length != 10) {
-			HairsalonSettings hairsalonSettings = new HairsalonSettings();
+			hairsalonSettings = new HairsalonSettings();
 		} else {
-			HairsalonSettings hairsalonSettings = new HairsalonSettings(args);
-			HairsalonState hairsalonState = new HairsalonState(hairsalonSettings);
-			HairsalonSimulation sim = new HairsalonSimulation( hairsalonState);
+			hairsalonSettings = new HairsalonSettings(args);
 		}
+		HairsalonState hairsalonState = new HairsalonState(hairsalonSettings);
+		HairsalonSimulation sim = new HairsalonSimulation(hairsalonState);
 	}
 }
