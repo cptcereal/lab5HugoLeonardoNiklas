@@ -27,7 +27,6 @@ public class StateInfo implements PrintAble {
 	}
 
 	public void printAll() {
-		settings.printAll();
 		customerList.printAll();
 		haircutList.printAll();
 		queueList.printAll();

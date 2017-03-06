@@ -13,11 +13,11 @@ public abstract class Event {
 	/**
 	 * Creates an Event object with specified simulation and time values
 	 * @param sim
-	 * @param tempTime
+	 * @param time
 	 */
-	public Event(Simulation sim, Time tempTime){
+	public Event(Simulation sim, Time time){
 		sim = this.sim;
-		this.TIME = tempTime;
+		this.TIME = time;
 	} 
 	
 	/**
