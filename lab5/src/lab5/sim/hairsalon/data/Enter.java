@@ -30,16 +30,18 @@ public class Enter extends Event{
 	 */
 	public void effect(HairsalonState state){
 		/*The desired effect that enter has on the queue, state, and time*/
-		state.addTime(super.getTime());
-		state.addCustomer(customer);
-		if (state.addHaircut(customer)) {
-			Time a = new Time(state.setHaircutTime()); 
-			Customer tempcos = customer;
-			HaircutReady event = new HaircutReady(getSim(), a, tempcos);
-			getSim().addToEventStore(event);
-		}
-		else {
-			state.addToQueue(this);
+		if (state.isOpen()) {
+			state.addTime(super.getTime());
+			state.addCustomer(customer);
+			if (state.addHaircut(customer)) {
+				Time a = new Time(state.setHaircutTime()); 
+				Customer tempcos = customer;
+				HaircutReady event = new HaircutReady(getSim(), a, tempcos);
+				getSim().addToEventStore(event);
+			}
+			else {
+				state.addToQueue(this);
+			}
 		}
 	}
 
