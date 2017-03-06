@@ -5,7 +5,7 @@ import lab5.sim.general.data.Time;
 
 /**
  * All state info.
- * Vet inte om den behövs.
+ * 
  * @author inaule-6
  *
  */
