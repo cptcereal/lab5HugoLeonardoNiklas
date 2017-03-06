@@ -21,15 +21,15 @@ public class HairsalonSettings implements PrintAble{
 	private final long SEED = System.currentTimeMillis();
 	
 	public void printAll() {
-		System.out.println("H min = " + H_MIN);
-		System.out.println("H max = " + H_MAX);
-		System.out.println("D min = " + D_MIN );
-		System.out.println("D max = " + D_MAX);
-		System.out.println("P = " + P);
+		System.out.println("Haircut min time = " + H_MIN);
+		System.out.println("Haircut max time = " + H_MAX);
+		System.out.println("Dissatisfied min time = " + D_MIN );
+		System.out.println("Dissatisfied max time = " + D_MAX);
+		System.out.println("P dissatisfied = " + P);
 		System.out.println("Seed =" + SEED);
 		System.out.println("Closing time = " + CLOSING_TIME);
 		System.out.println("Customers per hour = " + CUSTOMERS_PER_HOUR);
-		System.out.println("Max queue = " + MAX_QUEUE);
+		System.out.println("Max customers queue = " + MAX_QUEUE);
 		System.out.println("Max chairs = " + MAX_CHAIRS);
 	}
 	
