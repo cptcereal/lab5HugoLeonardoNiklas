@@ -6,8 +6,8 @@ import lab5.sim.general.data.Time;
 
 public class Stop extends Event {
 
-	public Stop(Simulation sim, Time tempTime) {
-		super(sim, tempTime);
+	public Stop(Simulation sim, Time time) {
+		super(sim, time);
 	}
 	
 	public void effect(HairsalonState state) {
