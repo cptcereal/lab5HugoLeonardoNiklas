@@ -22,7 +22,8 @@ public class HairsalonState extends State {
 	private int lastId;
 	
 	private UniformRandomStream randomHaircutTime;
-	private UniformRandomStream randomDissatisfied;
+	private UniformRandomStream randomDissatisfiedTime;
+	private UniformRandomStream randomNewDissatisfied;
 	private ExponentialRandomStream randomNewEnter;
 	
 	
@@ -43,8 +44,9 @@ public class HairsalonState extends State {
 		
 		timeIdle = new Time();
 		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), System.currentTimeMillis());
-		randomDissatisfied = new UniformRandomStream(settings.getDmin(), settings.getDmax(), System.currentTimeMillis());
+		randomDissatisfiedTime = new UniformRandomStream(settings.getDmin(), settings.getDmax(), System.currentTimeMillis());
 		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerHour(), System.currentTimeMillis());
+		randomNewDissatisfied = new UniformRandomStream(0, 1, System.currentTimeMillis());
 		
 	}
 	
@@ -99,11 +101,14 @@ public class HairsalonState extends State {
 	 * @return the time when the event should occur.
 	 */
 	public double setDissatisfiedStartTime() {
-		return randomDissatisfied.next() + super.getElapsedTimeDouble();
+		return randomDissatisfiedTime.next() + super.getElapsedTimeDouble();
 	}
 	
 	public boolean dissatisfied() {
-		
+		double temp = randomNewDissatisfied.next();
+		if (temp <= settings.getP()) {
+			return true;
+		}
 		return false;
 	}
 	
