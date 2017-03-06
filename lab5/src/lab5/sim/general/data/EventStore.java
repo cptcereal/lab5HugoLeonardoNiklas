@@ -33,8 +33,9 @@ public class EventStore {
 	}
 
 	/**
-	 * Adds an event to EventStore in the last position.
-	 * @param e 
+	 * Adds an event to the event store depending on the time of the event.
+	 * 
+	 * @param e the event to add
 	 */
 	public void add(Event e){
 		while (pre.next != null) {
@@ -58,8 +59,9 @@ public class EventStore {
 	
 	/**
 	 * Returns the first event and removes it from the EventStore
-	 * @return
-	 * @throws 
+	 * 
+	 * @return first event in the event store
+	 * @throws IndexOutOfBoundsException if the event store is empty
 	 */
 	public Event nextEvent() throws IndexOutOfBoundsException {
 		if (isEmpty()) {
@@ -67,7 +69,7 @@ public class EventStore {
 		}
 		Event temp = start.next.event;	// Store the first event in queue
 		
-		// Rearrange the event store
+		// Remove the first event
 		start.next = start.next.next;
 		
 		return temp;
