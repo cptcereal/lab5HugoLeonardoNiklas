@@ -67,10 +67,17 @@ public class EventStore {
 				newNode.event = e;
 				newNode.next = pre.next;
 				pre.next = newNode;
-				pre = start;
+				break;
 			} else {
 				pre = pre.next;
 			}
+		}
+		
+		if (pre.next == null) {
+			Node newNode = new Node();
+			newNode.event = e;
+			newNode.next = pre.next;
+			pre.next = newNode;
 		}
 	}
 	
