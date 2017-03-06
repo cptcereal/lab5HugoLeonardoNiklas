@@ -56,9 +56,6 @@ public class HairsalonState extends State {
 		return settings.getClosingTime() < super.getElapsedTimeDouble(); 
 	}
 	
-	public boolean dissatisfied() {
-		return true;
-	}
 	
 	public StateInfo getInfo() {
 		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, super.getElapsedTime());
@@ -69,7 +66,8 @@ public class HairsalonState extends State {
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
 			Event e = queueList.next();
-			timeIdle.addTime(super.getElapsedTimeDouble()-e.getTime());
+			timeIdle.addTime(super.getElapsedTimeDouble() * 2 -e.getTime());
+			e.effect(this);
 		}
 	}
 	
@@ -104,7 +102,7 @@ public class HairsalonState extends State {
 		return randomDissatisfied.next() + super.getElapsedTimeDouble();
 	}
 	
-	public boolean isDissatisfied() {
+	public boolean dissatisfied() {
 		
 		return false;
 	}

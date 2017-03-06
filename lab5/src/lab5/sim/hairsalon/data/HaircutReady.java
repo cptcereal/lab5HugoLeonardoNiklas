@@ -32,7 +32,7 @@ public class HaircutReady extends Event{
 		state.addTime(super.getTime());
 		state.haircutFinished();
 		if (state.dissatisfied()) {
-			Time tempTime = new Time(state.setEventStartTime()); 
+			Time tempTime = new Time(state.setDissatisfiedStartTime()); 
 			Customer tempcos = customer;
 			Dissatisfied event = new Dissatisfied(getSim(), tempTime, tempcos);
 			getSim().addToEventStore(event);
