@@ -5,7 +5,7 @@ import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
 
-public class Closing extends Event implements PrintAble{
+public class Closing extends Event{
 
 	public Closing(Simulation sim, Time time) {
 		super(sim, time);
@@ -16,11 +16,8 @@ public class Closing extends Event implements PrintAble{
 		state.addtimewaiting(this);
 		state.calculateIdleTime(getTime());
 		state.addTime(super.getTime());
-		super.getSim().printInfo(this);
+		StateInfo info = state.getInfo(this);
+		super.getSim().printInfo(info);
 	}
 
-	public void printAll() {
-		HairsalonState state = ((HairsalonState)getSim().getState());
-		System.out.println(state.getElapsedTimeDouble() +" Closing");	
-	}
 }

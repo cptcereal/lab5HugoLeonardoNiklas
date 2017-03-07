@@ -107,5 +107,9 @@ public class StateInfo implements PrintAble {
 		else if(event.getClass().equals(Enter.class)) {
 			System.out.format("%6.2f %2s %5s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
+
+		else if(event.getClass().equals(Closing.class)) {
+			System.out.format("%6.2f %2s %n", elapsedTime.getElapsedTime(), eventName());
+		}
 	}
 }
