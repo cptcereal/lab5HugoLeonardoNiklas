@@ -144,20 +144,4 @@ public class HairsalonState extends State {
 		lastId += 1;
 		return lastId;
 	}
-	
-	public int getNumHaircut(){
-		return numHaircut; 
-	}
-	
-	public int getNumCutCustomers(){
-		return  haircutList.numCustomers();
-	}
-	
-	public int getCustomerList(){
-		return  customerList.numCustomers();
-	}
-	
-	public int getNumReturning(){
-		return dissatisfiedList.numCustomers();
-	}
 }
