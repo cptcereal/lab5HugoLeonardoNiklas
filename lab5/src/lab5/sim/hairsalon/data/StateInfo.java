@@ -66,7 +66,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private double averageCuttingTime() {
-		return (elapsedTime.getElapsedTime() - tIdle()) / numCut();
+		return ((elapsedTime.getElapsedTime() * settings.getMAX_CHAIRS()) - tIdle()) / numCut();
 	}
 	
 	private double averageQueueTime() {
