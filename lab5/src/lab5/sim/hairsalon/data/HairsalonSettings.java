@@ -143,7 +143,7 @@ public class HairsalonSettings implements PrintAble{
 	}
 	
 	/**
-	 * Returns the seed used in the simulations random functions
+	 * Returns the seed used in the simulations pseudo random generators
 	 * 
 	 * @return the seed
 	 */
