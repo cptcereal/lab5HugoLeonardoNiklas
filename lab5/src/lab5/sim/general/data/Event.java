@@ -43,7 +43,7 @@ public abstract class Event {
 	}
 	
 	public String toString() {
-		String s = this.getClass().getName();
+		String s = this.getClass().getSimpleName();
 		return s;
 	}
 }

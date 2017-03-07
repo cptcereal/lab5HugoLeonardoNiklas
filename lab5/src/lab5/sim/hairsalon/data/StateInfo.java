@@ -68,9 +68,9 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private int customerID(){
-		if(eventName() == "Enter") {
+		if(event.getClass().equals(Enter.class)) {
 			return ((Enter) event).getCustomer().getID();
-		} else if (eventName() == "HaircutReady") {
+		} else if (event.getClass().equals(HaircutReady.class)) {
 			return ((HaircutReady) event).getCustomer().getID();
 		} else {
 			return ((Dissatisfied) event).getCustomer().getID();
@@ -78,14 +78,13 @@ public class StateInfo implements PrintAble {
 	}
 
 	public void printAll() {
-		System.out.print("hugo ");
-		if(eventName() == "Start"){
-			System.out.format("%s %2s %10s %5s %5s %5s %5s %5s %5s %5s %5s", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
-			System.out.format("%.2f %2s", elapsedTime, eventName());
-		}else if(eventName() == "Stop"){
-			System.out.format("%.2f %2s ", elapsedTime, eventName(), idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
+		if(event.getClass().equals(Start.class)){
+			System.out.format("%s %2s %10s %5s %5s %5s %5s %5s %5s %5s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
+			System.out.format("%.2f %2s %n", elapsedTime.getElapsedTime(), eventName());
+		}else if(event.getClass().equals(Stop.class)){
+			System.out.format("%.2f %2s %n", elapsedTime.getElapsedTime(), eventName(), idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
 		}else{
-			System.out.format("%.2f %2s ", elapsedTime, eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%.2f %2s %10s %5s %5s %5s %5s %5s %5s %5s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
 		}
 	}
 }

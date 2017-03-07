@@ -17,13 +17,18 @@ public class EventStore {
 	 * @param startEvents the start events to insert
 	 */
 	public EventStore() {
-		start = new Node();
+		start = new Node(null);
 		pre = start;	// The pre-pointer.
 	}
 	
 	private class Node {
-		private Node next = null;
-		private Event event;
+		private Node next;
+		private final Event event;
+		
+		public Node(Event e) {
+			this.event = e;
+			next = null;
+		}
 	}
 
 	/**
@@ -32,10 +37,10 @@ public class EventStore {
 	 * @param e the event to add
 	 */
 	public void add(Event e){
+		pre = start;
 		while (pre.next != null) {
 			if (pre.next.event.getTime() > e.getTime()) {
-				Node newNode = new Node();
-				newNode.event = e;
+				Node newNode = new Node(e);
 				newNode.next = pre.next;
 				pre.next = newNode;
 				return;
@@ -45,8 +50,7 @@ public class EventStore {
 		}
 		
 		// Add the event last in event store if we made it to the end without adding it.
-		Node newNode = new Node();
-		newNode.event = e;
+		Node newNode = new Node(e);
 		newNode.next = pre.next;
 		pre.next = newNode;
 	}
@@ -75,6 +79,9 @@ public class EventStore {
 	 */
 	public boolean isEmpty(){
 		return start.next == null;
+	}
+	public void print(Event e) {
+		System.out.println(e.toString());
 	}
 }
 

@@ -23,16 +23,16 @@ public class HairsalonSettings implements PrintAble{
 	
 	
 	public HairsalonSettings() {
-		H_MIN = 20;
-		H_MAX = 50;
-		D_MIN = 10;
-		D_MAX = 200;
-		P = 0.2;
-		CLOSING_TIME = 3000;
-		CUSTOMERS_PER_TIMEUNIT = 5;
-		MAX_QUEUE = 5;
-		MAX_CHAIRS = 3;
-		SEED = System.currentTimeMillis();
+		H_MIN = 1.0;
+		H_MAX = 2.0;
+		D_MIN = 1.0;
+		D_MAX = 2.0;
+		P = 0.5;
+		CLOSING_TIME = 7.0;
+		CUSTOMERS_PER_TIMEUNIT = 1.2;
+		MAX_QUEUE = 2;
+		MAX_CHAIRS = 2;
+		SEED = 1116;
 	}
 	
 	public HairsalonSettings(String[] args) {

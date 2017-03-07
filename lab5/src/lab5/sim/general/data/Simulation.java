@@ -37,7 +37,8 @@ public class Simulation {
 	 */
 	public void run() {
 		while(!eventStore.isEmpty()) {
-			state.startEvent(eventStore.nextEvent());
+			Event e = eventStore.nextEvent();
+			state.startEvent(e);
 			if (state.getStop()) {
 				break;
 			}

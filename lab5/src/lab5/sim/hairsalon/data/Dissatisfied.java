@@ -29,9 +29,10 @@ public class Dissatisfied extends Event{
 	 * customer creates changes in the queue, which by itself creates changes to the time elapsed
 	 * @param state
 	 */
-	public void effect(State state){
+	public void effect(){
+		HairsalonState state = ((HairsalonState)getSim().getState());
 		((HairsalonState) state).calculateIdleTime(getTime());
-		StateInfo info = ((HairsalonState) state).getInfo(this, customer);
+		StateInfo info = ((HairsalonState) state).getInfo(this);
 		super.getSim().printInfo(info);
 		state.addTime(super.getTime());
 		if (((HairsalonState) state).addHaircut(customer)) {

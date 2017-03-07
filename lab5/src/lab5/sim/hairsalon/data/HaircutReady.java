@@ -29,11 +29,14 @@ public class HaircutReady extends Event{
 	 * the queue, time elapsed, the time in queue 
 	 * @param state
 	 */
-	public void effect(State state){
-		((HairsalonState) state).calculateIdleTime(getTime());
-		StateInfo info = ((HairsalonState) state).getInfo(this, customer);
-		super.getSim().printInfo(info);
+	public void effect(){
+		HairsalonState state = ((HairsalonState)getSim().getState());
 		state.addTime(super.getTime());
+		
+		((HairsalonState) state).calculateIdleTime(getTime());
+		StateInfo info = ((HairsalonState) state).getInfo(this);
+		super.getSim().printInfo(info);
+		
 		((HairsalonState) state).haircutFinished();
 		if (((HairsalonState) state).dissatisfied(customer)) {
 			Time tempTime = new Time(((HairsalonState) state).setDissatisfiedStartTime()); 
