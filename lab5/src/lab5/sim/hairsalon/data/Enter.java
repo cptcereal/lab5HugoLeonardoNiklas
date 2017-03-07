@@ -45,6 +45,7 @@ public class Enter extends Event{
 				Enter tempEnter = new Enter(super.getSim(), tempTime, tempCustomer);
 				super.getSim().addToEventStore(tempEnter);
 				
+				// Get the updated information of the state and make the simulator change the view
 				StateInfo info = state.getInfo(this);
 				super.getSim().printInfo(info);	
 			}
