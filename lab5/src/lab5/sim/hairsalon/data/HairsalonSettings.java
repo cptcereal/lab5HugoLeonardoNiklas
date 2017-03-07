@@ -147,7 +147,7 @@ public class HairsalonSettings implements PrintAble{
 	 * 
 	 * @return the seed
 	 */
-	public long getSEED() {
+	public long getSeed() {
 		return SEED;
 	}
 }
