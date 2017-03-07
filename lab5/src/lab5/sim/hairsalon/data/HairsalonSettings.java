@@ -98,9 +98,9 @@ public class HairsalonSettings implements PrintAble{
 	}
 	
 	/**
-	 * Returns the percent of customers that return because they are dissatisfied.
+	 * Returns the risk that a dissatisfied customer returns
 	 * 
-	 * @return precent that a customer returns because they are dissatisfied
+	 * @return the risk of a customer getting dissatisfied
 	 */
 	public double getP() {
 		return P;
