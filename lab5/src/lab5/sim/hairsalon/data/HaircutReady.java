@@ -24,6 +24,7 @@ public class HaircutReady extends Event{
 		this.customer = customer;
 	}
 	
+	
 	/**
 	 * The desired effect HairCutReady has depending on the immediate state of the simulation, this affects 
 	 * the queue, time elapsed, the time in queue 
