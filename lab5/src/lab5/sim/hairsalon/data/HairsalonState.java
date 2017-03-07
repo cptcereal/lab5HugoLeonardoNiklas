@@ -59,8 +59,8 @@ public class HairsalonState extends State {
 	}
 	
 	
-	public StateInfo getInfo(Event e) {
-		StateInfo info = new StateInfo( settings, customerList, haircutList, queueList, timeWaiting, super.getElapsedTime(), e,this);
+	public StateInfo getInfo(Event e, Customer customer) {
+		StateInfo info = new StateInfo( settings, customerList, haircutList, queueList, timeWaiting, super.getElapsedTime(), e,this,customer);
 		return info;
 	}
 	

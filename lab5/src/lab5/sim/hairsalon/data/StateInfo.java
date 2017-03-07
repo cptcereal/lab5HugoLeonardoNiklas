@@ -2,6 +2,7 @@ package lab5.sim.hairsalon.data;
 
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.data.Event;
+import lab5.sim.general.data.EventStore;
 import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
 
@@ -20,8 +21,9 @@ public class StateInfo implements PrintAble {
 	public final Time elapsedTime;
 	public final Event event;
 	public final HairsalonState state;
+	private final Customer customer;
 	
-	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, Time elapsedTime, Event event, HairsalonState state){
+	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, Time elapsedTime, Event event, HairsalonState state, Customer customer){
 		this.settings = settings;
 		this.customerList = customerList;
 		this.haircutList = haircutList;
@@ -30,6 +32,7 @@ public class StateInfo implements PrintAble {
 		this.elapsedTime = elapsedTime;
 		this.event = event;
 		this.state = state;
+		this.customer = customer;
 	}
 	
 	private int numWaiting() {
@@ -59,6 +62,10 @@ public class StateInfo implements PrintAble {
 	private int numReturning(){
 		return state.getNumReturning();
 	}
+	
+	private int customerID(){
+		return customer.getID();
+	}
 
 	public void printAll() {
 		if(eventName() == "Start"){
@@ -67,7 +74,7 @@ public class StateInfo implements PrintAble {
 		}else if(eventName() == "Stop"){
 			System.out.format("%.2f %2s ", elapsedTime, eventName(), idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
 		}else{
-			System.out.format("%.2f %2s ", elapsedTime, eventName(), ,idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%.2f %2s ", elapsedTime, eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
 		}
 		event.toString();
 		customerList.printAll();

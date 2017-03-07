@@ -12,7 +12,6 @@ import lab5.sim.general.data.Time;
  */
 public class Dissatisfied extends Event{
 	private final Customer customer;
-	
 	/**
 	 * This is called when certain conditions are met, and it represents a customer
 	 * returning for a haircut after an random time
@@ -44,7 +43,10 @@ public class Dissatisfied extends Event{
 				getSim().addToEventStore(tempDiss);
 			}
 		}
-		
+	}
+	
+	public int getID(){
+		return customer.getID();
 	}
 
 }
