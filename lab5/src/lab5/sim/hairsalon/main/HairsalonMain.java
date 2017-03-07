@@ -28,6 +28,6 @@ public class HairsalonMain {
 			hairsalonSettings = new HairsalonSettings(args);
 		}
 		HairsalonState hairsalonState = new HairsalonState(hairsalonSettings);
-		HairsalonSimulation sim = new HairsalonSimulation(hairsalonState);
+		HairsalonSimulation sim = new HairsalonSimulation(hairsalonState, Event startEvent);
 	}
 }
