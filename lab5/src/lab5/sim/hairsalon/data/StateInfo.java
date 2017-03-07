@@ -50,7 +50,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private int idleChairs(){
-		return (settings.getMAX_CHAIRS() - numHaircut);
+		return (settings.getMaxChairs() - numHaircut);
 	}
 	
 	private int numCut(){
@@ -66,7 +66,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private double averageCuttingTime() {
-		return ((elapsedTime.getElapsedTime() * settings.getMAX_CHAIRS()) - tIdle()) / numCut();
+		return ((elapsedTime.getElapsedTime() * settings.getMaxChairs()) - tIdle()) / numCut();
 	}
 	
 	private double averageQueueTime() {

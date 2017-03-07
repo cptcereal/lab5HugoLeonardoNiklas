@@ -138,7 +138,7 @@ public class HairsalonSettings implements PrintAble{
 	 * 
 	 * @return the number of haircut chairsS
 	 */
-	public int getMAX_CHAIRS() {
+	public int getMaxChairs() {
 		return MAX_CHAIRS;
 	}
 	
