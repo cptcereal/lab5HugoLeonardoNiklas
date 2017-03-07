@@ -141,7 +141,8 @@ public class HairsalonState extends State {
 	}
 	
 	public int setCustoemrID() {
+		int temp = lastId;
 		lastId += 1;
-		return lastId;
+		return temp;
 	}
 }
