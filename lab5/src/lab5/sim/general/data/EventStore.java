@@ -16,13 +16,9 @@ public class EventStore {
 	 * 
 	 * @param startEvents the start events to insert
 	 */
-	public EventStore(Event[] startEvents) {
+	public EventStore() {
 		start = new Node();
 		pre = start;	// The pre-pointer.
-		
-		for (int i = 0; i < startEvents.length; i++) {
-			add(startEvents[i]);
-		}
 	}
 	
 	private class Node {

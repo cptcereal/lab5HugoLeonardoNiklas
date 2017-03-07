@@ -23,7 +23,7 @@ public abstract class State extends Observable {
 	}
 	
 	public void startEvent(Event e) {
-		e.effect(this);
+		e.effect();
 	}
 	
 	

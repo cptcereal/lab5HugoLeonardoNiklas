@@ -6,6 +6,7 @@ import lab5.sim.general.GUI.View;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.EventStore;
 import lab5.sim.general.data.Simulation;
+import lab5.sim.general.data.Time;
 
 /**
  * Runs the hair salon simulation
@@ -14,10 +15,7 @@ import lab5.sim.general.data.Simulation;
  *
  */
 public class HairsalonSimulation extends Simulation implements Observer {
-	private View view;
-	private HairsalonState state;
-	private EventStore eventStore;
-	private HairsalonSettings settings;
+	
 	
 	/**
 	 * Starts up the simulation
@@ -25,10 +23,10 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public HairsalonSimulation(HairsalonState hairsalonState, Event event) {
+	public HairsalonSimulation(HairsalonState hairsalonState) {
 		super(hairsalonState);
 		this.state = hairsalonState;
-		super.addToEventStore(event);
+		
 	}
 		
 	/**
@@ -38,4 +36,5 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	public void update(Observable o, Object arg) {
 		
 	}
+	
 }

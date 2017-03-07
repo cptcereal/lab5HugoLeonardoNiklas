@@ -29,9 +29,10 @@ public class Enter extends Event{
 	 * Since a customer is entering the establishment, depending on the state of the hair salon, the outcome
 	 * is decided immediately. 
 	 */
-	public void effect(HairsalonState state){
+	public void effect(){
+		HairsalonState state = ((HairsalonState)getSim().getState());
 		((HairsalonState) state).calculateIdleTime(getTime());
-		StateInfo info = ((HairsalonState) state).getInfo(this, customer);
+		StateInfo info = ((HairsalonState) state).getInfo(this);
 		super.getSim().printInfo(info);
 		/*The desired effect that enter has on the queue, state, and time*/
 		if (((HairsalonState) state).isOpen()) {

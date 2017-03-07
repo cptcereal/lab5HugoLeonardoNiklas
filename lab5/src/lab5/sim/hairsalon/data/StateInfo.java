@@ -13,17 +13,16 @@ import lab5.sim.general.data.Time;
  *
  */
 public class StateInfo implements PrintAble {
-	private final HairsalonSettings settings;
-	private final CustomerList customerList;
-	private final CustomerList haircutList;
-	private final QueueList queueList;
-	private final Time timeWaiting;
-	private final Time elapsedTime;
-	private final Event event;
-	private final HairsalonState state;
-	private final Customer customer;
+	public final HairsalonSettings settings;
+	public final CustomerList customerList;
+	public final CustomerList haircutList;
+	public final QueueList queueList;
+	public final Time timeWaiting;
+	public final Time elapsedTime;
+	public final Event event;
+	//public final Customer customer;
 	
-	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, Time elapsedTime, Event event, HairsalonState state, Customer customer){
+	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, Time elapsedTime, Event event){
 		this.settings = settings;
 		this.customerList = customerList;
 		this.haircutList = haircutList;
@@ -31,8 +30,8 @@ public class StateInfo implements PrintAble {
 		this.timeWaiting = timeIdle;
 		this.elapsedTime = elapsedTime;
 		this.event = event;
-		this.state = state;
-		this.customer = customer;
+//		this.state = state;
+		//this.customer = customer;
 	}
 	
 	private int numWaiting() {
@@ -40,7 +39,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private int numLost(){
-		return (state.getCustomerList()-state.getNumCutCustomers());
+		return (customerList.numCustomers() - haircutList.numCustomers());
 	}
 	
 	private int idleChairs(){
@@ -68,6 +67,7 @@ public class StateInfo implements PrintAble {
 	}
 
 	public void printAll() {
+		System.out.print("hugo ");
 		if(eventName() == "Start"){
 			System.out.format("%s %2s %10s %5s %5s %5s %5s %5s %5s %5s %5s", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 			System.out.format("%.2f %2s", elapsedTime, eventName());

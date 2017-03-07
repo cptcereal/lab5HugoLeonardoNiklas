@@ -2,6 +2,8 @@ package lab5.sim.general.data;
 
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.GUI.View;
+import lab5.sim.hairsalon.data.HairsalonState;
+import lab5.sim.hairsalon.data.Start;
 
 /**
  * Runs the simulation
@@ -9,7 +11,7 @@ import lab5.sim.general.GUI.View;
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
-public abstract class Simulation {
+public class Simulation {
 	
 	private View view;
 	private State state;
@@ -22,8 +24,10 @@ public abstract class Simulation {
 	 * 
 	 */
 	public Simulation(State state) {
+		this.view = new View();
 		this.state = state;
-		eventStore = new EventStore(startEvents);
+		eventStore = new EventStore();
+		addToEventStore(new Start(this, new Time(0)));
 		run();
 	}
 	
@@ -57,6 +61,10 @@ public abstract class Simulation {
 	public double setEventTime() {
 		return 0;
 		
+	}
+	
+	public State getState() {
+		return state;
 	}
 	
 	/**
