@@ -78,18 +78,18 @@ public class StateInfo implements PrintAble {
 
 	public void printAll() {
 		
-		if(event.getClass().equals(Start.class)){
+		if(event.getClass().equals(Start.class)) {
 			System.out.format("%s %2s %6s %6s %6s %7s %6s %6s %6s %6s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 			System.out.format("%6.2f %2s %n", elapsedTime.getElapsedTime(), eventName());
-		}else if(event.getClass().equals(Stop.class)){
+		}else if(event.getClass().equals(Stop.class)) {
 			System.out.format("%6.2f %2s %13s %6.2f %7.2f %6s %6s %6s %4s %n", event.getTime(), eventName(), idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
-		}else if(event.getClass().equals(Done.class)){
+		}else if(event.getClass().equals(Done.class)) {
 			System.out.format("%6.2f %2s %6s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
-		else if(event.getClass().equals(Return.class)){
+		else if(event.getClass().equals(Return.class)) {
 			System.out.format("%6.2f %2s %4s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
-		else if(event.getClass().equals(Enter.class)){
+		else if(event.getClass().equals(Enter.class)) {
 			System.out.format("%6.2f %2s %5s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
 	}
