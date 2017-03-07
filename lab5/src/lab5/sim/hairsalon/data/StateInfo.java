@@ -83,6 +83,14 @@ public class StateInfo implements PrintAble {
 			System.out.format("%6.2f %2s %n", elapsedTime.getElapsedTime(), eventName());
 		}else if(event.getClass().equals(Stop.class)) {
 			System.out.format("%6.2f %2s %13s %6.2f %7.2f %6s %6s %6s %4s %n", event.getTime(), eventName(), idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
+			System.out.println("----------------------------------------------------------------");
+			System.out.println("Number of customers cut: ......: ");
+			System.out.println("Average cutting time...........: ");
+			System.out.println("Average queueing time: ........: ");
+			System.out.println("Largest queue (max NumWaiting) : ");
+			System.out.println("Customers not cut (NumLost) ...: ");
+			System.out.println("Dissatisfied customers: .......: ");
+			System.out.println("Time chairs were idle: ........: ");
 		}else if(event.getClass().equals(Done.class)) {
 			System.out.format("%6.2f %2s %6s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
