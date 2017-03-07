@@ -29,6 +29,7 @@ public class HaircutReady extends Event{
 	 * @param state
 	 */
 	public void effect(HairsalonState state){
+		state.calculateIdleTime(getTime());
 		state.addTime(super.getTime());
 		state.haircutFinished();
 		if (state.dissatisfied(customer)) {
