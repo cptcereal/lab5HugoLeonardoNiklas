@@ -23,7 +23,7 @@ public class Start extends Event{
 		Stop s = new Stop(getSim(), new Time(999));
 		getSim().addToEventStore(s);
 		
-		Closing closing = new Closing(getSim(), state.getElapsedTime());
+		Closing closing = new Closing(getSim(), new Time(state.getInfo(e).settings.getClosingTime()));
 		getSim().addToEventStore(closing);
 	}
 	
