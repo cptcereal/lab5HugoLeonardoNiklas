@@ -70,7 +70,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private double averageQueueTime() {
-		return 2.0;
+		return (timeWaiting.getElapsedTime() / numCut());
 	}
 	
 	private int customerID(){
