@@ -25,8 +25,8 @@ public class HairsalonSimulation extends Simulation implements Observer {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public HairsalonSimulation(Event[] startEvents, HairsalonState hairsalonState) {
-		super(startEvents, hairsalonState);
+	public HairsalonSimulation(HairsalonState hairsalonState) {
+		super(hairsalonState);
 		this.state = hairsalonState;
 	}
 		

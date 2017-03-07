@@ -21,7 +21,7 @@ public abstract class Simulation {
 	 * @param events the event array that contains at least one start event for the simulation.
 	 * 
 	 */
-	public Simulation(Event[] startEvents, State state) {
+	public Simulation(State state) {
 		this.state = state;
 		eventStore = new EventStore(startEvents);
 		run();

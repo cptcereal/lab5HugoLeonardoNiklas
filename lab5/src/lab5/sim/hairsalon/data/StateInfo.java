@@ -13,14 +13,14 @@ import lab5.sim.general.data.Time;
  *
  */
 public class StateInfo implements PrintAble {
-	public final HairsalonSettings settings;
-	public final CustomerList customerList;
-	public final CustomerList haircutList;
-	public final QueueList queueList;
-	public final Time timeWaiting;
-	public final Time elapsedTime;
-	public final Event event;
-	public final HairsalonState state;
+	private final HairsalonSettings settings;
+	private final CustomerList customerList;
+	private final CustomerList haircutList;
+	private final QueueList queueList;
+	private final Time timeWaiting;
+	private final Time elapsedTime;
+	private final Event event;
+	private final HairsalonState state;
 	private final Customer customer;
 	
 	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, Time elapsedTime, Event event, HairsalonState state, Customer customer){
