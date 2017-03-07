@@ -65,6 +65,13 @@ public class StateInfo implements PrintAble {
 		return timeIdle.getElapsedTime(); 
 	}
 	
+	private double averageCuttingTime() {
+		return (elapsedTime.getElapsedTime() - tIdle()) / numCut();
+	}
+	
+	private double averageQueueTime() {
+		return 2.0;
+	}
 	
 	private int customerID(){
 		if(event.getClass().equals(Enter.class)) {
@@ -84,13 +91,13 @@ public class StateInfo implements PrintAble {
 		}else if(event.getClass().equals(Stop.class)) {
 			System.out.format("%6.2f %2s %13s %6.2f %7.2f %6s %6s %6s %4s %n", event.getTime(), eventName(), idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 			System.out.println("----------------------------------------------------------------");
-			System.out.println("Number of customers cut: ......: ");
-			System.out.println("Average cutting time...........: ");
-			System.out.println("Average queueing time: ........: ");
-			System.out.println("Largest queue (max NumWaiting) : ");
-			System.out.println("Customers not cut (NumLost) ...: ");
-			System.out.println("Dissatisfied customers: .......: ");
-			System.out.println("Time chairs were idle: ........: ");
+			System.out.format("%s %2s %n", "Number of customers cut: ......:", numCut());
+			System.out.format("%s %2.2f %n", "Average cutting time...........:", averageCuttingTime());
+			System.out.format("%s %2.2f %n", "Average queueing time: ........:", averageQueueTime());
+			System.out.format("%s %1s %n", "Largest queue (max NumWaiting) :", queueList.getMaxNumWaiting());
+			System.out.format("%s %1s %n", "Customers not cut (NumLost) ...:", numLost());
+			System.out.format("%s %1s %n", "Dissatisfied customers: .......:", numDissatisfied);
+			System.out.format("%s %2.2f", "Time chairs were idle: ........:", tIdle());
 		}else if(event.getClass().equals(Done.class)) {
 			System.out.format("%6.2f %2s %6s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
