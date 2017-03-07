@@ -60,8 +60,9 @@ public class HairsalonSettings implements PrintAble{
 	 * 
 	 */
 	public void printAll() {
-		String formatSF = "%s, %2.2f %n";
-		String formatMinMax = "%s %.2f %s %.2f %s";
+		String formatSF = "%s %.2f %n";
+		String formatSS = "%s %s %n";
+		String formatMinMax = "%s %.2f %s %.2f %s %n";
 		
 //		System.out.println("Closing time of the day ..............: " + CLOSING_TIME);
 //		System.out.println("Total number of chairs ...............: " + MAX_CHAIRS);
@@ -74,20 +75,20 @@ public class HairsalonSettings implements PrintAble{
 //		System.out.println("----------------------------------------------------------------");
 		
 		System.out.format(formatSF, "Closing time of the day ..............:", CLOSING_TIME);
-		System.out.format(formatSF, "Total number of chairs ...............:", MAX_CHAIRS);
-		System.out.format(formatSF, "Maximum queue size ...................:", MAX_QUEUE);
+		System.out.format(formatSS, "Total number of chairs ...............:", MAX_CHAIRS);
+		System.out.format(formatSS, "Maximum queue size ...................:", MAX_QUEUE);
 		System.out.format(formatSF, "Lambda (customers/timeunit entering)..:", CUSTOMERS_PER_TIMEUNIT);
 		System.out.format(formatMinMax, "hmin and hmax (cutting time interval) : [", H_MIN, ", ", H_MAX, "]");
 		System.out.format(formatMinMax, "dmin and dmax (return time interval) .: [", D_MIN, ", ", D_MAX, "]");
 		System.out.format(formatSF, "Risk dissatisfied returns: ...........:", P);
-		System.out.format(formatSF, "Seed used in pseudo random generator .:", SEED);
-		System.out.format("%s", "----------------------------------------------------------------");
+		System.out.format(formatSS, "Seed used in pseudo random generator .:", SEED);
+		System.out.format("%s %n", "----------------------------------------------------------------");
 	}
 	
 	/**
 	 * Returns the minimum time a haircut can take.
 	 * 
-	 * @return the minimum time a haircut can take
+	 * @return minimum time
 	 */
 	public double getHmin() {
 		return H_MIN;
@@ -96,7 +97,7 @@ public class HairsalonSettings implements PrintAble{
 	/**
 	 * Returns the maximum time a haircut can take.
 	 * 
-	 * @return the maximum time a haircut can take
+	 * @return maximum time
 	 */
 	public double getHmax() {
 		return H_MAX;
@@ -105,7 +106,7 @@ public class HairsalonSettings implements PrintAble{
 	/**
 	 * Returns the minimum time it takes before a dissatisfied customer returns to the salon.
 	 * 
-	 * @return the minimum time before a dissatisfied customer returns
+	 * @return minimum time
 	 */
 	public double getDmin() {
 		return D_MIN;
@@ -114,7 +115,7 @@ public class HairsalonSettings implements PrintAble{
 	/**
 	 * Returns the maximum time it takes before a dissatisfied customer returns to the salon.
 	 * 
-	 * @return the maximum time before a dissatisfied customer returns
+	 * @return maximum time
 	 */
 	public double getDmax() {
 		return D_MAX;
