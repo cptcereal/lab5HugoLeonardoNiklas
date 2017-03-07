@@ -2,6 +2,7 @@ package lab5.sim.hairsalon.data;
 
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
+import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
 
 /**
@@ -28,12 +29,12 @@ public class HaircutReady extends Event{
 	 * the queue, time elapsed, the time in queue 
 	 * @param state
 	 */
-	public void effect(HairsalonState state){
-		state.calculateIdleTime(getTime());
+	public void effect(State state){
+		((HairsalonState) state).calculateIdleTime(getTime());
 		state.addTime(super.getTime());
-		state.haircutFinished();
-		if (state.dissatisfied(customer)) {
-			Time tempTime = new Time(state.setDissatisfiedStartTime()); 
+		((HairsalonState) state).haircutFinished();
+		if (((HairsalonState) state).dissatisfied(customer)) {
+			Time tempTime = new Time(((HairsalonState) state).setDissatisfiedStartTime()); 
 			Dissatisfied event = new Dissatisfied(getSim(), tempTime, customer);
 			getSim().addToEventStore(event);
 		}

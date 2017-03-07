@@ -2,6 +2,7 @@ package lab5.sim.hairsalon.data;
 
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
+import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
 
 /**
@@ -28,26 +29,26 @@ public class Enter extends Event{
 	 * Since a customer is entering the establishment, depending on the state of the hair salon, the outcome
 	 * is decided immediately. 
 	 */
-	public void effect(HairsalonState state){
-		state.calculateIdleTime(getTime());
-		state.getInfo(this, customer);
+	public void effect(State state){
+		((HairsalonState) state).calculateIdleTime(getTime());
+		((HairsalonState) state).getInfo(this, customer);
 		/*The desired effect that enter has on the queue, state, and time*/
-		if (state.isOpen()) {
+		if (((HairsalonState) state).isOpen()) {
 			if (state.addTime(super.getTime())) {
-				Time tempTime  = new Time(state.makeNewEnterEventTime());
-				Customer tempCustomer = new Customer(state.setCustoemrID());
+				Time tempTime  = new Time(((HairsalonState) state).makeNewEnterEventTime());
+				Customer tempCustomer = new Customer(((HairsalonState) state).setCustoemrID());
 				Enter tempEnter = new Enter(super.getSim(), tempTime, tempCustomer);
 				super.getSim().addToEventStore(tempEnter);
 			}
-			state.addCustomer(customer);
-			if (state.addHaircut(customer)) {
-				Time timeTemp = new Time(state.setHaircutTime()); 
+			((HairsalonState) state).addCustomer(customer);
+			if (((HairsalonState) state).addHaircut(customer)) {
+				Time timeTemp = new Time(((HairsalonState) state).setHaircutTime()); 
 				Customer tempcos = customer;
 				HaircutReady event = new HaircutReady(getSim(), timeTemp, tempcos);
 				getSim().addToEventStore(event);
 			}
 			else {
-				state.addToQueue(this);
+				((HairsalonState) state).addToQueue(this);
 			}
 		}
 	}

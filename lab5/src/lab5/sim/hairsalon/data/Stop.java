@@ -12,6 +12,7 @@ public class Stop extends Event {
 	}
 	
 	public void effect(State state) {
+		((HairsalonState) state).getInfo(this, null);
 		state.stop();
 	}
 }
