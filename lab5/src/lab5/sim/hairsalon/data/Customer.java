@@ -10,15 +10,17 @@ public class Customer {
 	
 	/**
 	 * Adds id to the customer.
-	 * @param id
+	 * 
+	 * @param id - the customers id
 	 */
 	public Customer(int id) {
 		this.ID = id;
 	}
 	
 	/**
-	 * returns the id of the customer.
-	 * @return
+	 * returns the id of the customer
+	 * 
+	 * @return the customers id
 	 */
 	public int getID(){
 		return ID;

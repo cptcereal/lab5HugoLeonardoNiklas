@@ -3,6 +3,7 @@ package lab5.sim.general.data;
 
 /**
  * Creates events based with a specified time and simulator
+ * 
  * @author hugwan-6, leopel-6, inaule-6 
  * 
  */
@@ -12,8 +13,9 @@ public abstract class Event {
 	
 	/**
 	 * Creates an Event object with specified simulation and time values
-	 * @param sim
-	 * @param time
+	 * 
+	 * @param sim - The simulation the event belongs to
+	 * @param time - The time when the event occurs
 	 */
 	public Event(Simulation sim, Time time){
 		this.sim = sim;
@@ -21,27 +23,34 @@ public abstract class Event {
 	} 
 	
 	/**
-	 * Makes a call to a specific Event depending on the specified state
-	 * @param state
+	 * The effect the event has on the state of the simulation when it occurs
+	 * 
 	 */
 	public abstract void effect(); 
 	
 	/**
-	 * Returns the value of a time for an object
-	 * @return
+	 * Returns the time when the event occurs
+	 * 
+	 * @return the time when the event occurs
 	 */
 	public double getTime(){
 		return TIME.getElapsedTime();
 	}
 	
 	/**
-	 * Returns the value the simulation value for an object
-	 * @return
+	 * Returns the simulation the event belongs to
+	 * 
+	 * @return the simulation
 	 */
 	public Simulation getSim(){
 		return sim;
 	}
 	
+	/**
+	 * Returns the name of the event as an string
+	 * 
+	 * @return the name of the event
+	 */
 	public String toString() {
 		String s = this.getClass().getSimpleName();
 		return s;

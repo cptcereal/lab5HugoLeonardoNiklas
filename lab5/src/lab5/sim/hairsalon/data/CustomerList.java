@@ -2,6 +2,7 @@ package lab5.sim.hairsalon.data;
 
 
 /**
+ * This class is a list of customers
  * 
  * @author hugwan-6, leopel-6, inaule-6 
  *
@@ -31,10 +32,20 @@ public class CustomerList {
 		}
 	} 
 	
+	/**
+	 * Returns the number of customers in the list
+	 * 
+	 * @return number of customers 
+	 */
 	public int numCustomers() {
 		return numCustomers;
 	}
 	
+	/**
+	 * Returns all the customers in the list
+	 * 
+	 * @return an customer array
+	 */
 	public Customer[] getCustomers() {
 		Customer[] svar = new Customer[numCustomers];
 		Node temp = first;
@@ -45,7 +56,7 @@ public class CustomerList {
 		return svar;
 	}
 	
-	class Node{
+	class Node{								// Private?
 		public final Customer customer;
 		public Node next;
 		

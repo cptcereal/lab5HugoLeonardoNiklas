@@ -1,45 +1,46 @@
 package lab5.sim.general.data;
 
-import lab5.sim.general.GUI.PrintAble;
-
-
-
 /**
- * Saves elapsed time
+ * The class that handles the time of the simulator
+ * 
  * @author hugwan-6, leopel-6, inaule-6 
- *
  */
-public class Time implements PrintAble{
+public class Time {
 	private double elapsedTime;
 	
 	/**
-	 * Makes a time object
+	 * The constructor of the time object
+	 * 
 	 */
 	public Time() {
-	elapsedTime = 0;
+		elapsedTime = 0;
 	}
 	
+	/**
+	 * Assigns the elapsed time a new value
+	 * 
+	 * @param elapsedTime the new elapsed time
+	 */
 	public Time(double elapsedTime) {
 		this.elapsedTime = elapsedTime;
 	}
 	
 	/**
-	 * Adds time to elapsed time.
-	 * @param t
+	 * Adds time to elapsed time
+	 * 
+	 * @param t - the time to add
 	 */
 	public void addTime(double t) {
 		elapsedTime += t;
 	}
 	
 	/**
-	 * Returns the elapsed time.
-	 * @return
+	 * Returns the elapsed time
+	 * 
+	 * @return elapsed time
 	 */
 	public double getElapsedTime() {
 		return elapsedTime;
 	}
 
-	public void printAll() {
-		System.out.println("Time :" + elapsedTime);
-	}
 }

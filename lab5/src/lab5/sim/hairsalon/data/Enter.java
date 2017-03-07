@@ -12,12 +12,13 @@ import lab5.sim.general.data.Time;
  */
 public class Enter extends Event{
 	private final Customer customer;
+	
 	/**
-	 * Simulates a customer entering the hair salon, the immediate outcome is defined by the 
-	 * state at that exact moment in time. 
-	 * @param sim
-	 * @param time
-	 * @param ID
+	 * Creates the event and assigns it a simulation, time and customer
+	 * 
+	 * @param sim - the simulation the enter event belongs to
+	 * @param time - the time when the enter event occurs
+	 * @param customer - the customer the event belongs to
 	 */
 	public Enter(Simulation sim, Time time, Customer customer) {
 		super(sim, time);
@@ -25,16 +26,18 @@ public class Enter extends Event{
 	}
 	
 	/**
-	 * Since a customer is entering the establishment, depending on the state of the hair salon, the outcome
-	 * is decided immediately. 
+	 * The enter events effect on the state of the hair salon
+	 * 
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
+		
 		if (super.getTime() > state.getElapsedTimeDouble()) {
 			state.addtimewaiting(this);
 			state.calculateIdleTime(getTime());
 		}
-		/*The desired effect that enter has on the queue, state, and time*/
+		
+		//The desired effect that enter has on the queue, state, and time
 		if (state.isOpen()) {
 			if (state.addTime(super.getTime())) {
 				Time tempTime  = new Time(state.makeNewEnterEventTime());
@@ -43,25 +46,26 @@ public class Enter extends Event{
 				super.getSim().addToEventStore(tempEnter);
 				
 				StateInfo info = state.getInfo(this);
-				super.getSim().printInfo(info);
-				
+				super.getSim().printInfo(info);	
 			}
+			
 			state.addCustomer(customer);
+			
 			if (state.addHaircut()) {
 				Time timeTemp = new Time(state.setHaircutTime()); 
 				Customer tempcos = customer;
 				Done event = new Done(getSim(), timeTemp, tempcos);
 				getSim().addToEventStore(event);
-			}
-			else {
+			} else {
 				state.addToQueue(this);
 			}
 		}
 	}
 
 	/**
-	 * Returns customer
-	 * @return
+	 * Returns the customer that the enter event belongs to
+	 * 
+	 * @return the customer
 	 */
 	public Customer getCustomer() {
 		return customer;

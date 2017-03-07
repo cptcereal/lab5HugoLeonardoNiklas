@@ -5,29 +5,29 @@ import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
 
 /**
- * Represents what occurs when the salon is ready to cut a customers hair
+ * The event of the hair salon simulation that represents a customers hair cut being finished
+ * 
  * @author hugwan-6, leopel-6, inaule-6 
- *
  */
 public class Done extends Event{
 	private final Customer customer;
 	
 	/**
-	 * This is called when the salon is ready to cut the next customer's hair
-	 * @param sim
-	 * @param tempTime
-	 * @param ID
+	 * Creates the event and assigns it a simulation, time and customer
+	 * 
+	 * @param sim - the simulation the event belongs to
+	 * @param time - the time that the event occurs
+	 * @param customer - the customer the event belongs to
 	 */
-	public Done(Simulation sim, Time tempTime, Customer customer) {
-		super(sim, tempTime);
+	public Done(Simulation sim, Time time, Customer customer) {
+		super(sim, time);
 		this.customer = customer;
 	}
 	
 	
 	/**
-	 * The desired effect HairCutReady has depending on the immediate state of the simulation, this affects 
-	 * the queue, time elapsed, the time in queue 
-	 * @param state
+	 * The done events effect on the state of the hair salon 
+	 * 
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
@@ -39,6 +39,8 @@ public class Done extends Event{
 		super.getSim().printInfo(info);
 		
 		state.haircutFinished(customer);
+		
+		// If the customer was dissatisfied, create a new dissatisfied event
 		if (state.dissatisfied(customer)) {
 			Time tempTime = new Time(state.setDissatisfiedStartTime()); 
 			Return event = new Return(getSim(), tempTime, customer);
@@ -47,8 +49,9 @@ public class Done extends Event{
 	}
 	
 	/**
-	 * Returns customer
-	 * @return
+	 * Returns the customer that the done event belongs to
+	 * 
+	 * @return the customer
 	 */
 	public Customer getCustomer() {
 		return customer;

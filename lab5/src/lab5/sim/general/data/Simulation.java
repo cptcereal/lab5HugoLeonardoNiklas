@@ -9,7 +9,6 @@ import lab5.sim.hairsalon.data.Start;
  * Runs the simulation
  * 
  * @author hugwan-6, leopel-6, inaule-6
- *
  */
 public class Simulation {
 	
@@ -20,19 +19,18 @@ public class Simulation {
 	/**
 	 * Starts up the simulation
 	 * 
-	 * @param events the event array that contains at least one start event for the simulation.
-	 * 
+	 * @param state - the state of the simulation
 	 */
 	public Simulation(State state) {
 		this.view = new View();
 		this.state = state;
 		eventStore = new EventStore();
-		addToEventStore(new Start(this, new Time(0)));
+		addToEventStore(new Start(this, new Time(0)));	// Add an start event to the EventStore
 		run();
 	}
 	
 	/**
-	 * Keeps the simulation running until it's done
+	 * Keeps the simulation running until it's done or stopped
 	 * 
 	 */
 	public void run() {
@@ -59,18 +57,24 @@ public class Simulation {
 	 * 
 	 * @return the time until an event occurs
 	 */
-	public double setEventTime() {
+	public double setEventTime() {								// Needed?
 		return 0;
 		
 	}
 	
+	/**
+	 * Returns the simulations state
+	 * 
+	 * @return the state
+	 */
 	public State getState() {
 		return state;
 	}
 	
 	/**
-	 * Handle new info when the state of the simulation changes
+	 * Changes the information displayed when the state changes
 	 * 
+	 * @param infoToPrint - the information to display
 	 */
 	public void printInfo(PrintAble infoToPrint) {
 		view.showDataOnView(infoToPrint);
