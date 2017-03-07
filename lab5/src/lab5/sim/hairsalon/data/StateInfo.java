@@ -7,12 +7,13 @@ import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
 
 /**
- * All state info.
+ * All the information about the state of the hair salon that's going to be displayed
  * 
- * @author inaule-6
+ * @author hugwan-6, leopel-6, inaule-6
  *
  */
 public class StateInfo implements PrintAble {
+	
 	public final HairsalonSettings settings;
 	public final CustomerList customerList;
 	public final CustomerList haircutList;
@@ -23,10 +24,10 @@ public class StateInfo implements PrintAble {
 	public final Time timeIdle;
 	public final Event event;
 	public final int numHaircut;
-	//public final Customer customer;
 	
 	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, 
 			Time timeIdle, Time timeWaiting, Time elapsedTime, Event event, int numHaircut, int numDissatisfied){
+		
 		this.settings = settings;
 		this.customerList = customerList;
 		this.haircutList = haircutList;
@@ -37,8 +38,6 @@ public class StateInfo implements PrintAble {
 		this.numHaircut = numHaircut;
 		this.numDissatisfied = numDissatisfied;
 		this.timeIdle = timeIdle;
-//		this.state = state;
-		//this.customer = customer;
 	}
 	
 	private int numWaiting() {
