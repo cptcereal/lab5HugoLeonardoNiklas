@@ -91,16 +91,6 @@ public class QueueList {
 	public boolean isEmpty() {
 		return (lastInQueue == 0 && lastInVIPQueue == 0);
 	}
-
-//	public void printAll() {
-//		System.out.println("Left in queue");
-//		for (int i = 1; i <= lastInVIPQueue; i++) {
-//			System.out.print(" : "+ i + ". " + vipQueue[i-1].getCustomer().getID());
-//		}
-//		for (int i = 1; i <= lastInQueue; i++) {
-//			System.out.print(" : "+ lastInVIPQueue + i + ". " + vipQueue[i-1].getCustomer().getID());
-//		}
-//	}
 	
 	public int getQueueSize(){
 		return lastInQueue + lastInVIPQueue;
