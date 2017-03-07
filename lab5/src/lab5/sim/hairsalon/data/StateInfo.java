@@ -16,13 +16,16 @@ public class StateInfo implements PrintAble {
 	public final HairsalonSettings settings;
 	public final CustomerList customerList;
 	public final CustomerList haircutList;
+	public final CustomerList dissatisfiedList;
 	public final QueueList queueList;
 	public final Time timeWaiting;
 	public final Time elapsedTime;
 	public final Event event;
+	public final int numHaircut;
 	//public final Customer customer;
 	
-	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, Time timeIdle, Time elapsedTime, Event event){
+	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, 
+			Time timeIdle, Time elapsedTime, Event event, int numHaircut, CustomerList dissatisfiedList){
 		this.settings = settings;
 		this.customerList = customerList;
 		this.haircutList = haircutList;
@@ -30,6 +33,8 @@ public class StateInfo implements PrintAble {
 		this.timeWaiting = timeIdle;
 		this.elapsedTime = elapsedTime;
 		this.event = event;
+		this.numHaircut = numHaircut;
+		this.dissatisfiedList = dissatisfiedList;
 //		this.state = state;
 		//this.customer = customer;
 	}
@@ -43,11 +48,11 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private int idleChairs(){
-		return (settings.getMAX_CHAIRS() - state.getNumHaircut());
+		return (settings.getMAX_CHAIRS() - numHaircut);
 	}
 	
 	private int numCut(){
-		return state.getNumCutCustomers();
+		return haircutList.numCustomers();
 	}
 	
 	private String eventName(){
@@ -59,11 +64,17 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private int numReturning(){
-		return state.getNumReturning();
+		return dissatisfiedList.numCustomers();
 	}
 	
 	private int customerID(){
-		return customer.getID();
+		if(eventName() == "Enter") {
+			return ((Enter) event).getCustomer().getID();
+		} else if (eventName() == "HaircutReady") {
+			return ((HaircutReady) event).getCustomer().getID();
+		} else {
+			return ((Dissatisfied) event).getCustomer().getID();
+		}
 	}
 
 	public void printAll() {

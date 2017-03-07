@@ -48,8 +48,8 @@ public class Dissatisfied extends Event{
 		}
 	}
 	
-	public int getID(){
-		return customer.getID();
+	public Customer getCustomer(){
+		return customer;
 	}
 
 }
