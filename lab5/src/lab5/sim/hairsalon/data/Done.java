@@ -31,13 +31,14 @@ public class Done extends Event{
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
-		state.addTime(super.getTime());
-		
+		state.addtimewaiting(this);
 		state.calculateIdleTime(getTime());
+		
+		state.addTime(super.getTime());
 		StateInfo info = state.getInfo(this);
 		super.getSim().printInfo(info);
 		
-		state.haircutFinished();
+		state.haircutFinished(customer);
 		if (state.dissatisfied(customer)) {
 			Time tempTime = new Time(state.setDissatisfiedStartTime()); 
 			Return event = new Return(getSim(), tempTime, customer);

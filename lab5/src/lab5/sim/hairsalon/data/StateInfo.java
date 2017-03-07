@@ -16,25 +16,27 @@ public class StateInfo implements PrintAble {
 	public final HairsalonSettings settings;
 	public final CustomerList customerList;
 	public final CustomerList haircutList;
-	public final CustomerList dissatisfiedList;
+	public final int numDissatisfied;
 	public final QueueList queueList;
 	public final Time timeWaiting;
 	public final Time elapsedTime;
+	public final Time timeIdle;
 	public final Event event;
 	public final int numHaircut;
 	//public final Customer customer;
 	
 	public StateInfo(HairsalonSettings settings, CustomerList customerList, CustomerList haircutList, QueueList queueList, 
-			Time timeIdle, Time elapsedTime, Event event, int numHaircut, CustomerList dissatisfiedList){
+			Time timeIdle, Time timeWaiting, Time elapsedTime, Event event, int numHaircut, int numDissatisfied){
 		this.settings = settings;
 		this.customerList = customerList;
 		this.haircutList = haircutList;
 		this.queueList = queueList;
-		this.timeWaiting = timeIdle;
+		this.timeWaiting = timeWaiting;
 		this.elapsedTime = elapsedTime;
 		this.event = event;
 		this.numHaircut = numHaircut;
-		this.dissatisfiedList = dissatisfiedList;
+		this.numDissatisfied = numDissatisfied;
+		this.timeIdle = timeIdle;
 //		this.state = state;
 		//this.customer = customer;
 	}
@@ -44,7 +46,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private int numLost(){
-		return (customerList.numCustomers() - haircutList.numCustomers());
+		return queueList.getLost();
 	}
 	
 	private int idleChairs(){
@@ -60,12 +62,9 @@ public class StateInfo implements PrintAble {
 	}
 	
 	private double tIdle(){
-		return 2; 
+		return timeIdle.getElapsedTime(); 
 	}
 	
-	private int numReturning(){
-		return dissatisfiedList.numCustomers();
-	}
 	
 	private int customerID(){
 		if(event.getClass().equals(Enter.class)) {
@@ -82,15 +81,15 @@ public class StateInfo implements PrintAble {
 			System.out.format("%s %2s %6s %6s %6s %7s %6s %6s %6s %6s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 			System.out.format("%6.2f %2s %n", elapsedTime.getElapsedTime(), eventName());
 		}else if(event.getClass().equals(Stop.class)){
-			System.out.format("%6.2f %2s %n", elapsedTime.getElapsedTime(), eventName(), idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%6.2f %2s %n", elapsedTime.getElapsedTime(), eventName(), idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}else if(event.getClass().equals(Done.class)){
-			System.out.format("%6.2f %2s %6s %6s %6s %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%6.2f %2s %6s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
 		else if(event.getClass().equals(Return.class)){
-			System.out.format("%6.2f %2s %4s %6s %6s %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%6.2f %2s %4s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
 		else if(event.getClass().equals(Enter.class)){
-			System.out.format("%6.2f %2s %5s %6s %6s %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%6.2f %2s %5s %6s %6.2f %7.2f %6s %6s %6s %4s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
 		}
 	}
 }

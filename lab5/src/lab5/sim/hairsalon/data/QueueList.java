@@ -13,6 +13,7 @@ public class QueueList {
 	private int lastInQueue;
 	private int lastInVIPQueue;
 	private int maxNumWaiting;
+	private int lost;
 	
 	public QueueList(int maxQueue) {
 		queue = new Event[maxQueue];
@@ -20,6 +21,7 @@ public class QueueList {
 		lastInQueue = 0;
 		lastInVIPQueue = 0;
 		maxNumWaiting = 0;
+		lost = 0;
 	}
 	
 	/**
@@ -37,6 +39,7 @@ public class QueueList {
 			}
 			return true;
 		}
+		lost += 1;
 		return false;
 	}
 	
@@ -52,6 +55,7 @@ public class QueueList {
 			
 			if (lastInQueue + lastInVIPQueue >= queue.length) {
 				lastInQueue -= 1;
+				lost += 1;
 			}
 			
 			if (lastInQueue + lastInVIPQueue > maxNumWaiting) {
@@ -98,5 +102,9 @@ public class QueueList {
 	
 	public int getMaxNumWaiting(){
 		return maxNumWaiting; 
+	}
+	
+	public int getLost() {
+		return lost;
 	}
 }

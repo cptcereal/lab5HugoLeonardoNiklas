@@ -12,6 +12,7 @@ public class Stop extends Event {
 	
 	public void effect() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
+		state.addtimewaiting(this);
 		//StateInfo info = ((HairsalonState) state).getInfo(this, null);
 		//super.getSim().printInfo(info);
 		state.stop();

@@ -18,7 +18,8 @@ public class HairsalonState extends State {
 	private QueueList queueList;
 	private Time timeWaiting;
 	private Time timeIdle;
-	private CustomerList dissatisfiedList;
+
+	private int numDissatisfied;
 	private int numHaircut;
 	private int lastId;
 	
@@ -35,13 +36,13 @@ public class HairsalonState extends State {
 		super();
 		
 		this.settings = settings;
-		dissatisfiedList = new CustomerList();
 		customerList = new CustomerList();
 		haircutList = new CustomerList();
 		queueList = new QueueList(settings.getMAX_CHAIRS());
 		
 		numHaircut = 0;
 		lastId = 0;
+		numDissatisfied = 0;
 		
 		timeWaiting = new Time();
 		timeIdle = new Time();
@@ -62,25 +63,27 @@ public class HairsalonState extends State {
 	
 	
 	public StateInfo getInfo(Event e) {
-		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeWaiting, super.getElapsedTime(), e, 
-				numHaircut, dissatisfiedList);
+		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, timeWaiting, super.getElapsedTime(), e, 
+				numHaircut, numDissatisfied);
 		return info;
 	}
 	
-	public void haircutFinished() {
+	public void haircutFinished(Customer c) {
+		haircutList.addCustomer(c);
 		numHaircut -= 1;
 		if (queueList.isEmpty() == false) {
 			Event e = queueList.next();
-			timeWaiting.addTime(super.getElapsedTimeDouble() * 2 -e.getTime());
 			e.effect();
 		}
 	}
 	
+	public void addtimewaiting(Event e) {
+		timeWaiting.addTime(queueList.getQueueSize() *(e.getTime() - super.getElapsedTimeDouble()));
+	}
 	
-	public boolean addHaircut(Customer c) {
+	public boolean addHaircut() {
 		if (settings.getMAX_CHAIRS() - numHaircut > 0) {
 			numHaircut += 1;
-			haircutList.addCustomer(c);
 			return true;
 		} 
 		return false;
@@ -110,14 +113,13 @@ public class HairsalonState extends State {
 	public boolean dissatisfied(Customer c) {
 		double temp = randomNewDissatisfied.next();
 		if (temp <= settings.getP()) {
-			dissatisfiedList.addCustomer(c);
 			return true;
 		}
 		return false;
 	}
 	
 	public void calculateIdleTime(double time) {
-		double idleTime = (super.getElapsedTimeDouble() - time) * (settings.getMAX_CHAIRS() - numHaircut);
+		double idleTime = (settings.getMAX_CHAIRS() - numHaircut)*(time - super.getElapsedTimeDouble());
 		timeIdle.addTime(idleTime);
 	}
 	
@@ -145,4 +147,9 @@ public class HairsalonState extends State {
 		lastId += 1;
 		return temp;
 	}
+	
+	public void addDissatisfied(){
+		numDissatisfied += 1;
+	}
+
 }

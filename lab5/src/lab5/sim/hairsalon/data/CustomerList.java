@@ -53,16 +53,4 @@ public class CustomerList {
 			this.customer = c;
 		}
 	}
-
-//	public void printAll() {
-//		System.out.println("All Customers");
-//		Node temp = first;
-//		while(true) {
-//			if (temp.customer == null) {
-//				return;
-//			}
-//			System.out.print(" : " + temp.customer.getID());
-//			temp = temp.next;
-//		}
-//	}
 }
