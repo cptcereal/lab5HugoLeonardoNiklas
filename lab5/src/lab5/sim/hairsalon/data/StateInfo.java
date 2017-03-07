@@ -55,13 +55,19 @@ public class StateInfo implements PrintAble {
 	private double tIdle(){
 		return 2; 
 	}
+	
+	private int numReturning(){
+		return state.getNumReturning();
+	}
 
 	public void printAll() {
 		if(eventName() == "Start"){
 			System.out.format("%s %2s %10s %5s %5s %5s %5s %5s %5s %5s %5s", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 			System.out.format("%.2f %2s", elapsedTime, eventName());
 		}else if(eventName() == "Stop"){
-			System.out.format("%.2f %2s ", elapsedTime, eventName(), idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), );
+			System.out.format("%.2f %2s ", elapsedTime, eventName(), idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
+		}else{
+			System.out.format("%.2f %2s ", elapsedTime, eventName(), ,idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
 		}
 		event.toString();
 		customerList.printAll();

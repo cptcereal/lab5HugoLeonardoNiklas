@@ -2,6 +2,7 @@ package lab5.sim.hairsalon.data;
 
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
+import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
 
 /**
@@ -43,16 +44,7 @@ public class Dissatisfied extends Event{
 				getSim().addToEventStore(tempDiss);
 			}
 		}
-		/*Kunden placeras f�rst i k�n, tiden f�r alla kunder i k�n m�ste �kas med tiden det kommer f�r
-		dissatisfied customer att klippa sig.
-		*/ 
+		
 	}
-	
-	/**
-	 * Returns customer
-	 * @return
-	 */
-	public Customer getCustomer() {
-		return customer;
-	}
+
 }

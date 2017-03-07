@@ -17,7 +17,7 @@ public class HairsalonState extends State {
 	private CustomerList haircutList;
 	private QueueList queueList;
 	private Time timeWaiting;
-	
+	private CustomerList dissatisfiedList;
 	private int numHaircut;
 	private int lastId;
 	
@@ -34,7 +34,7 @@ public class HairsalonState extends State {
 		super();
 		
 		this.settings = settings;
-		
+		dissatisfiedList = new CustomerList();
 		customerList = new CustomerList();
 		haircutList = new CustomerList();
 		queueList = new QueueList(settings.getMAX_CHAIRS());
@@ -104,9 +104,10 @@ public class HairsalonState extends State {
 		return randomDissatisfiedTime.next() + super.getElapsedTimeDouble();
 	}
 	
-	public boolean dissatisfied() {
+	public boolean dissatisfied(Customer c) {
 		double temp = randomNewDissatisfied.next();
 		if (temp <= settings.getP()) {
+			dissatisfiedList.addCustomer(c);
 			return true;
 		}
 		return false;
@@ -144,5 +145,9 @@ public class HairsalonState extends State {
 	
 	public int getCustomerList(){
 		return  customerList.numCustomers();
+	}
+	
+	public int getNumReturning(){
+		return dissatisfiedList.numCustomers();
 	}
 }
