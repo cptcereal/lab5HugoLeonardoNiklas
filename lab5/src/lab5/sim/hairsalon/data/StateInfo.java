@@ -77,6 +77,7 @@ public class StateInfo implements PrintAble {
 	}
 
 	public void printAll() {
+		
 		if(event.getClass().equals(Start.class)){
 			System.out.format("%s %2s %6s %6s %6s %7s %6s %6s %6s %6s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 			System.out.format("%6.2f %2s %n", elapsedTime.getElapsedTime(), eventName());

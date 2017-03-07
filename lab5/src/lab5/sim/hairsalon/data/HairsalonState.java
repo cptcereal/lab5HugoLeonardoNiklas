@@ -27,7 +27,7 @@ public class HairsalonState extends State {
 	private UniformRandomStream randomDissatisfiedTime;
 	private UniformRandomStream randomNewDissatisfied;
 	private ExponentialRandomStream randomNewEnter;
-	
+
 	
 	/**
 	 * Makes HarisaloneState.
@@ -51,13 +51,12 @@ public class HairsalonState extends State {
 		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerTimeUnit(), settings.getSEED());
 		randomNewDissatisfied = new UniformRandomStream(0, 1, settings.getSEED());
 		
+		
+	
 	}
 	
 	
 	public boolean isOpen() {
-		if (super.getStop()) {
-			return false;
-		}
 		return settings.getClosingTime() > super.getElapsedTimeDouble(); 
 	}
 	
