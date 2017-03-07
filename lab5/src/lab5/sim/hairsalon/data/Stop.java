@@ -12,7 +12,8 @@ public class Stop extends Event {
 	}
 	
 	public void effect(State state) {
-		((HairsalonState) state).getInfo(this, null);
+		StateInfo info = ((HairsalonState) state).getInfo(this, null);
+		super.getSim().printInfo(info);
 		state.stop();
 	}
 }

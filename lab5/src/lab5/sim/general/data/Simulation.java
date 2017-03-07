@@ -1,8 +1,6 @@
 package lab5.sim.general.data;
 
-import java.util.Observable;
-import java.util.Observer;
-
+import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.GUI.View;
 
 /**
@@ -11,7 +9,7 @@ import lab5.sim.general.GUI.View;
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
-public abstract class Simulation implements Observer {
+public abstract class Simulation {
 	
 	private View view;
 	private State state;
@@ -65,5 +63,7 @@ public abstract class Simulation implements Observer {
 	 * Handle new info when the state of the simulation changes
 	 * 
 	 */
-	public abstract void update(Observable o, Object arg);
+	public void printInfo(PrintAble infoToPrint) {
+		view.showDataOnView(infoToPrint);
+	}
 }
