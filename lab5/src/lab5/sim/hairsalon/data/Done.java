@@ -10,7 +10,7 @@ import lab5.sim.general.data.Time;
  * @author hugwan-6, leopel-6, inaule-6 
  *
  */
-public class HaircutReady extends Event{
+public class Done extends Event{
 	private final Customer customer;
 	
 	/**
@@ -19,7 +19,7 @@ public class HaircutReady extends Event{
 	 * @param tempTime
 	 * @param ID
 	 */
-	public HaircutReady(Simulation sim, Time tempTime, Customer customer) {
+	public Done(Simulation sim, Time tempTime, Customer customer) {
 		super(sim, tempTime);
 		this.customer = customer;
 	}
@@ -41,7 +41,7 @@ public class HaircutReady extends Event{
 		((HairsalonState) state).haircutFinished();
 		if (((HairsalonState) state).dissatisfied(customer)) {
 			Time tempTime = new Time(((HairsalonState) state).setDissatisfiedStartTime()); 
-			Dissatisfied event = new Dissatisfied(getSim(), tempTime, customer);
+			Return event = new Return(getSim(), tempTime, customer);
 			getSim().addToEventStore(event);
 		}
 	}

@@ -8,7 +8,7 @@ import lab5.sim.general.data.Event;
  */
 public class QueueList {
 	private Event[] queue;
-	private Dissatisfied[] vipQueue;
+	private Return[] vipQueue;
 	
 	private int lastInQueue;
 	private int lastInVIPQueue;
@@ -16,7 +16,7 @@ public class QueueList {
 	
 	public QueueList(int maxQueue) {
 		queue = new Event[maxQueue];
-		vipQueue = new Dissatisfied[maxQueue];
+		vipQueue = new Return[maxQueue];
 		lastInQueue = 0;
 		lastInVIPQueue = 0;
 		maxNumWaiting = 0;
@@ -45,7 +45,7 @@ public class QueueList {
 	 * @param e 
 	 * @return
 	 */
-	public boolean addToVIPQueue(Dissatisfied e) {
+	public boolean addToVIPQueue(Return e) {
 		if (lastInVIPQueue < vipQueue.length) {
 			vipQueue[lastInQueue] = e;
 			lastInVIPQueue += 1;

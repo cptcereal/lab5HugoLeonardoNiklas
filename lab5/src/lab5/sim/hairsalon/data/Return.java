@@ -10,7 +10,7 @@ import lab5.sim.general.data.Time;
  * @author hugwan-6, leopel-6, inaule-6 
  * 
  */
-public class Dissatisfied extends Event{
+public class Return extends Event{
 	private final Customer customer;
 	/**
 	 * This is called when certain conditions are met, and it represents a customer
@@ -19,7 +19,7 @@ public class Dissatisfied extends Event{
 	 * @param sim
 	 * @param customer
 	 */
-	public Dissatisfied(Simulation sim, Time time, Customer customer){
+	public Return(Simulation sim, Time time, Customer customer){
 		super(sim, time);
 		this.customer = customer;
 	}
@@ -31,19 +31,19 @@ public class Dissatisfied extends Event{
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
-		((HairsalonState) state).calculateIdleTime(getTime());
-		StateInfo info = ((HairsalonState) state).getInfo(this);
-		super.getSim().printInfo(info);
 		state.addTime(super.getTime());
-		if (((HairsalonState) state).addHaircut(customer)) {
-			Time tempTime = new Time(((HairsalonState) state).setHaircutTime()); 
-			HaircutReady event = new HaircutReady(getSim(), tempTime, customer);
+		state.calculateIdleTime(getTime());
+		StateInfo info = state.getInfo(this);
+		super.getSim().printInfo(info);
+		if (state.addHaircut(customer)) {
+			Time tempTime = new Time(state.setHaircutTime()); 
+			Done event = new Done(getSim(), tempTime, customer);
 			getSim().addToEventStore(event);
 		}
 		else {
-			if (!((HairsalonState) state).addToVipQueue(this)) {
-				Time tempTime = new Time(((HairsalonState) state).setDissatisfiedStartTime());
-				Dissatisfied tempDiss = new Dissatisfied(getSim(), tempTime, customer);
+			if (!state.addToVipQueue(this)) {
+				Time tempTime = new Time(state.setDissatisfiedStartTime());
+				Return tempDiss = new Return(getSim(), tempTime, customer);
 				getSim().addToEventStore(tempDiss);
 			}
 		}

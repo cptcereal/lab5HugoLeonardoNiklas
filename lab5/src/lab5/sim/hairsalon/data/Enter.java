@@ -48,7 +48,7 @@ public class Enter extends Event{
 			if (((HairsalonState) state).addHaircut(customer)) {
 				Time timeTemp = new Time(((HairsalonState) state).setHaircutTime()); 
 				Customer tempcos = customer;
-				HaircutReady event = new HaircutReady(getSim(), timeTemp, tempcos);
+				Done event = new Done(getSim(), timeTemp, tempcos);
 				getSim().addToEventStore(event);
 			}
 			else {

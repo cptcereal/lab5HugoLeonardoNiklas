@@ -90,7 +90,7 @@ public class HairsalonState extends State {
 		return queueList.addToQueue(e);
 	}
 	
-	public boolean addToVipQueue(Dissatisfied e) {
+	public boolean addToVipQueue(Return e) {
 		return queueList.addToVIPQueue(e);
 	}
 	

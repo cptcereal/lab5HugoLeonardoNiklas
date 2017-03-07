@@ -70,10 +70,10 @@ public class StateInfo implements PrintAble {
 	private int customerID(){
 		if(event.getClass().equals(Enter.class)) {
 			return ((Enter) event).getCustomer().getID();
-		} else if (event.getClass().equals(HaircutReady.class)) {
-			return ((HaircutReady) event).getCustomer().getID();
+		} else if (event.getClass().equals(Done.class)) {
+			return ((Done) event).getCustomer().getID();
 		} else {
-			return ((Dissatisfied) event).getCustomer().getID();
+			return ((Return) event).getCustomer().getID();
 		}
 	}
 
@@ -82,9 +82,9 @@ public class StateInfo implements PrintAble {
 			System.out.format("%s %2s %10s %5s %5s %5s %5s %5s %5s %5s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 			System.out.format("%.2f %2s %n", elapsedTime.getElapsedTime(), eventName());
 		}else if(event.getClass().equals(Stop.class)){
-			System.out.format("%.2f %2s %n", elapsedTime.getElapsedTime(), eventName(), idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%.2f %2s %n", elapsedTime.getElapsedTime(), eventName(), idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numReturning());
 		}else{
-			System.out.format("%.2f %2s %10s %5s %5s %5s %5s %5s %5s %5s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
+			System.out.format("%.2f %2s %10s %5s %5s %5s %5s %5s %5s %5s %n", elapsedTime.getElapsedTime(), eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numReturning());
 		}
 	}
 }
