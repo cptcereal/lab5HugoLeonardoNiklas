@@ -13,6 +13,7 @@ public class Start extends Event{
 	
 	public void effect() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
+		
 		getSim().printInfo(state.getInfo(this).settings);
 		getSim().printInfo(state.getInfo(this));
 		Time tempTime = new Time (state.makeNewEnterEventTime());
