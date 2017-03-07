@@ -31,6 +31,8 @@ public class Dissatisfied extends Event{
 	 */
 	public void effect(State state){
 		((HairsalonState) state).calculateIdleTime(getTime());
+		StateInfo info = ((HairsalonState) state).getInfo(this, customer);
+		super.getSim().printInfo(info);
 		state.addTime(super.getTime());
 		if (((HairsalonState) state).addHaircut(customer)) {
 			Time tempTime = new Time(((HairsalonState) state).setHaircutTime()); 
