@@ -17,6 +17,7 @@ public class HairsalonState extends State {
 	private CustomerList haircutList;
 	private QueueList queueList;
 	private Time timeWaiting;
+	private Time timeIdle;
 	private CustomerList dissatisfiedList;
 	private int numHaircut;
 	private int lastId;
@@ -43,6 +44,7 @@ public class HairsalonState extends State {
 		lastId = 0;
 		
 		timeWaiting = new Time();
+		timeIdle = new Time();
 		randomHaircutTime = new UniformRandomStream(settings.getHmin(), settings.getHmax(), settings.getSEED());
 		randomDissatisfiedTime = new UniformRandomStream(settings.getDmin(), settings.getDmax(), settings.getSEED());
 		randomNewEnter = new ExponentialRandomStream(settings.getCustomersPerTimeUnit(), settings.getSEED());
@@ -111,6 +113,11 @@ public class HairsalonState extends State {
 			return true;
 		}
 		return false;
+	}
+	
+	public void calculateIdleTime(double time) {
+		double idleTime = (super.getElapsedTimeDouble() - time) * (settings.getMAX_CHAIRS() - numHaircut);
+		timeIdle.addTime(idleTime);
 	}
 	
 	/**

@@ -29,6 +29,7 @@ public class Enter extends Event{
 	 * is decided immediately. 
 	 */
 	public void effect(HairsalonState state){
+		state.calculateIdleTime(this.getTime());
 		state.getInfo(this, customer);
 		/*The desired effect that enter has on the queue, state, and time*/
 		if (state.isOpen()) {

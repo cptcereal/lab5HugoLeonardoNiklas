@@ -16,7 +16,7 @@ public abstract class Event {
 	 * @param time
 	 */
 	public Event(Simulation sim, Time time){
-		sim = this.sim;
+		this.sim = sim;
 		this.TIME = time;
 	} 
 	
