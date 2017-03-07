@@ -2,6 +2,7 @@ package lab5.sim.hairsalon.data;
 
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
+import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
 
 public class Stop extends Event {
@@ -10,7 +11,7 @@ public class Stop extends Event {
 		super(sim, time);
 	}
 	
-	public void effect(HairsalonState state) {
+	public void effect(State state) {
 		state.stop();
 	}
 }

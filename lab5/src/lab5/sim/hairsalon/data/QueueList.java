@@ -1,13 +1,12 @@
 package lab5.sim.hairsalon.data;
 
-import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.data.Event;
 /**
  * Create a queue to store elements in an orderly way
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
-public class QueueList implements PrintAble{
+public class QueueList {
 	private Event[] queue;
 	private Dissatisfied[] vipQueue;
 	
@@ -93,15 +92,15 @@ public class QueueList implements PrintAble{
 		return (lastInQueue == 0 && lastInVIPQueue == 0);
 	}
 
-	public void printAll() {
-		System.out.println("Left in queue");
-		for (int i = 1; i <= lastInVIPQueue; i++) {
-			System.out.print(" : "+ i + ". " + vipQueue[i-1].getCustomer().getID());
-		}
-		for (int i = 1; i <= lastInQueue; i++) {
-			System.out.print(" : "+ lastInVIPQueue + i + ". " + vipQueue[i-1].getCustomer().getID());
-		}
-	}
+//	public void printAll() {
+//		System.out.println("Left in queue");
+//		for (int i = 1; i <= lastInVIPQueue; i++) {
+//			System.out.print(" : "+ i + ". " + vipQueue[i-1].getCustomer().getID());
+//		}
+//		for (int i = 1; i <= lastInQueue; i++) {
+//			System.out.print(" : "+ lastInVIPQueue + i + ". " + vipQueue[i-1].getCustomer().getID());
+//		}
+//	}
 	
 	public int getQueueSize(){
 		return lastInQueue + lastInVIPQueue;

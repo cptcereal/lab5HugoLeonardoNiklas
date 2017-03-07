@@ -76,11 +76,5 @@ public class StateInfo implements PrintAble {
 		}else{
 			System.out.format("%.2f %2s ", elapsedTime, eventName(),customerID() ,idleChairs(), tIdle(), timeWaiting, numWaiting(), numCut(),numLost(), numReturning());
 		}
-		event.toString();
-		customerList.printAll();
-		haircutList.printAll();
-		queueList.printAll();
-		System.out.println("Elapsed Time :" + elapsedTime.getElapsedTime());
-		System.out.println("Total time customers waited :" + timeWaiting.getElapsedTime());
 	}
 }

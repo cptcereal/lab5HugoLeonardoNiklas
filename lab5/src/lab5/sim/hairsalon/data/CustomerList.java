@@ -1,14 +1,12 @@
 package lab5.sim.hairsalon.data;
 
-import lab5.sim.general.GUI.PrintAble;
-
 
 /**
  * 
  * @author hugwan-6, leopel-6, inaule-6 
  *
  */
-public class CustomerList implements PrintAble{
+public class CustomerList {
 	private Node first;
 	private int numCustomers;
 	
@@ -56,15 +54,15 @@ public class CustomerList implements PrintAble{
 		}
 	}
 
-	public void printAll() {
-		System.out.println("All Customers");
-		Node temp = first;
-		while(true) {
-			if (temp.customer == null) {
-				return;
-			}
-			System.out.print(" : " + temp.customer.getID());
-			temp = temp.next;
-		}
-	}
+//	public void printAll() {
+//		System.out.println("All Customers");
+//		Node temp = first;
+//		while(true) {
+//			if (temp.customer == null) {
+//				return;
+//			}
+//			System.out.print(" : " + temp.customer.getID());
+//			temp = temp.next;
+//		}
+//	}
 }
