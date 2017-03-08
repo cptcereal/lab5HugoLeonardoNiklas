@@ -107,7 +107,7 @@ public class StateInfo implements PrintAble {
 	 * @return average queue time
 	 */
 	public  double averageQueueTime() {
-		return (timeWaiting.getElapsedTime() / numCut());
+		return (timeWaiting.getElapsedTime() / numCut()); 
 	}
 
 	public HairsalonSettings getSettings(){
