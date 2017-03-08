@@ -44,7 +44,7 @@ public class HairsalonView extends View {
 	public void printStopHSS(Stop e, StateInfo info) {
 		System.out.format("%6.2f %2s %10s %6.2f %7.2f %6s %6s %6s %4s %n", 
 				e.getTime(), e.toString(), info.idleChairs(), info.tIdle(), info.getTimeWaiting(), info.numWaiting(), 
-				info.numCut(), info.numLost(), info.getnumCustomer());
+				info.numCut(), info.numLost(), info.getDissatisfiedCustomers());
 		System.out.println("---------------------------------------------------------------------");
 		System.out.format("%s %2s %n", "Number of customers cut: ......:", info.numCut());
 		System.out.format("%s %2.2f %n", "Average cutting time...........:", info.averageCuttingTime());
