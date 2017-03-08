@@ -79,17 +79,19 @@ public class HairsalonState extends State {
 	}
 	
 	/**
-	 * Change the state when an haircut is completed
+	 * 
 	 * 
 	 * @param c - the customer that's finished
 	 */
-	public void haircutFinished(Customer c) {
+	public Boolean haircutFinished(Customer c) {
 		haircutList.addCustomer(c);
 		numHaircut -= 1;
-		if (queueList.isEmpty() == false) {
-			Event e = queueList.next();
-			e.effect();
-		}
+		return !queueList.isEmpty();
+	
+	}
+	
+	public Customer getNextInQueue(){
+		return queueList.next();
 	}
 	
 	/**
@@ -120,8 +122,8 @@ public class HairsalonState extends State {
 	 * @param e - the event to move to the queue
 	 * @return if the customer could be added to the queue
 	 */
-	public boolean addToQueue(Enter e) {
-		return queueList.addToQueue(e);
+	public boolean addToQueue(Customer c) {
+		return queueList.addToQueue(c);
 	}
 	
 	/**
@@ -130,8 +132,8 @@ public class HairsalonState extends State {
 	 * @param e - the return event to move to the queue
 	 * @return if the customer could be added to the queue
 	 */
-	public boolean addToVipQueue(Return e) {
-		return queueList.addToVIPQueue(e);
+	public boolean addToVipQueue(Customer c) {
+		return queueList.addToVIPQueue(c);
 	}
 	
 	/**

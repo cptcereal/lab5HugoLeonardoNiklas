@@ -32,6 +32,7 @@ public class Start extends Event{
 		
 		getSim().printInfo(state.getInfo(this).settings);
 		getSim().printInfo(state.getInfo(this));
+		
 		Time tempTime = new Time (state.makeNewEnterEventTime());
 		Customer c = new Customer( state.setCustoemrID());
 		Enter e = new Enter(getSim(), tempTime, c);

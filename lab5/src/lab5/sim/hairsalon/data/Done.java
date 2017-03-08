@@ -40,7 +40,10 @@ public class Done extends Event{
 		StateInfo info = state.getInfo(this);
 		super.getSim().printInfo(info);
 		
-		state.haircutFinished(customer);
+		if (state.haircutFinished(customer)) {
+			Done tempD = new Done(getSim(), new Time(state.setHaircutTime()), state.getNextInQueue());
+			getSim().addToEventStore(tempD);
+		}
 		
 		// If the customer was dissatisfied, create a new dissatisfied event
 		if (state.dissatisfied()) {
