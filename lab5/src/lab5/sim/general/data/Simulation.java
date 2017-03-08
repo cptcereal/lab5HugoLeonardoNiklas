@@ -1,6 +1,5 @@
 package lab5.sim.general.data;
 
-import java.io.IOException;
 
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.GUI.View;
@@ -36,7 +35,7 @@ public class Simulation {
 	public void run() throws Exception {
 		while(!eventStore.isEmpty() || state.getStop()) {
 			Event e = eventStore.nextEvent();
-			state.startEvent(e);
+			e.effect();
 			if (state.getStop()) {
 				break;
 			}
