@@ -90,7 +90,7 @@ public class StateInfo implements PrintAble {
 		
 		} else if (event.getClass().equals(Stop.class)) {
 			System.out.format("%6.2f %2s %13s %6.2f %7.2f %6s %6s %6s %4s %n", event.getTime(), eventName(), idleChairs(), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), numCut(),numLost(), numDissatisfied);
-			System.out.println("----------------------------------------------------------------");
+			System.out.println("---------------------------------------------------------------------");
 			System.out.format("%s %2s %n", "Number of customers cut: ......:", numCut());
 			System.out.format("%s %2.2f %n", "Average cutting time...........:", averageCuttingTime());
 			System.out.format("%s %2.2f %n", "Average queueing time: ........:", averageQueueTime());

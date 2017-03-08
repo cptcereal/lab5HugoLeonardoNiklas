@@ -60,29 +60,28 @@ public class HairsalonSettings implements PrintAble{
 	 * 
 	 */
 	public void printAll() {
-		String formatSF = "%s %.2f %n";
-		String formatSS = "%s %s %n";
-		String formatMinMax = "%s %.2f %s %.2f %s %n";
+		System.out.println("Closing time of the day ..............: " + CLOSING_TIME);
+		System.out.println("Total number of chairs ...............: " + MAX_CHAIRS);
+		System.out.println("Maximum queue size ...................: " + MAX_QUEUE);
+		System.out.println("Lambda (customers/timeunit entering)..: " + CUSTOMERS_PER_TIMEUNIT);
+		System.out.println("hmin and hmax (cutting time interval) : [" + H_MIN + ", " + H_MAX + "]");
+		System.out.println("dmin and dmax (return time interval) .: [" + D_MIN + ", "+ D_MAX + "]");
+		System.out.println("Risk dissatisfied returns: ...........: " + P);
+		System.out.println("Seed used in pseudo random generator .: " + SEED);
+		System.out.println("---------------------------------------------------------------------");
 		
-//		System.out.println("Closing time of the day ..............: " + CLOSING_TIME);
-//		System.out.println("Total number of chairs ...............: " + MAX_CHAIRS);
-//		System.out.println("Maximum queue size ...................: " + MAX_QUEUE);
-//		System.out.println("Lambda (customers/timeunit entering)..: " + CUSTOMERS_PER_TIMEUNIT);
-//		System.out.println("hmin and hmax (cutting time interval) : [" + H_MIN + ", " + H_MAX + "]");
-//		System.out.println("dmin and dmax (return time interval) .: [" + D_MIN + ", "+ D_MAX + "]");
-//		System.out.println("Risk dissatisfied returns: ...........: " + P);
-//		System.out.println("Seed used in pseudo random generator .: " + SEED);
-//		System.out.println("----------------------------------------------------------------");
-		
-		System.out.format(formatSF, "Closing time of the day ..............:", CLOSING_TIME);
-		System.out.format(formatSS, "Total number of chairs ...............:", MAX_CHAIRS);
-		System.out.format(formatSS, "Maximum queue size ...................:", MAX_QUEUE);
-		System.out.format(formatSF, "Lambda (customers/timeunit entering)..:", CUSTOMERS_PER_TIMEUNIT);
-		System.out.format(formatMinMax, "hmin and hmax (cutting time interval) : [", H_MIN, ", ", H_MAX, "]");
-		System.out.format(formatMinMax, "dmin and dmax (return time interval) .: [", D_MIN, ", ", D_MAX, "]");
-		System.out.format(formatSF, "Risk dissatisfied returns: ...........:", P);
-		System.out.format(formatSS, "Seed used in pseudo random generator .:", SEED);
-		System.out.format("%s %n", "----------------------------------------------------------------");
+//		String formatSF = "%s %.2f %n";
+//		String formatSS = "%s %s %n";
+//		String formatMinMax = "%s %.2f %s %.2f %s %n";
+//		System.out.format(formatSF, "Closing time of the day ..............:", CLOSING_TIME);
+//		System.out.format(formatSS, "Total number of chairs ...............:", MAX_CHAIRS);
+//		System.out.format(formatSS, "Maximum queue size ...................:", MAX_QUEUE);
+//		System.out.format(formatSF, "Lambda (customers/timeunit entering)..:", CUSTOMERS_PER_TIMEUNIT);
+//		System.out.format(formatMinMax, "hmin and hmax (cutting time interval) : [", H_MIN, ", ", H_MAX, "]");
+//		System.out.format(formatMinMax, "dmin and dmax (return time interval) .: [", D_MIN, ", ", D_MAX, "]");
+//		System.out.format(formatSF, "Risk dissatisfied returns: ...........:", P);
+//		System.out.format(formatSS, "Seed used in pseudo random generator .:", SEED);
+//		System.out.format("%s %n", "----------------------------------------------------------------");
 	}
 	
 	/**
