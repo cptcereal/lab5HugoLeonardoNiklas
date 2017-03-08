@@ -81,8 +81,8 @@ public class HairsalonState extends State {
 	}
 	
 	/**
-	 * 
-	 * 
+	 * Add customer c to haircutList and removes one from numhaircut
+	 * @return Returns ture if there is someone in queue:
 	 * @param c - the customer that's finished
 	 */
 	public Boolean haircutFinished(Customer c) {
@@ -92,6 +92,10 @@ public class HairsalonState extends State {
 	
 	}
 	
+	/**
+	 * Adds one to numHaircut and returns next customer.
+	 * @return Next Customer in list
+	 */
 	public Customer getNextInQueue(){
 		numHaircut += 1;
 		return queueList.next();
