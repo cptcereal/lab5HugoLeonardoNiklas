@@ -24,7 +24,7 @@ public class HairsalonView extends View {
 		System.out.println("---------------------------------------------------------------------");
 	}
 	
-	public void printStartHSS(Start e) {
+	public void printStartHSS(Start e) { 
 		System.out.format("%s %2s %6s %6s %6s %7s %6s %6s %6s %6s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 		System.out.format("%6.2f %2s %n", e.getTime(), e.toString());
 	}
