@@ -2,6 +2,8 @@ package lab5.sim.general.data;
 
 
 
+import java.util.Observable;
+
 import lab5.sim.general.GUI.View;
 
 /**
@@ -9,7 +11,7 @@ import lab5.sim.general.GUI.View;
  * 
  * @author hugwan-6, leopel-6, inaule-6
  */
-public class Simulation {
+public class Simulation extends Observable{
 	
 	private View view;
 	private State state;
@@ -25,6 +27,7 @@ public class Simulation {
 		this.view = view;
 		this.state = state;
 		eventStore = new EventStore();
+		this.addObserver(view);
 	}
 	
 	/**
@@ -35,6 +38,9 @@ public class Simulation {
 	public void run() throws Exception {
 		while(!eventStore.isEmpty() || state.getStop()) {
 			Event e = eventStore.nextEvent();
+			e.addTime();
+			setChanged();
+			notifyObservers(e);
 			e.effect();
 			if (state.getStop()) {
 				break;

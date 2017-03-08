@@ -3,7 +3,6 @@ package lab5.sim.hairsalon.data;
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Stop;
 import lab5.sim.general.data.Time;
-import lab5.sim.hairsalon.GUI.HairsalonView;
 
 /**
  * Represents the event that the hair salon simulation ends
@@ -31,8 +30,7 @@ public class StopHSS extends Stop {
 	public void effect() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		state.addtimewaiting(this);
-		HairsalonView view =((HairsalonView)super.getSim().getView());
-		view.printStopHSS(this, state.getInfo());
+	
 		super.effect();
 	}
 }

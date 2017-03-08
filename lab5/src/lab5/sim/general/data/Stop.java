@@ -20,4 +20,10 @@ public class Stop extends Event {
 		State state = super.getSim().getState();
 		state.stop();
 	}
+
+	@Override
+	public void addTime() {
+		// TODO Auto-generated method stub
+		
+	}
 }

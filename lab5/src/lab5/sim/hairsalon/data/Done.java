@@ -3,7 +3,6 @@ package lab5.sim.hairsalon.data;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
-import lab5.sim.hairsalon.GUI.HairsalonView;
 
 /**
  * The event of the hair salon simulation that represents a customers hair cut being finished
@@ -32,15 +31,6 @@ public class Done extends Event{
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
-		state.addtimewaiting(this);
-		state.calculateIdleTime(getTime());
-		
-		state.addTime(super.getTime());
-		
-		// Get the new state info
-		StateInfo info = state.getInfo();
-		HairsalonView view =((HairsalonView)super.getSim().getView());
-		view.printDone(this, info);
 		
 		if (state.haircutFinished(customer)) {
 			Done tempD = new Done(getSim(), new Time(state.setHaircutTime()), state.getNextInQueue());
@@ -62,5 +52,16 @@ public class Done extends Event{
 	 */
 	public Customer getCustomer() {
 		return customer;
+	}
+
+
+	@Override
+	public void addTime() {
+		// TODO Auto-generated method stub
+		HairsalonState state = ((HairsalonState)getSim().getState());
+		state.addtimewaiting(this);
+		state.calculateIdleTime(getTime());
+		
+		state.addTime(super.getTime());
 	}
 }

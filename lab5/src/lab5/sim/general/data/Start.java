@@ -22,4 +22,9 @@ public class Start extends Event {
 		getSim().addToEventStore(stop);
 	}
 
+	@Override
+	public void addTime() {
+		
+	}
+
 }

@@ -28,6 +28,8 @@ public abstract class Event {
 	 */
 	public abstract void effect(); 
 	
+	public abstract void addTime();
+	
 	/**
 	 * Returns the time when the event occurs
 	 * 

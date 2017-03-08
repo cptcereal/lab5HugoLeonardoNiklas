@@ -15,7 +15,6 @@ import lab5.sim.hairsalon.data.StartHSS;
  * @author hugwan-6, leopel-6, inaule-6
  */
 public class HairsalonMain {
-
 	
 	/**
 	 * Starts the simulation
