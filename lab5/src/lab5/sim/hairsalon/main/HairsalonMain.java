@@ -20,9 +20,9 @@ public class HairsalonMain {
 	 * Starts the simulation
 	 * 
 	 * @param The settings of the hairsalon
-	 * @throws IOException 
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		HairsalonSettings hairsalonSettings;
 		if (args.length != 10) {
 			hairsalonSettings = new HairsalonSettings();
