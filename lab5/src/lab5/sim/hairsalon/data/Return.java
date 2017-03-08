@@ -63,6 +63,7 @@ public class Return extends Event{
 	/**
 	 * Returns the customer whom the event belongs to
 	 * 
+	 * 
 	 * @return the customer
 	 */
 	public Customer getCustomer(){
