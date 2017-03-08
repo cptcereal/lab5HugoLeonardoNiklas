@@ -18,6 +18,7 @@ public class Start extends Event {
 	 */
 	public void effect() {		
 		Stop stop = new Stop(getSim(), new Time(999));
+		
 		getSim().addToEventStore(stop);
 	}
 
