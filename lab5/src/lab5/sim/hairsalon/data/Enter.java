@@ -39,7 +39,8 @@ public class Enter extends Event{
 		
 		//The desired effect that enter has on the queue, state, and time
 		if (state.isOpen()) {
-			if (state.addTime(super.getTime())) {	// Varför måste tid a gått? /hugo
+			if (state.addTime(super.getTime())) {
+				state.addCustomer(customer);
 				Time tempTime  = new Time(state.makeNewEnterEventTime());
 				Customer tempCustomer = new Customer(state.setCustoemrID());
 				Enter tempEnter = new Enter(super.getSim(), tempTime, tempCustomer);
@@ -50,7 +51,6 @@ public class Enter extends Event{
 				super.getSim().printInfo(info);	
 			}
 			
-			state.addCustomer(customer);
 			
 			if (state.addHaircut()) {
 				Time timeTemp = new Time(state.setHaircutTime()); 

@@ -50,10 +50,10 @@ public class QueueList {
 	 */
 	public boolean addToVIPQueue(Return e) {
 		if (lastInVIPQueue < vipQueue.length) {
-			vipQueue[lastInQueue] = e;
+			vipQueue[lastInVIPQueue] = e;
 			lastInVIPQueue += 1;
 			
-			if (lastInQueue + lastInVIPQueue >= queue.length) {
+			if (lastInQueue + lastInVIPQueue > queue.length) {
 				lastInQueue -= 1;
 				lost += 1;
 			}
@@ -74,12 +74,13 @@ public class QueueList {
 	public Event next() {
 		if (lastInVIPQueue != 0) {
 			lastInVIPQueue -= 1;
-			Event temp =vipQueue[0];
+			Return temp = vipQueue[0];
 			for (int i = 0; i < lastInVIPQueue; i++) {
 				vipQueue[i] = vipQueue[i + 1];
 			}
 			return temp;
 		}
+		
 		Event temp = queue[0];
 		lastInQueue -= 1;
 		for (int i = 0; i < lastInQueue; i++) {

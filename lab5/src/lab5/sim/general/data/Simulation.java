@@ -53,16 +53,6 @@ public class Simulation {
 	}
 	
 	/**
-	 * Sets the time of when an event should occur
-	 * 
-	 * @return the time until an event occurs
-	 */
-	public double setEventTime() {								// Needed?
-		return 0;
-		
-	}
-	
-	/**
 	 * Returns the simulations state
 	 * 
 	 * @return the state

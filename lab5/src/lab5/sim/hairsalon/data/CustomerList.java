@@ -56,7 +56,7 @@ public class CustomerList {
 		return svar;
 	}
 	
-	class Node{								// Private?
+	private class Node{							
 		public final Customer customer;
 		public Node next;
 		

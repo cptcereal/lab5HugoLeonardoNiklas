@@ -38,7 +38,7 @@ public class HairsalonState extends State {
 		this.settings = settings;
 		customerList = new CustomerList();
 		haircutList = new CustomerList();
-		queueList = new QueueList(settings.getMaxChairs());
+		queueList = new QueueList(settings.getMaxQueue());
 		
 		numHaircut = 0;
 		lastId = 0;
@@ -129,7 +129,6 @@ public class HairsalonState extends State {
 	 */
 	public double makeNewEnterEventTime() {
 		double a = randomNewEnter.next() + super.getElapsedTimeDouble();
-//		System.out.println(a);
 		return a;
 	}
 	

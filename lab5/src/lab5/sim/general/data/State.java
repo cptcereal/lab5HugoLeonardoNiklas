@@ -51,7 +51,7 @@ public abstract class State {
 	 * 
 	 * @return the time object
 	 */
-	public Time getElapsedTime(){		// Wrong name? This is the time object, not the elapsed time
+	public Time getElapsedTime() {
 		return time;
 	}
 	

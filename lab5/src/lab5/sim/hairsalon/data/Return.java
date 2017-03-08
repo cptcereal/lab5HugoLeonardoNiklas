@@ -30,10 +30,15 @@ public class Return extends Event{
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
-		state.addtimewaiting(this);
-		state.calculateIdleTime(getTime());
+		
+		if (super.getTime() > state.getElapsedTimeDouble()) {
+			state.addtimewaiting(this);
+			state.calculateIdleTime(getTime());
+		}
 		
 		state.addTime(super.getTime());
+		
+		// Get the new state info
 		StateInfo info = state.getInfo(this);
 		super.getSim().printInfo(info);
 		
@@ -45,6 +50,7 @@ public class Return extends Event{
 			getSim().addToEventStore(event);
 		}
 		else {
+			// If the dissatisfied queue is full, the customer goes for a walk and comes back later
 			if (!state.addToVipQueue(this)) {
 				Time tempTime = new Time(state.setDissatisfiedStartTime());
 				Return tempDiss = new Return(getSim(), tempTime, customer);

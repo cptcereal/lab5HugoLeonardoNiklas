@@ -35,6 +35,8 @@ public class Done extends Event{
 		state.calculateIdleTime(getTime());
 		
 		state.addTime(super.getTime());
+		
+		// Get the new state info
 		StateInfo info = state.getInfo(this);
 		super.getSim().printInfo(info);
 		
