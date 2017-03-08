@@ -161,7 +161,7 @@ public class HairsalonState extends State {
 	 */
 	public boolean dissatisfied(Customer c) {
 		double temp = randomNewDissatisfied.next();
-		if (temp <= settings.getP()) {
+		if (temp < settings.getP()) {
 			return true;
 		}
 		return false;
