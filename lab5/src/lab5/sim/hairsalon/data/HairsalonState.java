@@ -210,6 +210,7 @@ public class HairsalonState extends State {
 	/**
 	 * Increase the amount of dissatisfied customer the hair salon has had during the simulation
 	 * 
+	 * 
 	 */
 	public void addDissatisfied(){
 		numDissatisfied += 1;
