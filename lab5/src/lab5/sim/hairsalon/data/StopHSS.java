@@ -1,7 +1,7 @@
 package lab5.sim.hairsalon.data;
 
-import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
+import lab5.sim.general.data.Stop;
 import lab5.sim.general.data.Time;
 
 /**
@@ -10,7 +10,7 @@ import lab5.sim.general.data.Time;
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
-public class Stop extends Event {
+public class StopHSS extends Stop {
 
 	/**
 	 * Creates the event and assigns it a simulation, time and customer
@@ -19,7 +19,7 @@ public class Stop extends Event {
 	 * @param time - the time that the event occurs
 	 * @param customer - the customer the event belongs to
 	 */
-	public Stop(Simulation sim, Time time) {
+	public StopHSS(Simulation sim, Time time) {
 		super(sim, time);
 	}
 	
@@ -31,7 +31,7 @@ public class Stop extends Event {
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		state.addtimewaiting(this);
 		super.getSim().printInfo(state.getInfo(this));
-		state.stop();
+		super.effect();
 	}
 }
 	
