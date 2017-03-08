@@ -52,7 +52,7 @@ public class Return extends Event{
 		}
 		else {
 			// If the dissatisfied queue is full, the customer goes for a walk and comes back later
-			if (!state.addToVipQueue(this)) {
+			if (!state.addToVipQueue(customer)) {
 				Time tempTime = new Time(state.setDissatisfiedStartTime());
 				Return tempDiss = new Return(getSim(), tempTime, customer);
 				getSim().addToEventStore(tempDiss);

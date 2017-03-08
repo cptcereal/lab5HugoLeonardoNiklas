@@ -39,18 +39,16 @@ public class Enter extends Event{
 		
 		//The desired effect that enter has on the queue, state, and time
 		if (state.isOpen()) {
-			if (state.addTime(super.getTime())) {
-				state.addCustomer(customer);
-				Time tempTime  = new Time(state.makeNewEnterEventTime());
-				Customer tempCustomer = new Customer(state.setCustoemrID());
-				Enter tempEnter = new Enter(super.getSim(), tempTime, tempCustomer);
-				super.getSim().addToEventStore(tempEnter);
+			state.addTime(super.getTime());
+			state.addCustomer(customer);
+			Time tempTime  = new Time(state.makeNewEnterEventTime());
+			Customer tempCustomer = new Customer(state.setCustoemrID());
+			Enter tempEnter = new Enter(super.getSim(), tempTime, tempCustomer);
+			super.getSim().addToEventStore(tempEnter);
 				
-				// Get the updated information of the state and make the simulator change the view
-				StateInfo info = state.getInfo(this);
-				super.getSim().printInfo(info);	
-			}
-			
+			// Get the updated information of the state and make the simulator change the view
+			StateInfo info = state.getInfo(this);
+			super.getSim().printInfo(info);	
 			
 			if (state.addHaircut()) {
 				Time timeTemp = new Time(state.setHaircutTime()); 
@@ -58,7 +56,7 @@ public class Enter extends Event{
 				Done event = new Done(getSim(), timeTemp, tempcos);
 				getSim().addToEventStore(event);
 			} else {
-				state.addToQueue(this);
+				state.addToQueue(customer);
 			}
 		}
 	}

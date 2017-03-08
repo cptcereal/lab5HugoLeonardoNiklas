@@ -1,6 +1,5 @@
 package lab5.sim.hairsalon.data;
 
-import lab5.sim.general.data.Event;
 /**
  * Create a queue to store elements in an orderly way
  * 
@@ -8,8 +7,8 @@ import lab5.sim.general.data.Event;
  *
  */
 public class QueueList {
-	private Event[] queue;
-	private Return[] vipQueue;
+	private Customer[] queue;
+	private Customer[] vipQueue;
 	
 	private int lastInQueue;
 	private int lastInVIPQueue;
@@ -22,8 +21,8 @@ public class QueueList {
 	 * @param maxQueue - the maximum size of the queue
 	 */
 	public QueueList(int maxQueue) {
-		queue = new Event[maxQueue];
-		vipQueue = new Return[maxQueue];
+		queue = new Customer[maxQueue];
+		vipQueue = new Customer[maxQueue];
 		lastInQueue = 0;
 		lastInVIPQueue = 0;
 		maxNumWaiting = 0;
@@ -36,9 +35,9 @@ public class QueueList {
 	 * @param e - the enter event to add to the queue
 	 * @return true if the event was added and false otherwise
 	 */
-	public boolean addToQueue(Enter e) {
+	public boolean addToQueue(Customer c) {
 		if (lastInQueue + lastInVIPQueue < queue.length) {
-			queue[lastInQueue] = e;
+			queue[lastInQueue] = c;
 			lastInQueue += 1;
 			
 			if (lastInQueue + lastInVIPQueue > maxNumWaiting) {
@@ -58,9 +57,9 @@ public class QueueList {
 	 * @param e - the return event to add
 	 * @return true if the event was added and false otherwise
 	 */
-	public boolean addToVIPQueue(Return e) {
+	public boolean addToVIPQueue(Customer c) {
 		if (lastInVIPQueue < vipQueue.length) {
-			vipQueue[lastInVIPQueue] = e;
+			vipQueue[lastInVIPQueue] = c;
 			lastInVIPQueue += 1;
 			
 			if (lastInQueue + lastInVIPQueue > queue.length) {
@@ -83,17 +82,17 @@ public class QueueList {
 	 * 
 	 * @return the next event in the queue
 	 */
-	public Event next() {
+	public Customer next() {
 		if (lastInVIPQueue != 0) {
 			lastInVIPQueue -= 1;
-			Return temp = vipQueue[0];
+			Customer temp = vipQueue[0];
 			for (int i = 0; i < lastInVIPQueue; i++) {
 				vipQueue[i] = vipQueue[i + 1];
 			}
 			return temp;
 		}
 		
-		Event temp = queue[0];
+		Customer temp = queue[0];
 		lastInQueue -= 1;
 		for (int i = 0; i < lastInQueue; i++) {
 			queue[i] = queue[i + 1];
