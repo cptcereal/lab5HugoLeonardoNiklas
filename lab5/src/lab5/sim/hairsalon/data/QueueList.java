@@ -135,5 +135,6 @@ public class QueueList {
 	 */
 	public int getLost() {
 		return lost;
+		
 	}
 }
