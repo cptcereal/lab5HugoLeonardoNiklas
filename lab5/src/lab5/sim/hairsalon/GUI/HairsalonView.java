@@ -3,12 +3,17 @@ package lab5.sim.hairsalon.GUI;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.sun.prism.paint.Stop;
+
+import lab5.sim.general.data.Start;
+import lab5.sim.hairsalon.data.Closing;
+import lab5.sim.hairsalon.data.Done;
 import lab5.sim.hairsalon.data.Enter;
 import lab5.sim.hairsalon.data.HairsalonSettings;
-import lab5.sim.hairsalon.data.HairsalonState;
+import lab5.sim.hairsalon.data.Return;
 import lab5.sim.hairsalon.data.StateInfo;
 
-public class HairsalonView implements Observer {
+public class HairsalonView {
 	
 	public void printSettings(HairsalonSettings settings) {
 		System.out.println("Closing time of the day ..............: " + settings.getClosingTime());
@@ -22,15 +27,34 @@ public class HairsalonView implements Observer {
 		System.out.println("---------------------------------------------------------------------");
 	}
 	
-	public void printEnter(Enter e, StateInfo info) {
-		System.out.format("%6.2f %2s %5s %6s %6.2f %7.2f %6s %6s %6s %4s %n", 
-				e.getTime(), e.toString(), e.getCustomer().getID(), idleChairs(info), tIdle(), timeWaiting.getElapsedTime(), numWaiting(), 
-				numCut(),numLost(), dissatisfiedlist.numCustomers());
+	public void printStartHSS(Start e) {
+		System.out.format("%s %2s %6s %6s %6s %7s %6s %6s %6s %6s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
+		System.out.format("%6.2f %2s %n", e.getTime(), e.toString());
 	}
 	
-	public void update(Observable arg0, Object arg1) {
+	public void printStopHSS(Stop e) {
+		
+	}
+	
+	public void printReturn(Return e) {
+		
+	}
+	
+	public void printClosing(Closing e) {
 		
 		
+	}
+	
+	public void printEnter(Enter e, StateInfo info) {
+		System.out.format("%6.2f %2s %5s %6s %6.2f %7.2f %6s %6s %6s %4s %n", 
+				e.getTime(), e.toString(), e.getCustomer().getID(), info.idleChairs(), info.tIdle(), info.timeWaiting, info.numWaiting(), 
+				info.numCut(),info.numLost(), info.dissatisfiedlist.numCustomers());
+	}
+	
+	public void printDone(Done e, StateInfo info) {
+		System.out.format("%6.2f %2s %6s %6s %6.2f %7.2f %6s %6s %6s %4s %n", 
+				e.getTime(), e.toString(), e.getCustomer().getID(), info.idleChairs(), info.tIdle(), info.timeWaiting, info.numWaiting(), 
+				info.numCut(), info.numLost(), info.dissatisfiedlist.numCustomers());
 	}
 
 }
