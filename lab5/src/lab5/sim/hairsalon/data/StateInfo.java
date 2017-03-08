@@ -56,7 +56,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return number of customers in the queue
 	 */
-	private int numWaiting() {
+	public int numWaiting() {
 		return queueList.getQueueSize();
 	}
 	
@@ -64,7 +64,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return number of lost customers
 	 */
-	private int numLost(){
+	public int numLost(){
 		return queueList.getLost();
 	}
 	
@@ -72,7 +72,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return number of idle chairs in the hair salon
 	 */
-	private int idleChairs(){
+	public  int idleChairs(){
 		return (settings.getMaxChairs() - numHaircut);
 	}
 	
@@ -80,7 +80,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return number of customers that have been cut in the hair salon
 	 */
-	private int numCut(){
+	public  int numCut(){
 		return haircutList.numCustomers();
 	}
 	
@@ -88,7 +88,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return the name of the event
 	 */
-	private String eventName(){
+	public  String eventName(){
 		return event.toString();
 	}
 	
@@ -96,7 +96,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return idle time of the chairs in the hair salon
 	 */
-	private double tIdle(){
+	public double tIdle(){
 		return timeIdle.getElapsedTime(); 
 	}
 	
@@ -105,7 +105,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return average cutting time
 	 */
-	private double averageCuttingTime() {
+	public  double averageCuttingTime() { 
 		return ((elapsedTime.getElapsedTime() * settings.getMaxChairs()) - tIdle()) / numCut();
 	}
 	
@@ -114,7 +114,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return average queue time
 	 */
-	private double averageQueueTime() {
+	public  double averageQueueTime() {
 		return (timeWaiting.getElapsedTime() / numCut());
 	}
 	
@@ -123,7 +123,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return the ID of the customer
 	 */
-	private int customerID(){
+	public int customerID(){
 		if(event.getClass().equals(Enter.class)) {
 			return ((Enter) event).getCustomer().getID();
 		} else if (event.getClass().equals(Done.class)) {
