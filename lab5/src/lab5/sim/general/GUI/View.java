@@ -11,7 +11,6 @@ public class View {
 	/**
 	 * Prints the information.
 	 * 
-	 * @param infoToPrint - the information that's printed
 	 */
 	public void showDataOnView() {
 		
