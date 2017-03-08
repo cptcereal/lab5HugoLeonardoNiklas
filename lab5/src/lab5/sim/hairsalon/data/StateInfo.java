@@ -30,7 +30,6 @@ public class StateInfo {
 	 * @param timeIdle - the time chairs in the hair salon was idle
 	 * @param timeWaiting - the total waiting time of the customers
 	 * @param elapsedTime - the time of the simulation
-	 * @param event
 	 * @param numHaircut
 	 * @param dissatisfiedlist
 	 */
@@ -105,22 +104,42 @@ public class StateInfo {
 		return (timeWaiting.getElapsedTime() / numCut()); 
 	}
 
+	/**
+	 * Returns the settings of the hairsalon
+	 * @return
+	 */
 	public HairsalonSettings getSettings(){
 		return settings;
 	}
 	
+	/**
+	 * Returns the number of customers in the list
+	 * @return
+	 */
 	public int getnumCustomer(){
 		return customerList.numCustomers();
 	}
 	
+	/**
+	 * Returns the number of dissatisfied customers in the simulation
+	 * @return
+	 */
 	public int getDissatisfiedCustomers(){
 		return dissatisfiedlist.numCustomers();
 	}
 	
+	/**
+	 * Returns the time a customer has been waiting in the queue
+	 * @return
+	 */
 	public double getTimeWaiting(){
 		return timeWaiting.getElapsedTime();
 	}
 	
+	/**
+	 * Returns the amount of max amount of customers the queue can "handle"
+	 * @return
+	 */
 	public int getMaxNumWaiting(){
 		return queueList.getMaxNumWaiting();
 	}
