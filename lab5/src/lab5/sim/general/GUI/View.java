@@ -6,13 +6,6 @@ package lab5.sim.general.GUI;
  * @author hugwan-6, leopel-6, inaule-6 
  *
  */
-public class View {
-
-	/**
-	 * Prints the information.
-	 * 
-	 */
-	public void showDataOnView() {
-		
-	}
+public abstract class View {
+	
 }
