@@ -22,12 +22,10 @@ public class Simulation {
 	 * @param state - the state of the simulation
 	 * @throws Exception 
 	 */
-	public Simulation(State state) throws Exception {
+	public Simulation(State state) {
 		this.view = new View();
 		this.state = state;
 		eventStore = new EventStore();
-		addToEventStore(new Start(this, new Time(0)));	// Add an start event to the EventStore
-		run();
 	}
 	
 	/**
@@ -36,7 +34,7 @@ public class Simulation {
 	 * 
 	 */
 	public void run() throws Exception {
-		while(!eventStore.isEmpty()) {
+		while(!eventStore.isEmpty() || state.getStop()) {
 			Event e = eventStore.nextEvent();
 			state.startEvent(e);
 			if (state.getStop()) {
@@ -46,6 +44,11 @@ public class Simulation {
 		if (state.getStop() && !eventStore.isEmpty()) {
 			throw new Exception("EventStore is not empty");
 		}
+	}
+	
+	public void addStartEvent(Start e) throws Exception {
+		eventStore.add(e);
+		run();
 	}
 	
 	/**
