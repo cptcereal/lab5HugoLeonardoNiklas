@@ -82,15 +82,6 @@ public class EventStore {
 	public boolean isEmpty(){
 		return start.next == null;
 	}
-	
-	/**
-	 * Prints the event
-	 * 
-	 * @param e - the event to print
-	 */
-	public void print(Event e) { 		// Not needed right?
-		System.out.println(e.toString());
-	}
 }
 
 

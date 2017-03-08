@@ -2,7 +2,6 @@ package lab5.sim.general.data;
 
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.GUI.View;
-import lab5.sim.hairsalon.data.HairsalonState;
 import lab5.sim.hairsalon.data.Start;
 
 /**
