@@ -127,7 +127,7 @@ public class StateInfo implements PrintAble {
 	}
 	
 	public QueueList getQueueList(){
-		return queueList;
+		return queueList; 
 	}
 	
 	public double getTimeWaiting(){
