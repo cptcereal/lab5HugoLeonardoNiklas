@@ -43,7 +43,7 @@ public class Return extends Event{
 		StateInfo info = state.getInfo(this);
 		super.getSim().printInfo(info);
 		
-		state.addDissatisfied();
+		state.addDissatisfied(customer);
 		
 		if (state.addHaircut()) {
 			Time tempTime = new Time(state.setHaircutTime()); 
