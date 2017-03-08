@@ -15,7 +15,7 @@ public class Done extends Event{
 	/**
 	 * Creates the event and assigns it a simulation, time and customer
 	 * 
-	 * @param sim - the simulation the event belongs to
+	 * @param sim - the simulation the event effects
 	 * @param time - the time that the event occurs
 	 * @param customer - the customer the event belongs to
 	 */
