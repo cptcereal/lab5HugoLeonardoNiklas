@@ -42,6 +42,7 @@ public class HairsalonView {
 	
 	public void printClosing(Closing e) {
 		
+		
 	}
 	
 	public void printEnter(Enter e, StateInfo info) {
