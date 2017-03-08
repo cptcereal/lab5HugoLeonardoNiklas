@@ -46,7 +46,7 @@ public class Enter extends Event{
 			super.getSim().addToEventStore(tempEnter);
 				
 			// Get the updated information of the state and make the simulator change the view
-			StateInfo info = state.getInfo(this);
+			StateInfo info = state.getInfo();
 			HairsalonView view =((HairsalonView)super.getSim().getView());
 			view.printEnter(this, info);
 			
