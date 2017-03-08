@@ -11,7 +11,10 @@ import lab5.sim.hairsalon.data.Return;
 import lab5.sim.hairsalon.data.StateInfo;
 
 public class HairsalonView extends View {
-	
+	/**
+	 * Prints out the first section of the complete simulation information, containing only constant values
+	 * @param settings
+	 */
 	public void printSettings(HairsalonSettings settings) {
 		System.out.println("Closing time of the day ..............: " + settings.getClosingTime());
 		System.out.println("Total number of chairs ...............: " + settings.getMaxChairs());
@@ -24,11 +27,20 @@ public class HairsalonView extends View {
 		System.out.println("---------------------------------------------------------------------");
 	}
 	
+	/**
+	 * Prints out the start event's corresponding information at that moment 
+	 * @param e, a Start event
+	 */
 	public void printStartHSS(Start e) { 
 		System.out.format("%s %2s %6s %6s %6s %7s %6s %6s %6s %6s %n", "- Time" , "Event", "Id", "Idle", "TIdle", "TWait", "InQ", "Cut", "Lost", "Ret -");
 		System.out.format("%6.2f %2s %n", e.getTime(), e.toString());
 	}
 	
+	/**
+	 * Prints out a stop event's corresponding information at that moment
+	 * @param e, a Stop event
+	 * @param info, the information taken from the simulations state
+	 */
 	public void printStopHSS(Stop e, StateInfo info) {
 		System.out.format("%6.2f %2s %10s %6.2f %7.2f %6s %6s %6s %4s %n", 
 				e.getTime(), e.toString(), info.idleChairs(), info.tIdle(), info.getTimeWaiting(), info.numWaiting(), 
@@ -43,6 +55,11 @@ public class HairsalonView extends View {
 		System.out.format("%s %2.2f", "Time chairs were idle: ........:", info.tIdle());
 	}
 	
+	/**
+	 * Prints out a return event's corresponding information at that moment
+	 * @param e, a Return even
+	 * @param info, the information taken from the simulations state
+	 */
 	public void printReturn(Return e, StateInfo info) {
 		System.out.format("%6.2f %2s %4s %6s %6.2f %7.2f %6s %6s %6s %4s %n", 
 				e.getTime(), e.toString(), e.getCustomer().getID(), info.idleChairs(), info.tIdle(), info.getTimeWaiting(), info.numWaiting(), 
@@ -50,16 +67,30 @@ public class HairsalonView extends View {
 		
 	}
 	
+	/**
+	 * Prints out a message with the closing time and "Closing" in it
+	 * @param e, a Closing event
+	 */
 	public void printClosing(Closing e) {
 		System.out.format("%6.2f %2s %n", e.getTime(), e.toString());
 	}
-	
+
+	/**
+	 * Prints out a an enter event's current information as well as the event's name
+	 * @param e, a Start event
+	 * @param info, the information taken from the simulation state
+	 */
 	public void printEnter(Enter e, StateInfo info) {
 		System.out.format("%6.2f %2s %5s %6s %6.2f %7.2f %6s %6s %6s %4s %n", 
 				e.getTime(), e.toString(), e.getCustomer().getID(), info.idleChairs(), info.tIdle(), info.getTimeWaiting(), info.numWaiting(), 
 				info.numCut(),info.numLost(), info.getDissatisfiedCustomers());
 	}
 	
+	/**
+	 * Prints out a a done event's current information as well as the event's name
+	 * @param e, a Done event
+	 * @param info, the information taken from the simulation state
+	 */
 	public void printDone(Done e, StateInfo info) {
 		System.out.format("%6.2f %2s %6s %6s %6.2f %7.2f %6s %6s %6s %4s %n", 
 				e.getTime(), e.toString(), e.getCustomer().getID(), info.idleChairs(), info.tIdle(), info.getTimeWaiting(), info.numWaiting(), 
