@@ -14,13 +14,15 @@ import lab5.sim.hairsalon.random.*;
 public class HairsalonState extends State {
 	
 	private HairsalonSettings settings;
+	
 	private CustomerList customerList;
 	private CustomerList haircutList;
+	private CustomerList dissatisfiedList;
 	private QueueList queueList;
+	
 	private Time timeWaiting;
 	private Time timeIdle;
 
-	private CustomerList dissatisfiedList;
 	private int numHaircut;
 	private int lastId;
 	
