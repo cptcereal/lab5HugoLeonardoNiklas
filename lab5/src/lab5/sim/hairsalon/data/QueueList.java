@@ -3,6 +3,7 @@ package lab5.sim.hairsalon.data;
 import lab5.sim.general.data.Event;
 /**
  * Create a queue to store elements in an orderly way
+ * 
  * @author hugwan-6, leopel-6, inaule-6
  *
  */
@@ -15,6 +16,11 @@ public class QueueList {
 	private int maxNumWaiting;
 	private int lost;
 	
+	/**
+	 * The constructor creates a queue
+	 * 
+	 * @param maxQueue - the maximum size of the queue
+	 */
 	public QueueList(int maxQueue) {
 		queue = new Event[maxQueue];
 		vipQueue = new Return[maxQueue];
@@ -25,9 +31,10 @@ public class QueueList {
 	}
 	
 	/**
-	 * Adds event to queue, returns true if the event was added and false otherwise
-	 * @param e
-	 * @return
+	 * Adds an enter event to queue
+	 * 
+	 * @param e - the enter event to add to the queue
+	 * @return true if the event was added and false otherwise
 	 */
 	public boolean addToQueue(Enter e) {
 		if (lastInQueue + lastInVIPQueue < queue.length) {
@@ -39,14 +46,17 @@ public class QueueList {
 			}
 			return true;
 		}
+		
+		// If the queue was full, the hair salon lost a customer
 		lost += 1;
 		return false;
 	}
 	
 	/**
-	 * Represents a queue consisting of disappointed customers
-	 * @param e 
-	 * @return
+	 * Adds a dissatisfied customer to the queue
+	 * 
+	 * @param e - the return event to add
+	 * @return true if the event was added and false otherwise
 	 */
 	public boolean addToVIPQueue(Return e) {
 		if (lastInVIPQueue < vipQueue.length) {
@@ -68,8 +78,10 @@ public class QueueList {
 	
 	
 	/**
-	 * Returns the next event according to a specific time order
-	 * @return
+	 * If all the chairs in the hair salon no longer is occupied a customer is taken from the queue to get their hair cut.
+	 * If there's dissatisfied customers in the queue they are prioritised over regular customers.
+	 * 
+	 * @return the next event in the queue
 	 */
 	public Event next() {
 		if (lastInVIPQueue != 0) {
@@ -90,21 +102,37 @@ public class QueueList {
 	}
 	
 	/**
-	 * Checks if both the VIP queue and the normal queue are empty
-	 * @return
+	 * Checks if the queue is empty
+	 * 
+	 * @return whether or not the queue is empty
 	 */
 	public boolean isEmpty() {
 		return (lastInQueue == 0 && lastInVIPQueue == 0);
 	}
 	
+	/**
+	 * Returns the size of the queue in the hair salon
+	 * 
+	 * @return the current queue size
+	 */
 	public int getQueueSize(){
 		return lastInQueue + lastInVIPQueue;
 	}
 	
+	/**
+	 * Returns the maximum size the queue in the hair salon reached during the simulation
+	 * 
+	 * @return maximum size of the queue
+	 */
 	public int getMaxNumWaiting(){
 		return maxNumWaiting; 
 	}
 	
+	/**
+	 * Returns the number of customers who entered the hair salon but didn't get their hair cut
+	 * 
+	 * @return number of lost customers
+	 */
 	public int getLost() {
 		return lost;
 	}
