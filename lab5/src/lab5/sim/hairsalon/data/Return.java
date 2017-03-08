@@ -3,6 +3,7 @@ package lab5.sim.hairsalon.data;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
+import lab5.sim.hairsalon.GUI.HairsalonView;
 
 /**
  * Represents a customer returning for a free haircut after the previous haircut left it dissatisfied
@@ -40,7 +41,8 @@ public class Return extends Event{
 		
 		// Get the new state info
 		StateInfo info = state.getInfo(this);
-		super.getSim().printInfo(info);
+		HairsalonView view =((HairsalonView)super.getSim().getView());
+		view.printReturn(this, info);
 		
 		state.addDissatisfied(customer);
 		

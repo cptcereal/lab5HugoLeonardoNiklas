@@ -3,6 +3,7 @@ package lab5.sim.hairsalon.main;
 
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
+import lab5.sim.hairsalon.GUI.HairsalonView;
 import lab5.sim.hairsalon.data.HairsalonSettings;
 import lab5.sim.hairsalon.data.HairsalonState;
 import lab5.sim.hairsalon.data.StartHSS;
@@ -30,7 +31,7 @@ public class HairsalonMain {
 			hairsalonSettings = new HairsalonSettings(args);
 		}
 		HairsalonState hairsalonState = new HairsalonState(hairsalonSettings);
-		Simulation sim = new Simulation(hairsalonState);
+		Simulation sim = new Simulation(hairsalonState, new HairsalonView());
 		sim.addStartEvent(new StartHSS(sim, new Time(0)));
 	}
 }

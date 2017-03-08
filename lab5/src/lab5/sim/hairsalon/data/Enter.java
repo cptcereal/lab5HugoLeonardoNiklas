@@ -3,6 +3,7 @@ package lab5.sim.hairsalon.data;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
+import lab5.sim.hairsalon.GUI.HairsalonView;
 
 /**
  * The event representing that a customer enters the hair salon
@@ -46,7 +47,8 @@ public class Enter extends Event{
 				
 			// Get the updated information of the state and make the simulator change the view
 			StateInfo info = state.getInfo(this);
-			super.getSim().printInfo(info);	
+			HairsalonView view =((HairsalonView)super.getSim().getView());
+			view.printEnter(this, info);
 			
 			if (state.addHaircut()) {
 				Time timeTemp = new Time(state.setHaircutTime()); 

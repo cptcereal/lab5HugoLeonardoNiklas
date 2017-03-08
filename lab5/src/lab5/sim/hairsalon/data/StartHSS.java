@@ -3,6 +3,7 @@ package lab5.sim.hairsalon.data;
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Start;
 import lab5.sim.general.data.Time;
+import lab5.sim.hairsalon.GUI.HairsalonView;
 
 /**
  * The event representing the start of the hair salon simulation
@@ -29,9 +30,10 @@ public class StartHSS extends Start{
 	 */
 	public void effect() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
+		HairsalonView view =((HairsalonView)super.getSim().getView());
+		view.printSettings(state.getInfo(this).getSettings());
+		view.printStartHSS(this);
 		
-		getSim().printInfo(state.getInfo(this).settings);
-		getSim().printInfo(state.getInfo(this));
 		Time tempTime = new Time (state.makeNewEnterEventTime());
 		Customer c = new Customer( state.setCustoemrID());
 		Enter e = new Enter(getSim(), tempTime, c);
@@ -40,7 +42,7 @@ public class StartHSS extends Start{
 		StopHSS s = new StopHSS(getSim(), new Time(999));
 		getSim().addToEventStore(s);
 		
-		Closing closing = new Closing(getSim(), new Time(state.getInfo(e).settings.getClosingTime()));
+		Closing closing = new Closing(getSim(), new Time(state.getInfo(e).getSettings().getClosingTime()));
 		getSim().addToEventStore(closing);
 	}
 	
