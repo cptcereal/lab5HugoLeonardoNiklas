@@ -1,5 +1,7 @@
 package lab5.sim.hairsalon.data;
 
+import com.sun.scenario.Settings;
+
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Time;
@@ -12,16 +14,16 @@ import lab5.sim.general.data.Time;
  */
 public class StateInfo implements PrintAble {
 	
-	public final HairsalonSettings settings;
-	public final CustomerList customerList;
-	public final CustomerList haircutList;
-	public final CustomerList dissatisfiedlist;
-	public final QueueList queueList;
-	public final Time timeWaiting;
-	public final Time elapsedTime;
-	public final Time timeIdle;
-	public final Event event;
-	public final int numHaircut;
+	private final HairsalonSettings settings;
+	private final CustomerList customerList;
+	private final CustomerList haircutList;
+	private final CustomerList dissatisfiedlist;
+	private final QueueList queueList;
+	private final Time timeWaiting;
+	private final Time elapsedTime;
+	private final Time timeIdle;
+	//private final Event event;
+	private final int numHaircut;
 	
 	/**
 	 * The constructor takes in all the information about that simulation that we are interested in displaying
@@ -46,7 +48,6 @@ public class StateInfo implements PrintAble {
 		this.queueList = queueList;
 		this.timeWaiting = timeWaiting;
 		this.elapsedTime = elapsedTime;
-		this.event = event;
 		this.numHaircut = numHaircut;
 		this.dissatisfiedlist = dissatisfiedlist;
 		this.timeIdle = timeIdle;
@@ -83,15 +84,6 @@ public class StateInfo implements PrintAble {
 	public  int numCut(){
 		return haircutList.numCustomers();
 	}
-	
-	/**
-	 * 
-	 * @return the name of the event
-	 */
-	public  String eventName(){
-		return event.toString();
-	}
-	
 	/**
 	 * 
 	 * @return idle time of the chairs in the hair salon
@@ -117,21 +109,33 @@ public class StateInfo implements PrintAble {
 	public  double averageQueueTime() {
 		return (timeWaiting.getElapsedTime() / numCut());
 	}
-	
-	/**
-	 * Returns the ID of the customer the event belongs to
-	 * 
-	 * @return the ID of the customer
-	 */
-	public int customerID(){
-		if(event.getClass().equals(Enter.class)) {
-			return ((Enter) event).getCustomer().getID();
-		} else if (event.getClass().equals(Done.class)) {
-			return ((Done) event).getCustomer().getID();
-		} else {
-			return ((Return) event).getCustomer().getID();
-		}
+
+	public HairsalonSettings getSettings(){
+		return settings;
 	}
+	
+	public int getcustomerList(){
+		return customerList.numCustomers();
+	}
+	
+	public CustomerList getHaircutList(){
+		return haircutList;
+	}
+	
+	public CustomerList getDissatisfiedList(){
+		return dissatisfiedlist;
+	}
+	
+	public QueueList getQueueList(){
+		return queueList;
+	}
+	
+	public double getTimeWaiting(){
+		return timeWaiting.getElapsedTime();
+	}
+	
+	
+
 	
 	/**
 	 * Updates the information about the state depending on what event that happens
