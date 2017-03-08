@@ -32,10 +32,9 @@ public class Return extends Event{
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		
-		if (super.getTime() > state.getElapsedTimeDouble()) {
-			state.addtimewaiting(this);
-			state.calculateIdleTime(getTime());
-		}
+		state.addtimewaiting(this);
+		state.calculateIdleTime(getTime());
+		
 		
 		state.addTime(super.getTime());
 		

@@ -31,11 +31,9 @@ public class Enter extends Event{
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
-		
-		if (super.getTime() > state.getElapsedTimeDouble()) {
+	
 			state.addtimewaiting(this);
 			state.calculateIdleTime(getTime());
-		}
 		
 		//The desired effect that enter has on the queue, state, and time
 		if (state.isOpen()) {

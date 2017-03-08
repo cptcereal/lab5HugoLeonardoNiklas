@@ -91,6 +91,7 @@ public class HairsalonState extends State {
 	}
 	
 	public Customer getNextInQueue(){
+		numHaircut += 1;
 		return queueList.next();
 	}
 	
