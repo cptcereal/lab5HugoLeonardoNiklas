@@ -31,7 +31,7 @@ public class StartHSS extends Start{
 	public void effect() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		HairsalonView view =((HairsalonView)super.getSim().getView());
-		view.printSettings(state.getInfo(this).getSettings());
+		view.printSettings(state.getInfo().getSettings());
 		view.printStartHSS(this);
 		
 		Time tempTime = new Time (state.makeNewEnterEventTime());
@@ -42,7 +42,7 @@ public class StartHSS extends Start{
 		StopHSS s = new StopHSS(getSim(), new Time(999));
 		getSim().addToEventStore(s);
 		
-		Closing closing = new Closing(getSim(), new Time(state.getInfo(e).getSettings().getClosingTime()));
+		Closing closing = new Closing(getSim(), new Time(state.getInfo().getSettings().getClosingTime()));
 		getSim().addToEventStore(closing);
 	}
 	

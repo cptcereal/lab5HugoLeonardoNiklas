@@ -74,8 +74,8 @@ public class HairsalonState extends State {
 	 * @param e - the event that changes the state
 	 * @return information about the state
 	 */
-	public StateInfo getInfo(Event e) {
-		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, timeWaiting, super.getElapsedTime(), e, 
+	public StateInfo getInfo() {
+		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, timeWaiting, super.getElapsedTime(), 
 				numHaircut, dissatisfiedList);
 		return info;
 	}

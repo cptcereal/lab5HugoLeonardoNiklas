@@ -32,7 +32,7 @@ public class StopHSS extends Stop {
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		state.addtimewaiting(this);
 		HairsalonView view =((HairsalonView)super.getSim().getView());
-		view.printStopHSS(this, state.getInfo(this));
+		view.printStopHSS(this, state.getInfo());
 		super.effect();
 	}
 }

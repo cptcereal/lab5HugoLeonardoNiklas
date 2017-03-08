@@ -1,6 +1,5 @@
 package lab5.sim.hairsalon.data;
 
-import lab5.sim.general.GUI.View;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
@@ -33,7 +32,6 @@ public class Closing extends Event{
 		state.calculateIdleTime(getTime());
 		state.addTime(super.getTime());
 		
-		StateInfo info = state.getInfo(this);
 		HairsalonView view =((HairsalonView)super.getSim().getView());
 		view.printClosing(this);
 	}

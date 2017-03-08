@@ -38,7 +38,7 @@ public class Done extends Event{
 		state.addTime(super.getTime());
 		
 		// Get the new state info
-		StateInfo info = state.getInfo(this);
+		StateInfo info = state.getInfo();
 		HairsalonView view =((HairsalonView)super.getSim().getView());
 		view.printDone(this, info);
 		
