@@ -6,6 +6,7 @@ import lab5.sim.general.data.Time;
 import lab5.sim.hairsalon.random.*;
 
 /**
+ * The state of the hair salon
  * 
  * @author hugwan-6, leopel-6, inaule-6 
  *
@@ -30,7 +31,9 @@ public class HairsalonState extends State {
 
 	
 	/**
-	 * Makes HarisaloneState.
+	 * Creates a hair salon state with the desired settings specified
+	 * 
+	 * @param settings - the settings to use
 	 */
 	public HairsalonState(HairsalonSettings settings) {
 		super();
@@ -55,18 +58,30 @@ public class HairsalonState extends State {
 	
 	}
 	
-	
+	/**
+	 * @return true if the hair salon is open
+	 * 
+	 */
 	public boolean isOpen() {
 		return settings.getClosingTime() > super.getElapsedTimeDouble(); 
 	}
 	
-	
+	/**
+	 * Creates a object containing all the information of the state when something changes
+	 * 
+	 * @param e - the event that changes the state
+	 * @return information about the state
+	 */
 	public StateInfo getInfo(Event e) {
 		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, timeWaiting, super.getElapsedTime(), e, 
 				numHaircut, numDissatisfied);
 		return info;
 	}
 	
+	/**
+	 * 
+	 * @param c
+	 */
 	public void haircutFinished(Customer c) {
 		haircutList.addCustomer(c);
 		numHaircut -= 1;
