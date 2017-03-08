@@ -5,18 +5,20 @@ import lab5.sim.general.data.Simulation;
 import lab5.sim.general.data.Time;
 
 /**
- * Represents a customer returning for a free haircut after the previous cut left it dissatisfied
+ * Represents a customer returning for a free haircut after the previous haircut left it dissatisfied
+ * 
  * @author hugwan-6, leopel-6, inaule-6 
  * 
  */
 public class Return extends Event{
 	private final Customer customer;
+	
 	/**
-	 * This is called when certain conditions are met, and it represents a customer
-	 * returning for a haircut after an random time
-	 * @param time
-	 * @param sim
-	 * @param customer
+	 * The constructor
+	 * 
+	 * @param time - the time when the event occurs
+	 * @param sim - the simulation the event effects
+	 * @param customer - the customer the event belongs to
 	 */
 	public Return(Simulation sim, Time time, Customer customer){
 		super(sim, time);
@@ -24,9 +26,8 @@ public class Return extends Event{
 	}
 	
 	/**
-	 * Is the effect that a dissatisfied customer has on the whole simulation state, meaning a the
-	 * customer creates changes in the queue, which by itself creates changes to the time elapsed
-	 * @param state
+	 * The effect the return event has on the state of the hair salon
+	 * 
 	 */
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
@@ -42,7 +43,7 @@ public class Return extends Event{
 		StateInfo info = state.getInfo(this);
 		super.getSim().printInfo(info);
 		
-		state.addDissatisfied();
+		state.addDissatisfied(customer);
 		
 		if (state.addHaircut()) {
 			Time tempTime = new Time(state.setHaircutTime()); 
@@ -59,6 +60,12 @@ public class Return extends Event{
 		}
 	}
 	
+	/**
+	 * Returns the customer whom the event belongs to
+	 * 
+	 * 
+	 * @return the customer
+	 */
 	public Customer getCustomer(){
 		return customer;
 	}
