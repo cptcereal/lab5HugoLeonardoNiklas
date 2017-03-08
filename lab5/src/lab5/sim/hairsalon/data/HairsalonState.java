@@ -79,8 +79,9 @@ public class HairsalonState extends State {
 	}
 	
 	/**
+	 * Change the state when an haircut is completed
 	 * 
-	 * @param c
+	 * @param c - the customer that's finished
 	 */
 	public void haircutFinished(Customer c) {
 		haircutList.addCustomer(c);
@@ -91,10 +92,20 @@ public class HairsalonState extends State {
 		}
 	}
 	
+	/**
+	 * Adds time the time customers waited in queue to the total time all customers have been waiting in the queue
+	 * 
+	 * @param e - the event to add time from
+	 */
 	public void addtimewaiting(Event e) {
 		timeWaiting.addTime(queueList.getQueueSize() *(e.getTime() - super.getElapsedTimeDouble()));
 	}
 	
+	/**
+	 * Starts cutting the hair of a customer if a chair in the hair salon is available
+	 * 
+	 * @return true if the customer can start getting their haircut
+	 */
 	public boolean addHaircut() {
 		if (settings.getMaxChairs() - numHaircut > 0) {
 			numHaircut += 1;
@@ -103,27 +114,51 @@ public class HairsalonState extends State {
 		return false;
 	}
 	
+	/**
+	 * Moves a customer to the queue if no chairs are available when they enter the hair salon
+	 * 
+	 * @param e - the event to move to the queue
+	 * @return if the customer could be added to the queue
+	 */
 	public boolean addToQueue(Enter e) {
 		return queueList.addToQueue(e);
 	}
 	
+	/**
+	 * Moves a dissatisfied customer that enters the hair salon to the queue
+	 * 
+	 * @param e - the return event to move to the queue
+	 * @return if the customer could be added to the queue
+	 */
 	public boolean addToVipQueue(Return e) {
 		return queueList.addToVIPQueue(e);
 	}
 	
+	/**
+	 * Adds a new customer to the hair salons customer list
+	 * 
+	 * @param c - the customer
+	 * @return if the customer was a new customer or not
+	 */
 	public boolean addCustomer(Customer c) {
 		return customerList.addCustomer(c);
 	}
 	
 	/**
-	 * Sets the time of when a Dissatisfied customer returns.
+	 * Sets the time of when a dissatisfied customer returns to the hair salon to get their haircut fixed
 	 * 
-	 * @return the time when the event should occur.
+	 * @return the time when the event should occur
 	 */
 	public double setDissatisfiedStartTime() {
 		return randomDissatisfiedTime.next() + super.getElapsedTimeDouble();
 	}
 	
+	/**
+	 * Randomly decides if the customer was dissatisfied with their haircut or not
+	 * 
+	 * @param c - the customer that might get dissatisfied
+	 * @return whether or not the customer became dissatisfied
+	 */
 	public boolean dissatisfied(Customer c) {
 		double temp = randomNewDissatisfied.next();
 		if (temp <= settings.getP()) {
@@ -132,15 +167,20 @@ public class HairsalonState extends State {
 		return false;
 	}
 	
+	/**
+	 * Calculates the time chairs in the hair salon was idle
+	 * 
+	 * @param time - the new time of the simulation
+	 */
 	public void calculateIdleTime(double time) {
 		double idleTime = (settings.getMaxChairs() - numHaircut)*(time - super.getElapsedTimeDouble());
 		timeIdle.addTime(idleTime);
 	}
 	
 	/**
-	 *  Returns the time when the next customers comes. 
+	 * Decides a new time for a customer to arrive at the hair salon
 	 *  
-	 * @return
+	 * @return the time of the customers arrival
 	 */
 	public double makeNewEnterEventTime() {
 		double a = randomNewEnter.next() + super.getElapsedTimeDouble();
@@ -148,19 +188,29 @@ public class HairsalonState extends State {
 	}
 	
 	/**
+	 * Decide the time it takes to cut a customers hair
 	 * 
-	 * @return
+	 * @return the haircut time
 	 */
 	public double setHaircutTime() {
 		return randomHaircutTime.next() + super.getElapsedTimeDouble();
 	}
 	
+	/**
+	 * Picks an ID for a new customer
+	 * 
+	 * @return the customers ID
+	 */
 	public int setCustoemrID() {
 		int temp = lastId;
 		lastId += 1;
 		return temp;
 	}
 	
+	/**
+	 * Increase the amount of dissatisfied customer the hair salon has had during the simulation
+	 * 
+	 */
 	public void addDissatisfied(){
 		numDissatisfied += 1;
 	}
