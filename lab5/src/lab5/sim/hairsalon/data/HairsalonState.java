@@ -159,7 +159,7 @@ public class HairsalonState extends State {
 	 * @param c - the customer that might get dissatisfied
 	 * @return whether or not the customer became dissatisfied
 	 */
-	public boolean dissatisfied(Customer c) {
+	public boolean dissatisfied() {
 		double temp = randomNewDissatisfied.next();
 		if (temp < settings.getP()) {
 			return true;
