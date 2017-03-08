@@ -20,7 +20,7 @@ public class HairsalonState extends State {
 	private Time timeWaiting;
 	private Time timeIdle;
 
-	private int numDissatisfied;
+	private CustomerList dissatisfiedList;
 	private int numHaircut;
 	private int lastId;
 	
@@ -45,7 +45,7 @@ public class HairsalonState extends State {
 		
 		numHaircut = 0;
 		lastId = 0;
-		numDissatisfied = 0;
+		dissatisfiedList = new CustomerList();
 		
 		timeWaiting = new Time();
 		timeIdle = new Time();
