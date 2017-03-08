@@ -1,8 +1,6 @@
 package lab5.sim.hairsalon.main;
 
 
-import java.io.IOException;
-
 import lab5.sim.general.data.Simulation;
 import lab5.sim.hairsalon.data.HairsalonSettings;
 import lab5.sim.hairsalon.data.HairsalonState;
