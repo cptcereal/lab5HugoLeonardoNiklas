@@ -105,7 +105,7 @@ public class StateInfo implements PrintAble {
 	 * 
 	 * @return average cutting time
 	 */
-	public  double averageCuttingTime() {
+	public  double averageCuttingTime() { 
 		return ((elapsedTime.getElapsedTime() * settings.getMaxChairs()) - tIdle()) / numCut();
 	}
 	
