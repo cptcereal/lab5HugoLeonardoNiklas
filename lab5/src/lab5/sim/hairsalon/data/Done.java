@@ -15,7 +15,7 @@ public class Done extends Event{
 	/**
 	 * Creates the event and assigns it a simulation, time and customer
 	 * 
-	 * @param sim - the simulation the event effects
+	 * @param sim - the simulation the event belongs to
 	 * @param time - the time that the event occurs
 	 * @param customer - the customer the event belongs to
 	 */
@@ -43,7 +43,7 @@ public class Done extends Event{
 		state.haircutFinished(customer);
 		
 		// If the customer was dissatisfied, create a new dissatisfied event
-		if (state.dissatisfied(customer)) {
+		if (state.dissatisfied()) {
 			Time tempTime = new Time(state.setDissatisfiedStartTime()); 
 			Return event = new Return(getSim(), tempTime, customer);
 			getSim().addToEventStore(event);
