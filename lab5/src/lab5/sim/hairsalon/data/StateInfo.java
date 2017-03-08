@@ -107,31 +107,27 @@ public class StateInfo implements PrintAble {
 	 * @return average queue time
 	 */
 	public  double averageQueueTime() {
-		return (timeWaiting.getElapsedTime() / numCut());
+		return (timeWaiting.getElapsedTime() / numCut()); 
 	}
 
 	public HairsalonSettings getSettings(){
 		return settings;
 	}
 	
-	public int getcustomerList(){
+	public int getnumCustomer(){
 		return customerList.numCustomers();
 	}
 	
-	public CustomerList getHaircutList(){
-		return haircutList;
-	}
-	
-	public CustomerList getDissatisfiedList(){
-		return dissatisfiedlist;
-	}
-	
-	public QueueList getQueueList(){
-		return queueList; 
+	public int getDissatisfiedCustomers(){
+		return dissatisfiedlist.numCustomers();
 	}
 	
 	public double getTimeWaiting(){
 		return timeWaiting.getElapsedTime();
+	}
+	
+	public int getMaxNumWaiting(){
+		return queueList.getMaxNumWaiting();
 	}
 	
 	
