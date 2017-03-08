@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.GUI.View;
-import lab5.sim.hairsalon.data.Start;
 
 /**
  * Runs the simulation
