@@ -135,7 +135,6 @@ public class StateInfo implements PrintAble {
 	
 	/**
 	 * Updates the information about the state depending on what event that happens
-	 * 
 	 */
 	public void printAll() {
 		
