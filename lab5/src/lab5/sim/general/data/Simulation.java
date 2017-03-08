@@ -1,7 +1,7 @@
 package lab5.sim.general.data;
 
 
-import lab5.sim.general.GUI.PrintAble;
+
 import lab5.sim.general.GUI.View;
 
 /**
@@ -21,8 +21,8 @@ public class Simulation {
 	 * @param state - the state of the simulation
 	 * @throws Exception 
 	 */
-	public Simulation(State state) {
-		this.view = new View();
+	public Simulation(State state, View view) {
+		this.view = view;
 		this.state = state;
 		eventStore = new EventStore();
 	}
@@ -73,7 +73,7 @@ public class Simulation {
 	 * 
 	 * @param infoToPrint - the information to display
 	 */
-	public void printInfo(PrintAble infoToPrint) {
-		view.showDataOnView(infoToPrint);
+	public View getView() {
+		return view;
 	}
 }
