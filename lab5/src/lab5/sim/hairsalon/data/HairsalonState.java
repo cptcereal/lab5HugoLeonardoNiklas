@@ -20,7 +20,7 @@ public class HairsalonState extends State {
 	private Time timeWaiting;
 	private Time timeIdle;
 
-	private int numDissatisfied;
+	private CustomerList dissatisfiedList;
 	private int numHaircut;
 	private int lastId;
 	
@@ -45,7 +45,7 @@ public class HairsalonState extends State {
 		
 		numHaircut = 0;
 		lastId = 0;
-		numDissatisfied = 0;
+		dissatisfiedList = new CustomerList();
 		
 		timeWaiting = new Time();
 		timeIdle = new Time();
@@ -74,7 +74,7 @@ public class HairsalonState extends State {
 	 */
 	public StateInfo getInfo(Event e) {
 		StateInfo info = new StateInfo(settings, customerList, haircutList, queueList, timeIdle, timeWaiting, super.getElapsedTime(), e, 
-				numHaircut, numDissatisfied);
+				numHaircut, dissatisfiedList);
 		return info;
 	}
 	
@@ -212,8 +212,8 @@ public class HairsalonState extends State {
 	 * 
 	 * 
 	 */
-	public void addDissatisfied(){
-		numDissatisfied += 1;
+	public void addDissatisfied(Customer c){
+		dissatisfiedList.addCustomer(c);
 	}
 
 }
