@@ -13,7 +13,7 @@ public class View {
 	 * 
 	 * @param infoToPrint - the information that's printed
 	 */
-	public void showDataOnView(PrintAble infoToPrint) {
-		infoToPrint.printAll();
+	public void showDataOnView() {
+		
 	}
 }
