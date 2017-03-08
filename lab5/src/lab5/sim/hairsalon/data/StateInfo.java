@@ -114,7 +114,7 @@ public class StateInfo implements PrintAble {
 		return settings;
 	}
 	
-	public int getcustomerList(){
+	public int getnumCustomer(){
 		return customerList.numCustomers();
 	}
 	
