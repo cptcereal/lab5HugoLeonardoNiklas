@@ -1,5 +1,7 @@
 package lab5.sim.general.data;
 
+import java.io.IOException;
+
 import lab5.sim.general.GUI.PrintAble;
 import lab5.sim.general.GUI.View;
 import lab5.sim.hairsalon.data.Start;
@@ -19,8 +21,9 @@ public class Simulation {
 	 * Starts up the simulation
 	 * 
 	 * @param state - the state of the simulation
+	 * @throws IOException 
 	 */
-	public Simulation(State state) {
+	public Simulation(State state) throws IOException {
 		this.view = new View();
 		this.state = state;
 		eventStore = new EventStore();
@@ -30,15 +33,19 @@ public class Simulation {
 	
 	/**
 	 * Keeps the simulation running until it's done or stopped
+	 * @throws IOException 
 	 * 
 	 */
-	public void run() {
+	public void run() throws IOException {
 		while(!eventStore.isEmpty()) {
 			Event e = eventStore.nextEvent();
 			state.startEvent(e);
 			if (state.getStop()) {
 				break;
 			}
+		}
+		if (state.getStop() && !eventStore.isEmpty()) {
+			throw new IOException("EventStore is not empty");
 		}
 	}
 	
