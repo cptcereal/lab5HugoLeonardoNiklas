@@ -28,6 +28,10 @@ public abstract class Event {
 	 */
 	public abstract void effect(); 
 	
+	/**
+	 * Adds the time of the event to to elapsed time of the simulation
+	 * 
+	 */
 	public abstract void addTime();
 	
 	/**
