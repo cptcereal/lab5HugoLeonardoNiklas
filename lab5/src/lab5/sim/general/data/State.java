@@ -20,16 +20,6 @@ public abstract class State {
 	}
 	
 	/**
-	 * Makes a event occur
-	 * 
-	 * @param e - the event that should occur
-	 */
-	public void startEvent(Event e) {
-		e.effect();
-	}
-	
-	
-	/**
 	 * Stop the simulation
 	 * 
 	 */
