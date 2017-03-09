@@ -48,7 +48,7 @@ public class Enter extends Event{
 				Done event = new Done(getSim(), timeTemp, tempcos);
 				getSim().addToEventStore(event);
 			} else {
-				state.addToQueue(customer);
+				state.addToQueue(customer, getTime());
 			}
 		}
 	}

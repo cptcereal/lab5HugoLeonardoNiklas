@@ -9,11 +9,14 @@ package lab5.sim.hairsalon.data;
 public class QueueList {
 	private Customer[] queue;
 	private Customer[] vipQueue;
+	private Double[] timeOfEnter;
 	
 	private int lastInQueue;
 	private int lastInVIPQueue;
 	private int maxNumWaiting;
 	private int lost;
+	
+	private double timetoLose;
 	
 	/**
 	 * The constructor creates a queue
@@ -23,10 +26,12 @@ public class QueueList {
 	public QueueList(int maxQueue) {
 		queue = new Customer[maxQueue];
 		vipQueue = new Customer[maxQueue];
+		timeOfEnter = new Double[maxQueue];
 		lastInQueue = 0;
 		lastInVIPQueue = 0;
 		maxNumWaiting = 0;
 		lost = 0;
+		timetoLose = 0;
 	}
 	
 	/**
@@ -35,10 +40,15 @@ public class QueueList {
 	 * @param e - the enter event to add to the queue
 	 * @return true if the event was added and false otherwise
 	 */
-	public boolean addToQueue(Customer c) {
+	public boolean addToQueue(Customer c, double timeofEnter) {
 		if (lastInQueue + lastInVIPQueue < queue.length) {
 			queue[lastInQueue] = c;
-			lastInQueue += 1;
+			// Store the entry time of a regular customer who enters the store this is important 
+			// if we need to later kick this customer because a dissatisfied customer returns
+			timeOfEnter[lastInQueue] = timeofEnter;
+			
+			lastInQueue += 1;						
+			
 			
 			if (lastInQueue + lastInVIPQueue > maxNumWaiting) {
 				maxNumWaiting = lastInQueue + lastInVIPQueue;
@@ -64,7 +74,8 @@ public class QueueList {
 			
 			if (lastInQueue + lastInVIPQueue > queue.length) {
 				lastInQueue -= 1;
-				lost += 1;
+				timetoLose = timeOfEnter[lastInQueue]; 	// A regular customer was kicked from the queue, so we have a time we need to remove from the total waiting time of all the customers.
+				lost += 1;	
 			}
 			
 			if (lastInQueue + lastInVIPQueue > maxNumWaiting) {
@@ -96,6 +107,7 @@ public class QueueList {
 		lastInQueue -= 1;
 		for (int i = 0; i < lastInQueue; i++) {
 			queue[i] = queue[i + 1];
+			timeOfEnter[i] = timeOfEnter[i + 1];
 		}
 		return temp;
 	}
@@ -135,5 +147,24 @@ public class QueueList {
 	public int getLost() {
 		return lost;
 		
+	}
+	
+	/**
+	 * Returns the time a customer who got kicked from the queue entered the queue
+	 * 
+	 * @return time entered
+	 */
+	public double timeToLose() {
+		double temp = timetoLose;
+	
+		return temp;
+	}
+	
+	/**
+	 * Resets the time stored in time to lose
+	 * 
+	 */
+	public void resetTimeToLose() {
+		timetoLose = 0;
 	}
 }

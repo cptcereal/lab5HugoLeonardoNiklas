@@ -32,11 +32,6 @@ public class Return extends Event{
 	public void effect(){
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		
-//		state.addtimewaiting(this);
-//		state.calculateIdleTime(getTime());
-//		
-//		state.addTime(super.getTime());
-		
 		state.addDissatisfied(customer);
 		
 		if (state.addHaircut()) {
@@ -72,6 +67,7 @@ public class Return extends Event{
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		
 		state.addtimewaiting(getTime());
+		
 		state.calculateIdleTime(getTime());
 		
 		state.addTime(super.getTime());

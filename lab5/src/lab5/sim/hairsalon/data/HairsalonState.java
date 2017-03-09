@@ -1,6 +1,5 @@
 package lab5.sim.hairsalon.data;
 
-import lab5.sim.general.data.Event;
 import lab5.sim.general.data.State;
 import lab5.sim.general.data.Time;
 import lab5.sim.hairsalon.random.*;
@@ -107,7 +106,13 @@ public class HairsalonState extends State {
 	 * @param time - the event to add time from
 	 */
 	public void addtimewaiting(double time) {
-		timeWaiting.addTime(queueList.getQueueSize() *(time - super.getElapsedTimeDouble()));
+		if (queueList.timeToLose() == 0 ) {
+			timeWaiting.addTime(queueList.getQueueSize() *(time - super.getElapsedTimeDouble()));
+		}
+		else {
+			timeWaiting.addTime(queueList.getQueueSize() *(time - super.getElapsedTimeDouble()) + (queueList.timeToLose() - super.getElapsedTimeDouble()));
+			queueList.resetTimeToLose();
+		}
 	}
 	
 	/**
@@ -129,8 +134,8 @@ public class HairsalonState extends State {
 	 * @param e - the event to move to the queue
 	 * @return if the customer could be added to the queue
 	 */
-	public boolean addToQueue(Customer c) {
-		return queueList.addToQueue(c);
+	public boolean addToQueue(Customer c, double time) {
+		return queueList.addToQueue(c, time);
 	}
 	
 	/**
