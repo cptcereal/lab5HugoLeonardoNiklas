@@ -62,6 +62,10 @@ public class Enter extends Event{
 		return customer;
 	}
 	
+	/**
+	 * Adds the time of the event to to elapsed time of the simulation
+	 * 
+	 */
 	public void addTime() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		

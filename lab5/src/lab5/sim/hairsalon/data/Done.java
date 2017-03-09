@@ -55,9 +55,11 @@ public class Done extends Event{
 	}
 
 
-	@Override
+	/**
+	 * Adds the time of the event to to elapsed time of the simulation
+	 * 
+	 */
 	public void addTime() {
-		// TODO Auto-generated method stub
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		state.addtimewaiting(this);
 		state.calculateIdleTime(getTime());

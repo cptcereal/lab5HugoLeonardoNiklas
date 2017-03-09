@@ -82,7 +82,7 @@ public class HairsalonState extends State {
 	
 	/**
 	 * Add customer c to haircutList and removes one from numhaircut
-	 * @return Returns ture if there is someone in queue:
+	 * @return Returns true if there is someone in queue:
 	 * @param c - the customer that's finished
 	 */
 	public Boolean haircutFinished(Customer c) {
