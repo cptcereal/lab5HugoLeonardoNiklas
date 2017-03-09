@@ -25,16 +25,28 @@ public class HairsalonSettings {
 	 * 
 	 */
 	public HairsalonSettings() {
+//		H_MIN = 0.8;
+//		H_MAX = 1.2;
+//		D_MIN = 1.0;
+//		D_MAX = 2.0;
+//		P = 0.0;
+//		CLOSING_TIME = 8.0;
+//		CUSTOMERS_PER_TIMEUNIT = 2.0;
+//		MAX_QUEUE = 5;
+//		MAX_CHAIRS = 2;
+//		SEED = 1234;
+		
+		// Ex 2
 		H_MIN = 0.8;
 		H_MAX = 1.2;
-		D_MIN = 1.0;
-		D_MAX = 2.0;
-		P = 0.0;
+		D_MIN = 2.0;
+		D_MAX = 3.0;
+		P = 0.25;
 		CLOSING_TIME = 8.0;
-		CUSTOMERS_PER_TIMEUNIT = 2.0;
-		MAX_QUEUE = 5;
-		MAX_CHAIRS = 2;
-		SEED = 1234;
+		CUSTOMERS_PER_TIMEUNIT = 3.0;
+		MAX_QUEUE = 4;
+		MAX_CHAIRS = 3;
+		SEED = 1116;
 	}
 	
 	/**
