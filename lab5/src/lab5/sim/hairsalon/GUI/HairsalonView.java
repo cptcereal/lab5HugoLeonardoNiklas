@@ -1,7 +1,6 @@
 package lab5.sim.hairsalon.GUI;
 
 import java.util.Observable;
-
 import lab5.sim.general.GUI.View;
 import lab5.sim.general.data.Event;
 import lab5.sim.general.data.Simulation;
@@ -96,6 +95,7 @@ public class HairsalonView extends View {
 				info.numCut(), info.numLost(), info.getDissatisfiedCustomers());
 	}
 	
+	
 	private void printResults(StateInfo info) {
 		System.out.println("---------------------------------------------------------------------");
 		System.out.format("%s %2s %n", "Number of customers cut: ......:", info.numCut());
@@ -107,11 +107,16 @@ public class HairsalonView extends View {
 		System.out.format("%s %2.2f", "Time chairs were idle: ........:", info.tIdle());
 	}
 
+	/**
+	 * Prints information depending on what happened in the simulation
+	 * 
+	 */
 	public void update(Observable o, Object arg) {
 		Simulation sim = ((Simulation)o);
 		HairsalonState state = ((HairsalonState)sim.getState());
 		StateInfo info = state.getInfo();
 		Event temp = ((Event)arg);
+		
 		if (temp.toString().equals("Enter")) {
 			printEnter(((Enter)temp), info);
 		}

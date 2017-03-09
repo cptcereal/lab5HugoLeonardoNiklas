@@ -1,5 +1,6 @@
 package lab5.sim.general.GUI;
 
+import java.util.Observable;
 import java.util.Observer;
 
 /**
@@ -9,5 +10,13 @@ import java.util.Observer;
  *
  */
 public abstract class View implements Observer {
+	
+	/**
+	 * Print out the correct information depending on what happened in the simulation
+	 * 
+	 */
+	public void update(Observable o, Object arg) {
+		
+	}
 	
 }
