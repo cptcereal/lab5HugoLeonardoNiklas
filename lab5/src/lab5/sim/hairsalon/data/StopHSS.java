@@ -28,8 +28,8 @@ public class StopHSS extends Stop {
 	 * 
 	 */
 	public void effect() {
-		HairsalonState state = ((HairsalonState)getSim().getState());
-		state.addtimewaiting(this);
+//		HairsalonState state = ((HairsalonState)getSim().getState());
+//		state.addtimewaiting(this);
 	
 		super.effect();
 	}
