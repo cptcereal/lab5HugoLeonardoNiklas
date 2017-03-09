@@ -58,10 +58,11 @@ public class Done extends Event{
 	/**
 	 * Adds the time of the event to to elapsed time of the simulation
 	 * 
-	 */
+//	 */
 	public void addTime() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
-		state.addtimewaiting(this);
+		
+		state.addtimewaiting(getTime());
 		state.calculateIdleTime(getTime());
 		
 		state.addTime(super.getTime());

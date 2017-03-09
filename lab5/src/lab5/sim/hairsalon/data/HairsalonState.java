@@ -104,10 +104,10 @@ public class HairsalonState extends State {
 	/**
 	 * Adds time the time customers waited in queue to the total time all customers have been waiting in the queue
 	 * 
-	 * @param e - the event to add time from
+	 * @param time - the event to add time from
 	 */
-	public void addtimewaiting(Event e) {
-		timeWaiting.addTime(queueList.getQueueSize() *(e.getTime() - super.getElapsedTimeDouble()));
+	public void addtimewaiting(double time) {
+		timeWaiting.addTime(queueList.getQueueSize() *(time - super.getElapsedTimeDouble()));
 	}
 	
 	/**

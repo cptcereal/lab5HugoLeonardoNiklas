@@ -69,7 +69,7 @@ public class Enter extends Event{
 	public void addTime() {
 		HairsalonState state = ((HairsalonState)getSim().getState());
 		
-		state.addtimewaiting(this);
+		state.addtimewaiting(getTime());
 		state.calculateIdleTime(getTime());
 			
 		state.addTime(super.getTime());

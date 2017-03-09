@@ -36,8 +36,6 @@ public class Closing extends Event{
 	public void addTime() {
 		// TODO Auto-generated method stub
 		HairsalonState state = ((HairsalonState)getSim().getState());
-//		state.addtimewaiting(this);
-//		state.calculateIdleTime(getTime());
 		state.addTime(super.getTime());
 	}
 
